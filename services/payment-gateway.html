@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Gateway & Merchant Processing API - PayFlowPro</title>
+  <meta name="description" content="Enterprise payment gateway and merchant processing APIs, tokenized customer vaults, multi-acquirer smart routing, and instant webhooks with 99.999% SLA.">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="alternate icon" href="../assets/images/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+  <!-- Global Header -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand navbar-brand-logo" href="../index.html">
+          <div class="brand-icon"><i class="bi bi-shield-check"></i></div>
+          <span>PayFlow<span class="text-primary">Pro</span></span>
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list fs-2"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ms-xl-4 ms-lg-3 me-auto mb-2 mb-lg-0">
+            <!-- Home Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Home
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../index.html"><i class="bi bi-shop"></i> General Services</a></li>
+                <li><a class="dropdown-item" href="../home-2.html"><i class="bi bi-laptop"></i> SaaS / Digital Business</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item"><a class="nav-link active" href="../services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="../solutions.html">Solutions</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pricing.html">Pricing</a></li>
+            <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="../blog.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="../user-dashboard.html"><i
+                  class="bi bi-grid-fill me-1 text-primary"></i> Dashboard</a></li>
+          </ul>
+
+          <div class="header-actions-group d-flex align-items-center flex-nowrap gap-2 pt-2 pt-lg-0">
+            <!-- Controls: RTL & Theme -->
+            <button class="header-util-btn rtl-toggle-btn" title="Toggle RTL/LTR" type="button">RTL</button>
+            <button class="header-util-btn theme-toggle-btn" title="Toggle Light/Dark" type="button">
+              <i class="bi bi-moon-stars-fill"></i>
+            </button>
+
+            <div class="header-divider d-none d-lg-block"></div>
+
+            <!-- Auth Button -->
+            <a href="../login.html" class="btn btn-primary btn-sm px-3 text-nowrap header-auth-btn">Login</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-wrapper">
+    <div class="container text-center">
+      <div class="badge-custom badge-primary-subtle mb-3">
+        <i class="bi bi-code-slash"></i> Developer-First API Platform
+      </div>
+      <h1 class="breadcrumb-title">Payment Gateway API & Developer Docs</h1>
+      <p class="section-subtitle mb-3">Low-latency RESTful APIs, tokenized client elements, and global multi-acquirer smart routing.</p>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb justify-content-center">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../services.html">Services</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Payment Gateway</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Developer Showcase -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <span class="section-tag"><i class="bi bi-shield-check"></i> Merchant Payment Gateway &bull; 99.999% SLA</span>
+          <h2 class="section-title">Scalable Payment Gateway API Built for Modern Merchant Processing</h2>
+          <p class="lead mb-4">Built for modern merchants and developers. Integrate secure card tokenization, recurring subscription billing, and real-time payment processing in under 15 lines of clean code.</p>
+          
+          <div class="row g-3 mb-4 align-items-stretch">
+            <div class="col-sm-6 d-flex flex-column">
+              <div class="service-network-card w-100 h-100">
+                <i class="bi bi-shield-lock-fill text-primary fs-4 mb-2 d-block"></i>
+                <h6 class="fw-bold">Tokenized Vaults</h6>
+                <p class="small text-muted mb-0">PCI-DSS Level 1 compliant tokenization keeping raw card PANs completely off your servers.</p>
+              </div>
+            </div>
+            <div class="col-sm-6 d-flex flex-column">
+              <div class="service-network-card w-100 h-100">
+                <i class="bi bi-lightning-charge-fill text-warning fs-4 mb-2 d-block"></i>
+                <h6 class="fw-bold">Instant Webhooks</h6>
+                <p class="small text-muted mb-0">HMAC-signed webhook payloads with automated exponential backoff retries and manual replay tools.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex flex-wrap gap-3 service-hero-actions">
+            <a href="../register.html" class="btn btn-primary btn-lg"><i class="bi bi-key-fill me-1"></i> Get API Keys</a>
+            <button type="button" class="btn btn-outline-primary btn-lg" id="btnTrySandbox" data-bs-toggle="modal" data-bs-target="#liveSandboxModal">
+              <i class="bi bi-terminal-split me-2"></i> Test Live API Demo
+            </button>
+          </div>
+        </div>
+
+        <div class="col-lg-6 hero-visual-wrapper position-relative">
+          <div class="hero-image-showcase position-relative">
+            <!-- Glow backdrop effect -->
+            <div class="hero-image-glow position-absolute top-50 start-50 translate-middle"></div>
+
+            <!-- Main Hero Image Frame -->
+            <div class="hero-image-card shadow-xl">
+              <img src="../assets/images/service-detail-gateway-api.jpg"
+                alt="PayFlowPro Scalable Developer RESTful API & Global Gateway Infrastructure"
+                class="hero-main-img" loading="eager">
+            </div>
+
+            <!-- Floating Feature Pills -->
+            <div class="hero-float-badge float-badge-top position-absolute z-3 d-flex align-items-center gap-2" role="button" data-bs-toggle="modal" data-bs-target="#liveSandboxModal" title="Click to test live endpoint" style="cursor: pointer;">
+              <span class="pulse-dot-green"></span>
+              <span class="small fw-bold">POST /v1/charges • 200 OK (33ms)</span>
+              <i class="bi bi-play-circle-fill text-primary ms-1"></i>
+            </div>
+
+            <div class="hero-float-badge float-badge-bottom position-absolute z-3 d-flex align-items-center gap-3" role="button" data-bs-toggle="modal" data-bs-target="#liveSandboxModal" title="Click to open interactive console" style="cursor: pointer;">
+              <i class="bi bi-code-slash text-primary fs-3"></i>
+              <div>
+                <div class="badge-title">Interactive API Console</div>
+                <div class="badge-sub">Simulate Live Payments & Webhooks →</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Live API Sandbox Modal -->
+  <div class="modal fade sandbox-modal" id="liveSandboxModal" tabindex="-1" aria-labelledby="liveSandboxModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content shadow-xl">
+        <!-- Modal Header -->
+        <div class="modal-header sandbox-modal-header align-items-center">
+          <div class="d-flex align-items-center gap-3">
+            <div class="brand-icon"><i class="bi bi-terminal-split"></i></div>
+            <div>
+              <div class="d-flex align-items-center gap-2">
+                <h5 class="modal-title fw-bold mb-0" id="liveSandboxModalLabel">Interactive Developer API Playground</h5>
+                <span class="badge bg-success-subtle text-success border border-success small"><span class="status-pulse-dot"></span> 99.999% SLA Staging</span>
+              </div>
+              <p class="text-muted small mb-0">Simulate REST endpoints, test tokenization payloads, inspect webhooks, and evaluate charge responses in real time.</p>
+            </div>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body p-3 p-md-4">
+          <!-- Top Bar: Endpoint & API Key Control -->
+          <div class="sandbox-top-bar">
+            <div class="row g-3 align-items-center">
+              <div class="col-lg-5">
+                <label class="form-label small fw-bold mb-1 text-muted">Active REST Endpoint</label>
+                <div class="input-group">
+                  <span class="input-group-text font-monospace fw-bold" id="sandboxMethodBadge">POST</span>
+                  <select class="form-select font-monospace small" id="sandboxEndpointSelect">
+                    <option value="charges" selected>POST /v1/charges (Process Payment)</option>
+                    <option value="customers">POST /v1/customers (Vault Customer Card)</option>
+                    <option value="subscriptions">POST /v1/subscriptions (Recurring Plan)</option>
+                    <option value="refunds">POST /v1/refunds (Issue Instant Refund)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-lg-4">
+                <label class="form-label small fw-bold mb-1 text-muted">Test Secret Key (Sandbox)</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-key-fill text-warning"></i></span>
+                  <span class="form-control font-monospace small d-flex align-items-center overflow-hidden" id="sandboxApiKeyDisplay" style="user-select: all;">sk_test_•••••••••••••••••••••••••</span>
+                  <button class="btn btn-outline-secondary" type="button" id="sandboxToggleApiKeyBtn" title="Toggle Secret Key Visibility">
+                    <i class="bi bi-eye"></i>
+                  </button>
+                  <button class="btn btn-outline-secondary" type="button" id="sandboxCopyApiKeyBtn" title="Copy Secret Key">
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="col-lg-3 text-lg-end pt-lg-3">
+                <button type="button" class="btn btn-primary w-100 fw-bold d-flex align-items-center justify-content-center gap-2 py-2" id="sandboxExecuteBtn">
+                  <i class="bi bi-play-fill fs-5"></i>
+                  <span>Send API Request</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- URL & Idempotency Indicator -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 pt-2 mt-2 border-top border-light-subtle small font-monospace text-muted">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-light text-dark border">Base URL</span>
+                <span class="text-primary fw-semibold" id="sandboxUrlDisplay">https://api.payflowpro.com/v1/charges</span>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span>Idempotency-Key:</span>
+                <input type="text" id="sandboxIdempotencyInput" class="form-control form-control-sm font-monospace p-1" style="width: 140px; font-size: 0.75rem;" value="idem_7x90ab12" readonly>
+              </div>
+            </div>
+          </div>
+
+          <!-- Endpoint Capabilities & API Specifications -->
+          <div class="mb-3">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <span class="small fw-bold text-uppercase text-muted" style="letter-spacing: 0.05em; font-size: 0.75rem;">
+                <i class="bi bi-shield-check text-primary me-1"></i> API Specifications &amp; Gateway Capabilities
+              </span>
+              <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-2 py-1" style="font-size: 0.72rem;">
+                <i class="bi bi-broadcast me-1"></i> Sandbox v1.4 Active
+              </span>
+            </div>
+            
+            <div class="row g-2" id="sandboxEndpointDetails">
+              <div class="col-6 col-md-3">
+                <div class="endpoint-detail-card p-2 rounded border h-100 d-flex flex-column justify-content-between">
+                  <div class="d-flex align-items-center justify-content-between mb-1">
+                    <span class="badge bg-success-subtle text-success fw-semibold" style="font-size: 0.7rem;">99.999% SLA</span>
+                    <i class="bi bi-credit-card-2-front text-primary"></i>
+                  </div>
+                  <div class="endpoint-card-title fw-bold mb-1" style="font-size: 0.78rem;">Smart Omnichannel Routing</div>
+                  <div class="endpoint-card-desc" style="font-size: 0.71rem;">Multi-acquirer auto-failover &amp; zero-latency auth</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-3">
+                <div class="endpoint-detail-card p-2 rounded border h-100 d-flex flex-column justify-content-between">
+                  <div class="d-flex align-items-center justify-content-between mb-1">
+                    <span class="badge bg-info-subtle text-info fw-semibold" style="font-size: 0.7rem;">EMVCo 3DS 2.3</span>
+                    <i class="bi bi-shield-lock text-info"></i>
+                  </div>
+                  <div class="endpoint-card-title fw-bold mb-1" style="font-size: 0.78rem;">Frictionless Fraud Shield</div>
+                  <div class="endpoint-card-desc" style="font-size: 0.71rem;">Biometric &amp; behavioral risk assessment</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-3">
+                <div class="endpoint-detail-card p-2 rounded border h-100 d-flex flex-column justify-content-between">
+                  <div class="d-flex align-items-center justify-content-between mb-1">
+                    <span class="badge bg-warning-subtle text-warning-emphasis fw-semibold" style="font-size: 0.7rem;">PCI-DSS Level 1</span>
+                    <i class="bi bi-safe2 text-warning"></i>
+                  </div>
+                  <div class="endpoint-card-title fw-bold mb-1" style="font-size: 0.78rem;">Tokenized Customer Vault</div>
+                  <div class="endpoint-card-desc" style="font-size: 0.71rem;">Secure network tokens &amp; account updater</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-3">
+                <div class="endpoint-detail-card p-2 rounded border h-100 d-flex flex-column justify-content-between">
+                  <div class="d-flex align-items-center justify-content-between mb-1">
+                    <span class="badge bg-purple-subtle text-purple fw-semibold" style="font-size: 0.7rem; background-color: rgba(147, 51, 234, 0.12); color: #9333ea;">Auto-Dunning</span>
+                    <i class="bi bi-arrow-repeat text-success"></i>
+                  </div>
+                  <div class="endpoint-card-title fw-bold mb-1" style="font-size: 0.78rem;">Subscription &amp; Invoicing</div>
+                  <div class="endpoint-card-desc" style="font-size: 0.71rem;">Automated retries, prorations &amp; webhooks</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Two Column Playground: Request vs Response -->
+          <div class="row g-3">
+            <!-- Left: Request Configuration -->
+            <div class="col-lg-6">
+              <div class="sandbox-console h-100">
+                <div class="sandbox-console-header">
+                  <ul class="nav nav-tabs sandbox-nav-tabs border-0" id="sandboxReqTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="req-builder-tab" data-bs-toggle="tab" data-bs-target="#req-builder-pane" type="button" role="tab">
+                        <i class="bi bi-sliders me-1"></i> Visual Builder
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="req-json-tab" data-bs-toggle="tab" data-bs-target="#req-json-pane" type="button" role="tab">
+                        <i class="bi bi-diagram-3 me-1"></i> Gateway Flow
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="req-headers-tab" data-bs-toggle="tab" data-bs-target="#req-headers-pane" type="button" role="tab">
+                        <i class="bi bi-card-heading me-1"></i> Headers
+                      </button>
+                    </li>
+                  </ul>
+                  <button type="button" class="btn btn-sm btn-outline-secondary text-light py-0 px-2" id="sandboxCopyCurlBtn" title="Copy cURL equivalent">
+                    <i class="bi bi-terminal me-1"></i> Copy cURL
+                  </button>
+                </div>
+
+                <div class="tab-content flex-grow-1" id="sandboxReqTabContent">
+                  <!-- Tab A: Visual Form Builder -->
+                  <div class="tab-pane fade show active p-3" id="req-builder-pane" role="tabpanel">
+                    <div class="row g-2 align-items-start">
+                      <div class="col-7">
+                        <label class="form-label small fw-bold mb-1 text-light" for="sandboxFormAmount">Amount</label>
+                        <div class="input-group input-group-sm">
+                          <button type="button" class="btn btn-dark text-info border-secondary font-monospace fw-bold" id="sandboxAmountCurrencySymbol" title="Current currency symbol (click to cycle currency)" aria-label="Currency symbol">$</button>
+                          <input type="number" step="0.01" min="0" class="form-control bg-dark text-light border-secondary font-monospace" id="sandboxFormAmount" value="49.00" placeholder="0.00">
+                        </div>
+                      </div>
+                      <div class="col-5">
+                        <label class="form-label small fw-bold mb-1 text-light" for="sandboxFormCurrency">Currency</label>
+                        <select class="form-select form-select-sm bg-dark text-light border-secondary" id="sandboxFormCurrency" aria-label="Select currency">
+                          <option value="usd" selected>USD ($)</option>
+                          <option value="eur">EUR (€)</option>
+                          <option value="gbp">GBP (£)</option>
+                          <option value="cad">CAD ($)</option>
+                          <option value="jpy">JPY (¥)</option>
+                          <option value="aud">AUD ($)</option>
+                          <option value="inr">INR (₹)</option>
+                        </select>
+                      </div>
+
+                      <div class="col-12">
+                        <label class="form-label small fw-bold mb-1 text-light">Payment Method Token</label>
+                        <select class="form-select form-select-sm bg-dark text-light border-secondary" id="sandboxFormCard">
+                          <option value="pm_card_visa_4242" selected>Visa •••• 4242 (Instant Approval)</option>
+                          <option value="pm_card_mastercard_5555">Mastercard •••• 5555 (3DS Protected)</option>
+                          <option value="pm_card_declined_insufficient_funds">Test Card •••• 0002 (Insufficient Funds)</option>
+                          <option value="pm_card_three_d_secure_required">Test Card •••• 3000 (Challenge Flow)</option>
+                          <option value="pm_wallet_apple_pay">Apple Pay Device Token</option>
+                        </select>
+                      </div>
+
+                      <div class="col-6">
+                        <label class="form-label small fw-bold mb-1 text-light">Customer MID</label>
+                        <input type="text" class="form-control form-control-sm bg-dark text-light border-secondary font-monospace" id="sandboxFormCustomer" value="cus_84920412">
+                      </div>
+                      <div class="col-6">
+                        <label class="form-label small fw-bold mb-1 text-light">Order ID</label>
+                        <input type="text" class="form-control form-control-sm bg-dark text-light border-secondary font-monospace" id="sandboxFormOrderId" value="ORD-94821">
+                      </div>
+
+                      <div class="col-12 pt-2">
+                        <div class="form-check form-switch small">
+                          <input class="form-check-input" type="checkbox" id="sandboxFormSmartRetry" checked>
+                          <label class="form-check-label text-light" for="sandboxFormSmartRetry">
+                            Enable AI Smart Retry & Multi-Acquirer Fallback
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Tab B: Gateway Infrastructure & Architecture Flow -->
+                  <div class="tab-pane fade p-3" id="req-json-pane" role="tabpanel">
+                    <div class="position-relative overflow-hidden rounded-3 border border-info border-opacity-50 shadow-md mb-3" style="background: #060b19;">
+                      <img src="../assets/images/merchant-payment-processing-flow.jpg" alt="PayFlowPro Payment Gateway Architecture & Card Processing Stream" class="w-100 rounded-3" style="max-height: 240px; object-fit: cover; display: block;">
+                      <div class="position-absolute bottom-0 start-0 end-0 p-2 d-flex justify-content-between align-items-center" style="background: linear-gradient(180deg, transparent, rgba(6,11,25,0.92));">
+                        <span class="badge bg-primary-subtle text-primary border border-primary small"><i class="bi bi-shield-lock-fill me-1"></i> End-to-End Encrypted Payload</span>
+                        <span class="badge bg-dark text-info border border-secondary font-monospace small"><i class="bi bi-diagram-3 me-1"></i> Multi-Acquirer Smart Rail</span>
+                      </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <span class="small text-muted font-monospace" style="font-size: 0.75rem;">Payment Payload Config:</span>
+                      <button type="button" class="btn btn-sm btn-link text-muted p-0 text-decoration-none" style="font-size: 0.72rem;" data-bs-toggle="collapse" data-bs-target="#collapseReqCode">
+                        <i class="bi bi-code me-1"></i> Developer Raw JSON
+                      </button>
+                    </div>
+                    <div class="collapse" id="collapseReqCode">
+                      <textarea class="sandbox-editor-textarea font-monospace" id="sandboxPayloadJson" spellcheck="false" style="height: 100px; font-size: 0.75rem;" placeholder="Enter JSON payload..."></textarea>
+                    </div>
+                  </div>
+
+                  <!-- Tab C: HTTP Request Headers -->
+                  <div class="tab-pane fade p-3" id="req-headers-pane" role="tabpanel">
+                    <pre class="font-monospace text-light small mb-0" style="font-size: 0.8rem; line-height: 1.8;"><code>Authorization: Bearer sk_test_51NxPayFlow984102941
+Content-Type: application/json
+Idempotency-Key: idem_7x89ab102
+PayFlow-Version: 2026-04-01
+User-Agent: PayFlow-Node/4.12.0</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Live Response & Webhook Dispatcher -->
+            <div class="col-lg-6">
+              <div class="sandbox-console h-100">
+                <div class="sandbox-console-header">
+                  <ul class="nav nav-tabs sandbox-nav-tabs border-0" id="sandboxResTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="res-visual-tab" data-bs-toggle="tab" data-bs-target="#res-visual-pane" type="button" role="tab">
+                        <i class="bi bi-credit-card-2-front-fill me-1 text-info"></i> Visual Clearance
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="res-body-tab" data-bs-toggle="tab" data-bs-target="#res-body-pane" type="button" role="tab">
+                        <i class="bi bi-image me-1"></i> Terminal &amp; Settlement
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="res-webhook-tab" data-bs-toggle="tab" data-bs-target="#res-webhook-pane" type="button" role="tab">
+                        <i class="bi bi-broadcast me-1"></i> Webhook Event
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="res-headers-tab" data-bs-toggle="tab" data-bs-target="#res-headers-pane" type="button" role="tab">
+                        <i class="bi bi-list-columns me-1"></i> Headers
+                      </button>
+                    </li>
+                  </ul>
+
+                  <button type="button" class="btn btn-sm btn-outline-secondary text-light py-0 px-2" id="sandboxCopyResponseBtn" title="Copy response JSON">
+                    <i class="bi bi-clipboard me-1"></i> Copy JSON
+                  </button>
+                </div>
+
+                <!-- Response Status & Telemetry Bar -->
+                <div class="d-flex justify-content-between align-items-center px-3 py-2 border-bottom border-dark bg-dark small">
+                  <div class="d-flex align-items-center gap-2">
+                    <span id="sandboxStatusBadge" class="badge bg-success-subtle text-success border border-success fw-bold">
+                      <i class="bi bi-check-circle-fill me-1"></i> 200 OK
+                    </span>
+                    <span id="sandboxLatencyBadge" class="text-light font-monospace small">
+                      <i class="bi bi-lightning-charge-fill me-1 text-warning"></i> 34 ms
+                    </span>
+                  </div>
+                  <span id="sandboxTimestampDisplay" class="text-muted font-monospace small">Ready</span>
+                </div>
+
+                <div class="tab-content flex-grow-1" id="sandboxResTabContent">
+                  <!-- Tab 1: Visual Clearance & Card Image -->
+                  <div class="tab-pane fade show active p-3" id="res-visual-pane" role="tabpanel">
+                    <div id="sandboxVisualCardContainer" class="d-flex flex-column gap-3">
+                      <!-- Smart POS Terminal & Contactless Card Visual -->
+                      <div class="position-relative overflow-hidden rounded-3 border border-info border-opacity-40 shadow-md" style="background: #020712;">
+                        <img src="../assets/images/merchant-payment-processing-flow.jpg" alt="PayFlowPro Smart POS Contactless Terminal & Live Clearance" class="w-100 rounded-top-3" style="max-height: 175px; object-fit: cover; display: block;">
+                        <div class="position-absolute top-0 start-0 m-2">
+                          <span class="badge bg-primary px-3 py-1 font-monospace fw-bold" id="visualCardBrandBadge">VISA CONTACTLESS</span>
+                        </div>
+                        <div class="p-2 px-3 bg-dark bg-opacity-75 d-flex justify-content-between align-items-center border-top border-secondary border-opacity-25">
+                          <div class="font-monospace fw-bold text-light" id="visualCardNumberDisplay" style="letter-spacing: 0.1em; font-size: 0.88rem;">•••• •••• •••• 4242</div>
+                          <div class="small text-muted font-monospace"><span id="visualCardHolderDisplay" class="text-light fw-bold">Alex Mercer</span> &bull; Exp: <span id="visualCardExpDisplay" class="text-light">12/28</span></div>
+                        </div>
+                      </div>
+
+                      <!-- Transaction Clearance Detail Box -->
+                      <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 text-light small">
+                        <div class="d-flex justify-content-between align-items-center pb-2 mb-2 border-bottom border-secondary border-opacity-25">
+                          <span class="text-muted">Gateway Result:</span>
+                          <span class="fw-bold" id="visualResultStatusBadge">
+                            <span class="badge bg-success-subtle text-success border border-success"><i class="bi bi-check-circle-fill me-1"></i> Approved &amp; Cleared</span>
+                          </span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center py-1">
+                          <span class="text-muted">Authorized Amount:</span>
+                          <span class="fw-bold text-primary fs-5" id="visualResultAmountDisplay">$49.00 USD</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center py-1">
+                          <span class="text-muted">Transaction ID:</span>
+                          <span class="font-monospace text-info small" id="visualResultTxnIdDisplay">ch_ytkso5ejuof</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center py-1">
+                          <span class="text-muted">Selected Acquirer Rail:</span>
+                          <span class="text-light" id="visualResultAcquirerDisplay">Chase Paymentech (Route #1)</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center py-1">
+                          <span class="text-muted">Fraud AI Radar Score:</span>
+                          <span class="badge bg-success-subtle text-success" id="visualResultRiskDisplay">0.02 (Low Risk)</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center pt-2 mt-1 border-top border-secondary border-opacity-25">
+                          <span class="text-muted">Settlement Pipeline:</span>
+                          <span class="text-success small fw-semibold"><i class="bi bi-clock-history me-1"></i> Next-Day ACH Clearing (T+1)</span>
+                        </div>
+                      </div>
+
+                      <!-- Mini Visual Infrastructure Showcase Thumbnail -->
+                      <div class="d-flex align-items-center gap-3 p-2 rounded-2 bg-black border border-secondary border-opacity-25">
+                        <img src="../assets/images/api-gateway-infrastructure.jpg" alt="API Gateway Infrastructure Node" class="rounded" width="54" height="42" style="object-fit: cover;">
+                        <div class="small">
+                          <div class="fw-bold text-light" style="font-size: 0.78rem;">Live Omnichannel Settlement Rail</div>
+                          <div class="text-muted" style="font-size: 0.7rem;"><span class="status-pulse-dot"></span> 99.999% SLA Gateway Active</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Tab 2: Terminal & Settlement Response Visual -->
+                  <div class="tab-pane fade p-3" id="res-body-pane" role="tabpanel">
+                    <div class="text-center mb-3">
+                      <div class="position-relative overflow-hidden rounded-3 border border-info border-opacity-50 shadow-lg mx-auto" style="background: #060e22; max-width: 100%;">
+                        <img src="../assets/images/merchant-payment-processing-flow.jpg" alt="PayFlowPro Smart POS Terminal & Authorized Transaction Clearance" class="w-100 rounded-3" style="max-height: 240px; object-fit: cover; display: block;">
+                        
+                        <!-- Floating Live Status Overlay -->
+                        <div class="position-absolute top-0 start-0 m-2">
+                          <span class="badge bg-success border border-success fw-bold px-2 py-1 shadow-sm">
+                            <i class="bi bi-check-circle-fill me-1"></i> Payment Completed
+                          </span>
+                        </div>
+                        <div class="position-absolute top-0 end-0 m-2">
+                          <span class="badge bg-dark text-info border border-info font-monospace fw-bold px-2 py-1 shadow-sm" id="resImageAmtDisplay">
+                            $49.00 USD
+                          </span>
+                        </div>
+                        <div class="position-absolute bottom-0 start-0 end-0 p-2 d-flex justify-content-between align-items-center" style="background: linear-gradient(180deg, transparent, rgba(6,14,34,0.95));">
+                          <span class="small text-light font-monospace" style="font-size: 0.75rem;">
+                            <i class="bi bi-lightning-charge-fill text-warning me-1"></i> Acquirer: <span id="resImageAcquirerDisplay">Chase Paymentech</span>
+                          </span>
+                          <span class="small text-success font-monospace" style="font-size: 0.75rem;">
+                            <i class="bi bi-shield-check me-1"></i> PCI-DSS v4.0 Encrypted
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Transaction Telemetry & Summary Bar -->
+                    <div class="p-2 px-3 rounded-2 bg-dark border border-secondary border-opacity-25 d-flex justify-content-between align-items-center small text-light mb-2">
+                      <div>
+                        <span class="text-muted">Auth Code:</span> <span class="font-monospace text-info fw-bold" id="resImageAuthCode">AUTH-789234</span>
+                      </div>
+                      <div>
+                        <span class="text-muted">Settlement:</span> <span class="text-success fw-semibold">Next-Day ACH (T+1)</span>
+                      </div>
+                      <div>
+                        <span class="text-muted">Latency:</span> <span class="text-warning font-monospace" id="resImageLatency">34 ms</span>
+                      </div>
+                    </div>
+
+                    <!-- Collapsible Developer Details (preserving API sandbox engine) -->
+                    <div class="d-flex justify-content-end mb-1">
+                      <button type="button" class="btn btn-sm btn-link text-muted p-0 text-decoration-none" style="font-size: 0.72rem;" data-bs-toggle="collapse" data-bs-target="#collapseJsonDetails">
+                        <i class="bi bi-code me-1"></i> Developer Raw JSON
+                      </button>
+                    </div>
+                    <div class="collapse" id="collapseJsonDetails">
+                      <pre class="sandbox-code-pre p-2" id="sandboxResponseBody" style="max-height: 120px; font-size: 0.75rem; background: #060b19;"><code>{
+  "status": "ready",
+  "message": "Click 'Send API Request' above to execute live gateway call."
+}</code></pre>
+                    </div>
+                  </div>
+
+                  <!-- Tab 2: Webhook Event -->
+                  <div class="tab-pane fade" id="res-webhook-pane" role="tabpanel">
+                    <pre class="sandbox-code-pre" id="sandboxWebhookBody"><code>{
+  "status": "awaiting_event",
+  "message": "Webhook dispatches will appear here when an event is emitted."
+}</code></pre>
+                  </div>
+
+                  <!-- Tab 3: Response Headers -->
+                  <div class="tab-pane fade" id="res-headers-pane" role="tabpanel">
+                    <pre class="sandbox-code-pre" id="sandboxResponseHeaders"><code>HTTP/1.1 200 OK
+Date: Tue, 13 Oct 2026 12:35:00 GMT
+Content-Type: application/json; charset=utf-8
+x-payflow-request-id: req_initial</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer bg-light-surface border-top border-light-subtle d-flex justify-content-between align-items-center">
+          <div class="small text-muted d-none d-sm-block">
+            <i class="bi bi-shield-check text-success me-1"></i> Simulated against PCI-DSS Level 1 staging environment. No live funds are charged.
+          </div>
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+            <a href="../user-dashboard.html" class="btn btn-primary d-flex align-items-center gap-1">
+              <span>Open Merchant Dashboard</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a href="../index.html" class="footer-logo">
+            <div class="brand-icon"><i class="bi bi-shield-check"></i></div>
+            <span>PayFlow<span class="text-primary">Pro</span></span>
+          </a>
+          <p class="footer-desc">Commercial payment processing, smart terminals, and automated analytics for growing businesses worldwide.</p>
+          <div class="footer-social-links">
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" aria-label="LinkedIn" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-btn twitter" aria-label="X (Twitter)" title="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn facebook" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn instagram" aria-label="Instagram" title="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="social-btn youtube" aria-label="YouTube" title="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn github" aria-label="GitHub" title="GitHub"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5 class="footer-title">Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../services.html">Services</a></li>
+            <li><a href="../solutions.html">Solutions</a></li>
+            <li><a href="../pricing.html">Pricing</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title">Services</h5>
+          <ul class="footer-links">
+            <li><a href="../services/payment-processing.html">Payment Processing</a></li>
+            <li><a href="../services/pos-systems.html">Smart POS Systems</a></li>
+            <li><a href="../services/online-payments.html">Online Payments</a></li>
+            <li><a href="../services/mobile-payments.html">Mobile Payments</a></li>
+            <li><a href="../services/payment-gateway.html">Payment Gateway</a></li>
+            <li><a href="../services/recurring-billing.html">Recurring & Subscriptions</a></li>
+            <li><a href="../services/fraud-protection.html">Fraud Protection & 3DS</a></li>
+            <li><a href="../services/merchant-analytics.html">Merchant Analytics</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title">Stay Connected</h5>
+          <p class="small text-muted mb-3">Subscribe for interchange rate updates and fintech industry news.</p>
+          <form class="footer-newsletter-form">
+            <div class="d-flex flex-column flex-sm-row gap-2 w-100">
+              <input type="email" class="form-control" placeholder="Enter your email" required aria-label="Email address">
+              <button type="submit" class="btn btn-primary text-nowrap">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center">
+        <div>&copy; 2026 PayFlowPro Inc. All rights reserved.</div>
+        <div class="d-flex gap-3 align-items-center">
+          <span>Privacy Policy</span>
+          <span>Terms of Service</span>
+          <span>Security</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/sandbox.js"></script>
+</body>
+</html>

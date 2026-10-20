@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PCI-DSS 4.0 Compliance Checklist for Growing Merchants - PayFlowPro Blog</title>
+  <meta name="description" content="Essential security mandates, client-side script integrity, MFA protocols, and tokenization steps required for PCI-DSS 4.0 certification.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand navbar-brand-logo" href="../index.html">
+          <div class="brand-icon"><i class="bi bi-shield-check"></i></div>
+          <span>PayFlow<span class="text-primary">Pro</span></span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list fs-2"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ms-xl-4 ms-lg-3 me-auto mb-2 mb-lg-0">
+            <!-- Home Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Home
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../index.html"><i class="bi bi-shop"></i> General Services</a></li>
+                <li><a class="dropdown-item" href="../home-2.html"><i class="bi bi-laptop"></i> SaaS / Digital Business</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="../services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="../solutions.html">Solutions</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pricing.html">Pricing</a></li>
+            <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" href="../blog.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="../user-dashboard.html"><i
+                  class="bi bi-grid-fill me-1 text-primary"></i> Dashboard</a></li>
+          </ul>
+          <div class="header-actions-group d-flex align-items-center flex-nowrap gap-2 pt-2 pt-lg-0">
+            <!-- Controls: RTL & Theme -->
+            <button class="header-util-btn rtl-toggle-btn" title="Toggle RTL/LTR" type="button">RTL</button>
+            <button class="header-util-btn theme-toggle-btn" title="Toggle Light/Dark" type="button">
+              <i class="bi bi-moon-stars-fill"></i>
+            </button>
+            <div class="header-divider d-none d-lg-block"></div>
+            <!-- Auth Button -->
+            <a href="../login.html" class="btn btn-primary btn-sm px-3 text-nowrap header-auth-btn">Login</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-wrapper">
+    <div class="container">
+      <h1 class="breadcrumb-title">PCI-DSS 4.0 Security Standards</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../blog.html">Blog</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Security Checklist</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Article Section -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="row g-5">
+        <!-- Article Content -->
+        <div class="col-lg-8">
+          <article class="blog-article-content">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <span class="badge-custom badge-danger-subtle">Security Whitepaper</span>
+              <span class="text-muted small">&bull; Updated for 2026 Mandates</span>
+            </div>
+
+            <h1 class="display-6 fw-bold mb-4">PCI-DSS 4.0 Compliance Checklist: How Scaling Merchants Must Prepare</h1>
+
+            <!-- Author & Metadata -->
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 pb-4 mb-4 border-bottom">
+              <div class="d-flex align-items-center gap-3">
+                <img src="../assets/images/team/michael-anderson.jpg" alt="Michael Anderson" class="rounded-circle shadow-sm" width="48" height="48" style="object-fit: cover; border: 2px solid var(--border-color);">
+                <div>
+                  <div class="fw-bold text-dark">Michael Anderson</div>
+                  <div class="small text-muted">Chief Technology Officer</div>
+                </div>
+              </div>
+              <div class="d-flex align-items-center gap-3 text-muted small">
+                <span><i class="bi bi-clock me-1"></i> 8 min read</span>
+                <span><i class="bi bi-shield-check text-success me-1"></i> Verified Audit</span>
+              </div>
+            </div>
+
+            <!-- Single Unique Featured Hero Image -->
+            <div class="article-featured-image">
+              <img src="../assets/images/blog/pci-compliance.jpg" alt="PCI-DSS 4.0 Compliance Checklist and Zero Trust Vault" class="img-fluid">
+            </div>
+            <p class="text-center text-muted small fst-italic mb-4">
+              <i class="bi bi-camera me-1"></i> PCI-DSS 4.0 compliance architecture showcasing zero-trust tokenization vaults, end-to-end encrypted pipelines, and automated script integrity monitoring.
+            </p>
+
+            <!-- Executive Summary -->
+            <p class="lead fw-semibold text-secondary">
+              PCI-DSS 4.0 represents the most significant overhaul of payment card security standards in over a decade. With all transitional mandates now in full effect, merchants face stringent requirements around client-side script integrity, phishing-resistant MFA, and zero-trust tokenization.
+            </p>
+
+            <p>
+              For digital merchants and retail operations alike, non-compliance carries severe consequences: fines of $5,000 to $100,000 per month from card brands, increased per-transaction interchange fees, and potential revocation of your merchant acquiring account in the event of an undetected cardholder data breach.
+            </p>
+
+            <blockquote class="p-4 bg-light rounded-3 border-start border-danger border-4 my-4">
+              <p class="mb-0 fw-bold fs-6">
+                "Implementing client-side iframe tokenization and PayFlowPro Hosted Fields shields over 90% of your digital attack surface from audit scope, transforming a 300-page SAQ-D audit into a simple 20-page SAQ-A questionnaire."
+              </p>
+            </blockquote>
+
+            <h3 class="fw-bold mt-5 mb-3">1. Critical PCI 4.0 Mandates Every CTO & Merchant Must Know</h3>
+            <p>
+              While PCI 3.2.1 focused heavily on backend perimeter firewalls, PCI 4.0 shifts aggressive attention toward the browser runtime and client-side supply-chain vulnerabilities:
+            </p>
+
+            <div class="row g-3 my-3">
+              <div class="col-md-6">
+                <div class="p-3 bg-light rounded-3 border h-100">
+                  <div class="fw-bold text-danger mb-1"><i class="bi bi-code-slash me-1"></i> Req 6.4.3: Script Integrity</div>
+                  <p class="small text-muted mb-0">All JavaScript executing in the consumer's browser on payment checkout pages must be inventoried, justified for business need, and verified with automated cryptographic hashing (Subresource Integrity / SRI) to eliminate Magecart skimmers.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 bg-light rounded-3 border h-100">
+                  <div class="fw-bold text-danger mb-1"><i class="bi bi-fingerprint me-1"></i> Req 8.4.2: Mandatory MFA</div>
+                  <p class="small text-muted mb-0">Multi-factor authentication is now mandatory for all access into the Cardholder Data Environment (CDE), not just administrative sessions. SMS-based 2FA is discouraged in favor of FIDO2/WebAuthn biometrics.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- In-Article Architecture Card (Vector UI) -->
+            <div class="p-4 bg-light rounded-3 border my-4">
+              <h5 class="fw-bold text-danger mb-3"><i class="bi bi-shield-shaded me-2"></i>PayFlowPro Zero-Trust iFrame Isolation Pipeline</h5>
+              <div class="row g-3 align-items-center text-center small">
+                <div class="col-md-3">
+                  <div class="p-3 bg-white rounded border">
+                    <i class="bi bi-browser-chrome fs-3 text-primary d-block mb-1"></i>
+                    <strong>Customer Browser</strong>
+                    <div class="text-muted" style="font-size: 0.72rem;">Encrypted iFrame Field</div>
+                  </div>
+                </div>
+                <div class="col-md-1 text-center d-none d-md-block text-primary fs-4">&rarr;</div>
+                <div class="col-md-4">
+                  <div class="p-3 bg-white rounded border border-danger">
+                    <i class="bi bi-safe2-fill fs-3 text-danger d-block mb-1"></i>
+                    <strong>PayFlow Vault (PCI Level 1)</strong>
+                    <div class="text-muted" style="font-size: 0.72rem;">Converts PAN to Irreversible Token</div>
+                  </div>
+                </div>
+                <div class="col-md-1 text-center d-none d-md-block text-primary fs-4">&rarr;</div>
+                <div class="col-md-3">
+                  <div class="p-3 bg-white rounded border border-success">
+                    <i class="bi bi-server fs-3 text-success d-block mb-1"></i>
+                    <strong>Merchant Server</strong>
+                    <div class="text-muted" style="font-size: 0.72rem;">Receives Token Only (Zero PAN Scope)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="fw-bold mt-5 mb-3">2. SAQ Scope Reduction: Why Tokenization is Essential</h3>
+            <p>
+              Depending on how you collect credit card numbers, your compliance burden varies by an order of magnitude:
+            </p>
+
+            <div class="table-responsive my-4">
+              <table class="table table-bordered align-middle">
+                <thead class="table-light">
+                  <tr>
+                    <th>Integration Method</th>
+                    <th>Audit Type</th>
+                    <th>Questionnaire Scope</th>
+                    <th>Quarterly ASV Scan Required?</th>
+                    <th>Risk Rating</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Direct API (Server-to-Server)</strong></td>
+                    <td>SAQ D-Merchant</td>
+                    <td>300+ Detailed Questions</td>
+                    <td class="text-danger fw-bold"><i class="bi bi-check-circle-fill text-danger me-1"></i> Yes (All Web & App Servers)</td>
+                    <td><span class="badge bg-danger">Extreme Risk</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Direct Post / JavaScript SDK</strong></td>
+                    <td>SAQ A-EP</td>
+                    <td>190+ Questions</td>
+                    <td class="text-warning fw-bold"><i class="bi bi-check-circle-fill text-warning me-1"></i> Yes (Frontend Hosting Stack)</td>
+                    <td><span class="badge bg-warning text-dark">Moderate Risk</span></td>
+                  </tr>
+                  <tr class="table-success-subtle">
+                    <td><strong>PayFlowPro Hosted Fields (iFrame Tokenizer)</strong></td>
+                    <td>SAQ A</td>
+                    <td>22 Basic Controls</td>
+                    <td class="text-success fw-bold"><i class="bi bi-x-circle-fill text-success me-1"></i> Exempt (Outsourced to Vault)</td>
+                    <td><span class="badge bg-success">Lowest Risk</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 class="fw-bold mt-5 mb-3">3. The 10-Point PCI 4.0 Readiness Checklist</h3>
+            <div class="list-group mb-4">
+              <div class="list-group-item d-flex align-items-center gap-3 p-3">
+                <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                <div>
+                  <div class="fw-bold">1. Implement Content Security Policy (CSP) Headers</div>
+                  <div class="small text-muted">Restrict allowable script domains and report unauthorized inline script attempts via CSP violation reports.</div>
+                </div>
+              </div>
+              <div class="list-group-item d-flex align-items-center gap-3 p-3">
+                <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                <div>
+                  <div class="fw-bold">2. Enforce FIDO2 WebAuthn for Admin Logins</div>
+                  <div class="small text-muted">Phishing-resistant hardware security keys (YubiKeys) or biometric TouchID for all payment dashboard operators.</div>
+                </div>
+              </div>
+              <div class="list-group-item d-flex align-items-center gap-3 p-3">
+                <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                <div>
+                  <div class="fw-bold">3. Isolate Cardholder Data with Zero-Trust Token Vaults</div>
+                  <div class="small text-muted">Never store raw PAN, CVV, or expiration dates on your PostgreSQL/MySQL application databases.</div>
+                </div>
+              </div>
+              <div class="list-group-item d-flex align-items-center gap-3 p-3">
+                <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                <div>
+                  <div class="fw-bold">4. Automate Quarterly Penetration & Vulnerability Scans</div>
+                  <div class="small text-muted">Schedule automated scans with an approved scanning vendor (ASV) whenever network infrastructure changes.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Download CTA Box -->
+            <div class="p-4 bg-danger text-white rounded-3 shadow-sm mt-5 mb-4">
+              <div class="row align-items-center">
+                <div class="col-md-8">
+                  <h4 class="fw-bold mb-1">Download the Full PCI-DSS 4.0 Compliance Kit</h4>
+                  <p class="mb-0 text-white-50">Includes SAQ-A template questionnaires, CSP header snippets, and our vendor security evaluation matrix.</p>
+                </div>
+                <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                  <a href="../contact.html" class="btn btn-light text-danger fw-bold px-4 py-2">Get Compliance Kit</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          <div class="sticky-top" style="top: 100px;">
+            <div class="custom-card p-4 bg-light-surface mb-4">
+              <h5 class="fw-bold mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-shield-check text-danger"></i> Security Articles
+              </h5>
+              
+              <div class="d-flex flex-column gap-3 mt-3">
+                <!-- Related 1 -->
+                <a href="chargeback-fraud.html" class="p-3 bg-white rounded border custom-card text-decoration-none">
+                  <span class="badge-custom badge-danger-subtle mb-1" style="font-size: 0.72rem;">Security</span>
+                  <h6 class="mb-1 fw-bold text-dark small">Combating Friendly Fraud & Chargeback Abuse</h6>
+                  <div class="d-flex justify-content-between text-muted small" style="font-size: 0.75rem;">
+                    <span>Ava Thompson</span>
+                    <span>6 min read</span>
+                  </div>
+                </a>
+
+                <!-- Related 2 -->
+                <a href="3d-secure-guide.html" class="p-3 bg-white rounded border custom-card text-decoration-none">
+                  <span class="badge-custom badge-danger-subtle mb-1" style="font-size: 0.72rem;">Security</span>
+                  <h6 class="mb-1 fw-bold text-dark small">3D Secure 2.0 Frictionless Biometric Auth</h6>
+                  <div class="d-flex justify-content-between text-muted small" style="font-size: 0.75rem;">
+                    <span>Michael Anderson</span>
+                    <span>6 min read</span>
+                  </div>
+                </a>
+
+                <!-- Related 3 -->
+                <a href="payment-processing.html" class="p-3 bg-white rounded border custom-card text-decoration-none">
+                  <span class="badge-custom badge-primary-subtle mb-1" style="font-size: 0.72rem;">Processing</span>
+                  <h6 class="mb-1 fw-bold text-dark small">Interchange-Plus vs Tiered Pricing Audit</h6>
+                  <div class="d-flex justify-content-between text-muted small" style="font-size: 0.75rem;">
+                    <span>Olivia Carter</span>
+                    <span>5 min read</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Security Audit CTA Widget -->
+            <div class="custom-card p-4 border text-center">
+              <i class="bi bi-patch-check-fill fs-1 text-danger mb-2"></i>
+              <h6 class="fw-bold mb-1">Request SAQ Scope Review</h6>
+              <p class="small text-muted mb-3">Speak with a certified QSA security engineer to review your checkout iframe scope.</p>
+              <a href="../contact.html" class="btn btn-outline-danger btn-sm w-100">Schedule Security Call</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a href="../index.html" class="footer-logo">
+            <div class="brand-icon"><i class="bi bi-shield-check"></i></div>
+            <span>PayFlow<span class="text-primary">Pro</span></span>
+          </a>
+          <p class="footer-desc">Commercial payment processing, smart terminals, and automated analytics for growing businesses worldwide.</p>
+          <div class="footer-social-links">
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" aria-label="LinkedIn" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-btn twitter" aria-label="X (Twitter)" title="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn facebook" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn instagram" aria-label="Instagram" title="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="social-btn youtube" aria-label="YouTube" title="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn github" aria-label="GitHub" title="GitHub"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5 class="footer-title">Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../services.html">Services</a></li>
+            <li><a href="../solutions.html">Solutions</a></li>
+            <li><a href="../pricing.html">Pricing</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title">Services</h5>
+          <ul class="footer-links">
+            <li><a href="../services/payment-processing.html">Payment Processing</a></li>
+            <li><a href="../services/pos-systems.html">Smart POS Systems</a></li>
+            <li><a href="../services/online-payments.html">Online Payments</a></li>
+            <li><a href="../services/mobile-payments.html">Mobile Payments</a></li>
+            <li><a href="../services/payment-gateway.html">Payment Gateway</a></li>
+            <li><a href="../services/recurring-billing.html">Recurring & Subscriptions</a></li>
+            <li><a href="../services/fraud-protection.html">Fraud Protection & 3DS</a></li>
+            <li><a href="../services/merchant-analytics.html">Merchant Analytics</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title">Stay Connected</h5>
+          <p class="small text-muted mb-3">Subscribe for interchange rate updates and fintech industry news.</p>
+          <form class="footer-newsletter-form">
+            <div class="d-flex flex-column flex-sm-row gap-2 w-100">
+              <input type="email" class="form-control" placeholder="Enter your email" required aria-label="Email address">
+              <button type="submit" class="btn btn-primary text-nowrap">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center">
+        <div>&copy; 2026 PayFlowPro Inc. All rights reserved.</div>
+        <div class="d-flex gap-3 align-items-center">
+          <span>Privacy Policy</span>
+          <span>Terms of Service</span>
+          <span>Security</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

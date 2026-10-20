@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding Durbin Amendment Debit Interchange Caps - PayFlowPro Blog</title>
+  <meta name="description" content="How regulated vs exempt debit interchange rates impact your merchant statement and why tiered processors pocket your debit savings.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand navbar-brand-logo" href="../index.html">
+          <div class="brand-icon"><i class="bi bi-shield-check"></i></div>
+          <span>PayFlow<span class="text-primary">Pro</span></span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list fs-2"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ms-xl-4 ms-lg-3 me-auto mb-2 mb-lg-0">
+            <!-- Home Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Home
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../index.html"><i class="bi bi-shop"></i> General Services</a></li>
+                <li><a class="dropdown-item" href="../home-2.html"><i class="bi bi-laptop"></i> SaaS / Digital Business</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="../services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="../solutions.html">Solutions</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pricing.html">Pricing</a></li>
+            <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" href="../blog.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="../user-dashboard.html"><i
+                  class="bi bi-grid-fill me-1 text-primary"></i> Dashboard</a></li>
+          </ul>
+          <div class="header-actions-group d-flex align-items-center flex-nowrap gap-2 pt-2 pt-lg-0">
+            <!-- Controls: RTL & Theme -->
+            <button class="header-util-btn rtl-toggle-btn" title="Toggle RTL/LTR" type="button">RTL</button>
+            <button class="header-util-btn theme-toggle-btn" title="Toggle Light/Dark" type="button">
+              <i class="bi bi-moon-stars-fill"></i>
+            </button>
+            <div class="header-divider d-none d-lg-block"></div>
+            <!-- Auth Button -->
+            <a href="../login.html" class="btn btn-primary btn-sm px-3 text-nowrap header-auth-btn">Login</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-wrapper">
+    <div class="container">
+      <h1 class="breadcrumb-title">Debit Processing Regulation</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../blog.html">Blog</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Durbin Amendment</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Article Section -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-8">
+          <article class="blog-article-content">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <span class="badge-custom badge-primary-subtle">Federal Reserve Banking Policy</span>
+              <span class="text-muted small">&bull; Published Oct 2026</span>
+            </div>
+
+            <h1 class="display-6 fw-bold mb-4">Understanding Durbin Amendment Debit Interchange Caps: How to Stop Leaving Thousands on the Table</h1>
+
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 pb-4 mb-4 border-bottom">
+              <div class="d-flex align-items-center gap-3">
+                <img src="../assets/images/team/david-lewis.jpg" alt="David Lewis" class="rounded-circle shadow-sm" width="48" height="48" style="object-fit: cover; border: 2px solid var(--border-color);">
+                <div>
+                  <div class="fw-bold text-dark">David Lewis</div>
+                  <div class="small text-muted">Finance Director</div>
+                </div>
+              </div>
+              <div class="d-flex align-items-center gap-3 text-muted small">
+                <span><i class="bi bi-clock me-1"></i> 4 min read</span>
+                <span><i class="bi bi-shield-check text-primary me-1"></i> Federal Reserve Regulation</span>
+              </div>
+            </div>
+
+            <!-- Single Unique Featured Hero Image -->
+            <div class="article-featured-image">
+              <img src="../assets/images/blog/durbin-debit.jpg" alt="Understanding Durbin Amendment Debit Interchange Caps and Analytics" class="img-fluid">
+            </div>
+            <p class="text-center text-muted small fst-italic mb-4">
+              <i class="bi bi-camera me-1"></i> Federal Reserve Durbin Amendment cap analytics showing statutory debit cost basis (21¢ + 0.05% + 1¢ fraud adjustment) vs. unregulated issuer markups.
+            </p>
+
+            <p class="lead fw-semibold text-secondary">
+              Over 50% of all consumer transactions in the United States are settled using debit cards. Yet most business owners do not realize that the Federal Reserve caps the wholesale interchange fee on the majority of these cards at just a fraction of a percent.
+            </p>
+
+            <p>
+              Passed under the Dodd-Frank Wall Street Reform Act, the Durbin Amendment established strict limits on debit interchange fees charged by large national banks. If your business is on flat-rate or tiered pricing, your processor is likely keeping this statutory savings rather than passing it to your bank account.
+            </p>
+
+            <blockquote class="p-4 bg-light rounded-3 border-start border-primary border-4 my-4">
+              <p class="mb-0 fw-bold fs-6">
+                "On a $100 regulated debit swipe, the true wholesale fee is exactly 27 cents (0.27%). If your processor charges you a flat 2.6% + 10¢ ($2.70), they are pocketing a 900% profit margin on that transaction."
+              </p>
+            </blockquote>
+
+            <h3 class="fw-bold mt-5 mb-3">1. The Statutory Durbin Formula: Regulated vs. Exempt Banks</h3>
+            <p>
+              The Durbin Amendment classifies card issuing banks into two distinct regulatory groups based on their total consolidated asset size:
+            </p>
+
+            <div class="row g-3 my-4">
+              <div class="col-md-6">
+                <div class="p-3 bg-light rounded-3 border h-100">
+                  <div class="fw-bold text-primary mb-1"><i class="bi bi-bank2 me-1"></i> Regulated Issuers (&gt; $10 Billion Assets)</div>
+                  <p class="small text-muted mb-2">Includes major national banks: JPMorgan Chase, Bank of America, Wells Fargo, Citibank, Capital One.</p>
+                  <div class="p-2 bg-white rounded border border-primary small fw-semibold text-primary">
+                    Cap: 21¢ + 0.05% of sale + 1¢ fraud mitigation
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 bg-light rounded-3 border h-100">
+                  <div class="fw-bold text-secondary mb-1"><i class="bi bi-building me-1"></i> Exempt Issuers (&lt; $10 Billion Assets)</div>
+                  <p class="small text-muted mb-2">Includes community banks, local credit unions, and municipal financial institutions.</p>
+                  <div class="p-2 bg-white rounded border border-secondary small fw-semibold text-secondary">
+                    Market-Driven: Typically ~1.15% to 1.60% + $0.15
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="fw-bold mt-5 mb-3">2. Transaction Math Comparison ($50 vs $250 Ticket)</h3>
+            <div class="table-responsive my-4">
+              <table class="table table-bordered align-middle">
+                <thead class="table-light">
+                  <tr>
+                    <th>Ticket Size</th>
+                    <th>Wholesale Regulated Cost</th>
+                    <th>Flat Rate Processor (2.6% + 10¢)</th>
+                    <th>PayFlowPro Interchange-Plus</th>
+                    <th>Net Profit Difference</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>$25 Small Ticket</strong></td>
+                    <td>21¢ + 1.25¢ + 1¢ = <strong>$0.23</strong></td>
+                    <td class="text-danger fw-bold">$0.75</td>
+                    <td class="text-success fw-bold">$0.35</td>
+                    <td class="text-success fw-bold">Save $0.40 / transaction</td>
+                  </tr>
+                  <tr>
+                    <td><strong>$100 Average Ticket</strong></td>
+                    <td>21¢ + 5¢ + 1¢ = <strong>$0.27</strong></td>
+                    <td class="text-danger fw-bold">$2.70</td>
+                    <td class="text-success fw-bold">$0.47</td>
+                    <td class="text-success fw-bold">Save $2.23 / transaction</td>
+                  </tr>
+                  <tr>
+                    <td><strong>$500 Large Ticket</strong></td>
+                    <td>21¢ + 25¢ + 1¢ = <strong>$0.47</strong></td>
+                    <td class="text-danger fw-bold">$13.10</td>
+                    <td class="text-success fw-bold">$1.47</td>
+                    <td class="text-success fw-bold">Save $11.63 / transaction</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 class="fw-bold mt-5 mb-3">3. How to Unlock True Regulated Debit Pass-Through</h3>
+            <p>
+              To ensure your business receives 100% of the Durbin savings:
+            </p>
+            <ol style="line-height: 1.8;">
+              <li><strong>Verify PIN Debit Routing:</strong> Enable least-cost debit network routing (Star, NYCE, Pulse, Accel) to automatically bypass Visa/Mastercard higher rails when available.</li>
+              <li><strong>Insist on Unbundled Interchange-Plus Billing:</strong> When debit is passed through at cost, your effective rate on debit transactions drops below 0.60%.</li>
+            </ol>
+
+            <div class="p-4 bg-primary text-white rounded-3 shadow-sm mt-5 mb-4 statement-audit-banner" id="durbinAuditCard">
+              <div class="row align-items-center">
+                <div class="col-md-8">
+                  <h4 class="fw-bold mb-1">Check Your Debit Fee Exposure</h4>
+                  <p class="mb-0 text-white-50">Upload your statement to calculate how much regulated debit margin your processor is absorbing.</p>
+                </div>
+                <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                  <input type="file" id="durbinFileInput" class="d-none" accept=".pdf,.png,.jpg,.jpeg,.doc,.docx,.xls,.xlsx,.csv">
+                  <button type="button" class="btn btn-light fw-bold px-4 py-2 upload-statement-btn" id="durbinUploadBtn">Audit My Debit Fees</button>
+                </div>
+              </div>
+              <div id="durbinSuccessMsg" class="d-none mt-3 p-3 statement-audit-success-box">
+                <div class="d-flex align-items-start gap-3">
+                  <div class="rounded-circle bg-success-subtle text-success p-2 d-flex align-items-center justify-content-center flex-shrink-0" style="width: 40px; height: 40px;">
+                    <i class="bi bi-check-circle-fill fs-5"></i>
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-1">
+                      <h6 class="fw-bold text-success mb-0">Statement Uploaded Successfully!</h6>
+                      <span class="badge bg-success-subtle text-success border border-success-subtle font-monospace small">Ticket #AUD-DRB-3914</span>
+                    </div>
+                    <p class="small text-muted mb-0">Our underwriting team is auditing your debit transaction volume and routing efficiency. Your Durbin compliance report will be delivered within 24 hours.</p>
+                  </div>
+                  <button type="button" class="btn-close ms-auto flex-shrink-0" id="closeDurbinSuccessBtn" aria-label="Close"></button>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          <div class="sticky-top" style="top: 100px;">
+            <div class="custom-card p-4 bg-light-surface mb-4">
+              <h5 class="fw-bold mb-3 d-flex align-items-center gap-2">
+                <i class="bi bi-journal-richtext text-primary"></i> Processing Insights
+              </h5>
+              
+              <div class="d-flex flex-column gap-3 mt-3">
+                <a href="payment-processing.html" class="p-3 bg-white rounded border custom-card text-decoration-none">
+                  <span class="badge-custom badge-primary-subtle mb-1" style="font-size: 0.72rem;">Processing</span>
+                  <h6 class="mb-1 fw-bold text-dark small">Interchange-Plus vs Tiered Pricing Audit</h6>
+                  <div class="d-flex justify-content-between text-muted small" style="font-size: 0.75rem;">
+                    <span>Olivia Carter</span>
+                    <span>5 min read</span>
+                  </div>
+                </a>
+                <a href="settlement-windows.html" class="p-3 bg-white rounded border custom-card text-decoration-none">
+                  <span class="badge-custom badge-primary-subtle mb-1" style="font-size: 0.72rem;">Processing</span>
+                  <h6 class="mb-1 fw-bold text-dark small">How Next-Day & Same-Day Settlements Work</h6>
+                  <div class="d-flex justify-content-between text-muted small" style="font-size: 0.75rem;">
+                    <span>David Lewis</span>
+                    <span>5 min read</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="custom-card p-4 border text-center">
+              <i class="bi bi-calculator-fill fs-1 text-primary mb-2"></i>
+              <h6 class="fw-bold mb-1">Debit Fee Calculator</h6>
+              <p class="small text-muted mb-3">Compare your current debit processing costs against true Durbin statutory rates.</p>
+              <a href="../pricing.html" class="btn btn-outline-primary btn-sm w-100">Open Calculator</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a href="../index.html" class="footer-logo">
+            <div class="brand-icon"><i class="bi bi-shield-check"></i></div>
+            <span>PayFlow<span class="text-primary">Pro</span></span>
+          </a>
+          <p class="footer-desc">Commercial payment processing, smart terminals, and automated analytics for growing businesses worldwide.</p>
+          <div class="footer-social-links">
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" aria-label="LinkedIn" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-btn twitter" aria-label="X (Twitter)" title="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn facebook" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn instagram" aria-label="Instagram" title="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="social-btn youtube" aria-label="YouTube" title="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn github" aria-label="GitHub" title="GitHub"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5 class="footer-title">Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../services.html">Services</a></li>
+            <li><a href="../solutions.html">Solutions</a></li>
+            <li><a href="../pricing.html">Pricing</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title">Services</h5>
+          <ul class="footer-links">
+            <li><a href="../services/payment-processing.html">Payment Processing</a></li>
+            <li><a href="../services/pos-systems.html">Smart POS Systems</a></li>
+            <li><a href="../services/online-payments.html">Online Payments</a></li>
+            <li><a href="../services/mobile-payments.html">Mobile Payments</a></li>
+            <li><a href="../services/payment-gateway.html">Payment Gateway</a></li>
+            <li><a href="../services/recurring-billing.html">Recurring & Subscriptions</a></li>
+            <li><a href="../services/fraud-protection.html">Fraud Protection & 3DS</a></li>
+            <li><a href="../services/merchant-analytics.html">Merchant Analytics</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title">Stay Connected</h5>
+          <p class="small text-muted mb-3">Subscribe for interchange rate updates and fintech industry news.</p>
+          <form class="footer-newsletter-form">
+            <div class="d-flex flex-column flex-sm-row gap-2 w-100">
+              <input type="email" class="form-control" placeholder="Enter your email" required aria-label="Email address">
+              <button type="submit" class="btn btn-primary text-nowrap">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center">
+        <div>&copy; 2026 PayFlowPro Inc. All rights reserved.</div>
+        <div class="d-flex gap-3 align-items-center">
+          <span>Privacy Policy</span>
+          <span>Terms of Service</span>
+          <span>Security</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

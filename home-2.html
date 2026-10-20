@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PayFlowPro - Payment Infrastructure for Digital & SaaS Businesses</title>
+  <meta name="description"
+    content="Developer-first omnichannel payment infrastructure engineered for modern SaaS, digital platforms, and global enterprises. Low-latency APIs, automated subscriptions, and instant global routing.">
+  <meta name="keywords"
+    content="SaaS payments, developer gateway, subscription billing, fintech API, multi-acquiring, recurring revenue, payflowpro">
+  <meta name="robots" content="index, follow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="alternate icon" href="assets/images/favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PayFlowPro - Payment Infrastructure for Digital & SaaS">
+  <meta property="og:description"
+    content="High-performance payment APIs, automated recurring revenue, and global subscription orchestration.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body>
+
+  <!-- Global Header -->
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <!-- Logo matching General Services -->
+        <a class="navbar-brand navbar-brand-logo" href="index.html">
+          <div class="brand-icon"><i class="bi bi-shield-check"></i></div>
+          <span>PayFlow<span class="text-primary">Pro</span></span>
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <i class="bi bi-list fs-2"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ms-xl-4 ms-lg-3 me-auto mb-2 mb-lg-0">
+            <!-- Home Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="home-2.html" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false" id="homeDropdownMenuLink2">
+                Home
+              </a>
+              <ul class="dropdown-menu shadow-lg border" aria-labelledby="homeDropdownMenuLink2">
+                <li><h6 class="dropdown-header text-uppercase">Page Versions</h6></li>
+                <li><a class="dropdown-item" href="index.html"><i class="bi bi-shop me-2 text-primary"></i> General Services</a></li>
+                <li><a class="dropdown-item active" href="home-2.html"><i class="bi bi-laptop me-2 text-info"></i> SaaS / Digital Business</a></li>
+                <li><hr class="dropdown-divider my-2"></li>
+                <li><h6 class="dropdown-header text-uppercase">Jump to Section</h6></li>
+                <li><a class="dropdown-item" href="home-2.html#hero"><i class="bi bi-arrow-up-circle me-2 text-secondary"></i> Overview</a></li>
+                <li><a class="dropdown-item" href="home-2.html#features"><i class="bi bi-cpu me-2 text-secondary"></i> SaaS Capabilities</a></li>
+                <li><a class="dropdown-item" href="home-2.html#pricing"><i class="bi bi-tags me-2 text-secondary"></i> Pricing Rates</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="solutions.html">Solutions</a></li>
+            <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="user-dashboard.html"><i
+                  class="bi bi-grid-fill me-1 text-primary"></i> Dashboard</a></li>
+          </ul>
+
+          <div class="header-actions-group d-flex align-items-center flex-nowrap gap-2 pt-2 pt-lg-0">
+            <!-- Controls: RTL & Theme -->
+            <button class="header-util-btn rtl-toggle-btn" title="Toggle RTL/LTR" type="button">RTL</button>
+            <button class="header-util-btn theme-toggle-btn" title="Toggle Light/Dark" type="button">
+              <i class="bi bi-moon-stars-fill"></i>
+            </button>
+
+            <div class="header-divider d-none d-lg-block"></div>
+
+            <!-- Auth Button -->
+            <a href="login.html" class="btn btn-primary btn-sm px-3 text-nowrap header-auth-btn">Login</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section: Digital & Developer Focused (Seamless Light & Dark Mode) -->
+  <section class="section-py bg-light-surface position-relative overflow-hidden" id="hero">
+    <div class="container position-relative z-2">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 hero-content-col">
+          <div class="badge-custom badge-primary-subtle mb-3">
+            <i class="bi bi-code-slash"></i> Developer-First Payment Infrastructure
+          </div>
+          <h1 class="display-4 fw-extrabold mb-4">The Payment Infrastructure Built for Digital Businesses.</h1>
+          <p class="lead mb-4">Integrate global payment routing, dynamic smart retries, and multi-tier subscription
+            billing in under 15 lines of clean code.</p>
+
+          <div class="hero-buttons d-flex align-items-center flex-wrap gap-3 mb-4">
+            <a href="register.html" class="btn btn-primary btn-lg"><i class="bi bi-terminal-fill me-1"></i> Start
+              Building Free</a>
+            <a href="services/payment-gateway.html" class="btn btn-light btn-lg">Explore API Docs</a>
+          </div>
+
+          <div class="d-flex flex-wrap align-items-center gap-4 pt-2">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-check-circle-fill text-success fs-5"></i>
+              <span class="small fw-semibold">99.999% Core SLA</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-check-circle-fill text-success fs-5"></i>
+              <span class="small fw-semibold">Multi-Acquiring Routing</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-check-circle-fill text-success fs-5"></i>
+              <span class="small fw-semibold">Instant Webhooks</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual: Modern Payment Infrastructure Showcase -->
+        <div class="col-lg-6 hero-visual-wrapper position-relative">
+          <div class="hero-image-showcase position-relative">
+            <!-- Glow backdrop effect -->
+            <div class="hero-image-glow position-absolute top-50 start-50 translate-middle"></div>
+
+            <!-- Main Hero Image Frame -->
+            <div class="hero-image-card">
+              <img src="assets/images/hero-payment-infrastructure.jpg"
+                alt="PayFlowPro Next-Gen Omnichannel Payment Processing & Smart POS Infrastructure"
+                class="hero-main-img" loading="eager">
+            </div>
+
+            <!-- Floating Feature Pills -->
+            <div class="hero-float-badge float-badge-top position-absolute z-3 d-flex align-items-center gap-2">
+              <span class="pulse-dot-green"></span>
+              <span class="small fw-bold">Live Omnichannel Clearing</span>
+            </div>
+
+            <div class="hero-float-badge float-badge-bottom position-absolute z-3 d-flex align-items-center gap-3">
+              <i class="bi bi-shield-check text-primary fs-4"></i>
+              <div>
+                <div class="badge-title">PCI-DSS Level 1 & 3D Secure 2.3</div>
+                <div class="badge-sub">Bank-Grade Multi-Acquiring Gateway</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Digital Partners Ecosystem -->
+  <section class="py-4 border-bottom trust-brands-bar">
+    <div class="container text-center">
+      <div class="row align-items-center">
+        <div class="col-12 mb-3">
+          <p class="text-muted small fw-bold text-uppercase mb-0" style="letter-spacing: 0.1em;">Powering 15,000+
+            high-growth SaaS platforms & digital enterprises worldwide</p>
+        </div>
+        <div class="col-12 d-flex flex-wrap justify-content-center align-items-center gap-4 gap-md-5 opacity-75">
+          <span><i class="bi bi-cloud-arrow-up"></i> CLOUDSCALE.IO</span>
+          <span><i class="bi bi-stack"></i> DATASTREAM</span>
+          <span><i class="bi bi-bounding-box-circles"></i> SYNAPSE LABS</span>
+          <span><i class="bi bi-broadcast"></i> BROADCAST HQ</span>
+          <span><i class="bi bi-boxes"></i> CONTAINERFLOW</span>
+          <span><i class="bi bi-layers"></i> APEX DIGITAL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Animated Statistics Section (Matching General Services Standard) -->
+  <section class="section-py stats-section text-white">
+    <div class="container">
+      <div class="row g-4 text-center">
+        <div class="col-6 col-lg-3">
+          <div class="stat-box">
+            <h2 class="display-4 fw-extrabold counter-value mb-1" data-target="4.5" data-prefix="$" data-suffix="B+"
+              data-decimals="1">$0</h2>
+            <p class="text-light mb-0 small fw-semibold">Annual API Volume Processed</p>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-box">
+            <h2 class="display-4 fw-extrabold counter-value mb-1" data-target="15" data-suffix="K+" data-decimals="0">0
+            </h2>
+            <p class="text-light mb-0 small fw-semibold">Active Digital & SaaS Companies</p>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-box">
+            <h2 class="display-4 fw-extrabold counter-value mb-1" data-target="99.999" data-suffix="%"
+              data-decimals="3">0%</h2>
+            <p class="text-light mb-0 small fw-semibold">Global Platform SLA Availability</p>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-box">
+            <h2 class="display-4 fw-extrabold counter-value mb-1" data-target="85" data-prefix="<" data-suffix="ms"
+              data-decimals="0">&lt;0ms</h2>
+            <p class="text-light mb-0 small fw-semibold">Median Routing Latency</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Developer Features Grid (6 Core Modular Services) -->
+  <section class="section-py bg-white" id="features">
+    <div class="container">
+      <div class="section-title-wrapper text-center">
+        <span class="section-tag"><i class="bi bi-code-slash"></i> Developer First</span>
+        <h2 class="section-title">Built for Modern Engineering Teams</h2>
+        <p class="section-subtitle">Everything you need to orchestrate complex global payment flows with unmatched
+          reliability, speed, and flexibility.</p>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        <!-- Feature 1 -->
+        <div class="col-md-6 col-lg-4 d-flex">
+          <div class="custom-card feature-showcase-card w-100 p-0 overflow-hidden d-flex flex-column">
+            <div class="feature-card-img-wrap position-relative overflow-hidden">
+              <img src="assets/images/home-dev-smart-routing.jpg"
+                alt="PayFlowPro Multi-Acquirer Smart Gateway Routing and Global Network Topology"
+                class="w-100 feature-card-img" style="height: 195px; object-fit: cover;">
+              <span class="badge bg-primary position-absolute top-0 end-0 m-3 shadow-sm">&lt; 85ms Routing</span>
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <div class="card-icon-box mb-0"><i class="bi bi-diagram-3-fill"></i></div>
+                <h4 class="mb-0 fs-5 fw-bold">Multi-Acquirer Smart Routing</h4>
+              </div>
+              <p class="text-muted small mb-4 flex-grow-1">Automatically route transactions across top global acquiring banks to optimize approval rates and minimize cross-border transaction fees.</p>
+              <a href="services/payment-gateway.html" class="fw-bold stretched-link mt-auto">Explore Routing <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="col-md-6 col-lg-4 d-flex">
+          <div class="custom-card feature-showcase-card w-100 p-0 overflow-hidden d-flex flex-column">
+            <div class="feature-card-img-wrap position-relative overflow-hidden">
+              <img src="assets/images/home-dev-recurring-engine.jpg"
+                alt="PayFlowPro Scalable API Usage-Based Metered Recurring Billing Engine"
+                class="w-100 feature-card-img" style="height: 195px; object-fit: cover;">
+              <span class="badge bg-primary position-absolute top-0 end-0 m-3 shadow-sm">Automated Dunning</span>
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <div class="card-icon-box mb-0"><i class="bi bi-arrow-repeat"></i></div>
+                <h4 class="mb-0 fs-5 fw-bold">Autonomous Recurring Engine</h4>
+              </div>
+              <p class="text-muted small mb-4 flex-grow-1">Handle pro-rations, trial periods, tiered seats, metered usage, and automated dunning recovery without writing complex custom code.</p>
+              <a href="services/recurring-billing.html" class="fw-bold stretched-link mt-auto">Explore Billing <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="col-md-6 col-lg-4 d-flex">
+          <div class="custom-card feature-showcase-card w-100 p-0 overflow-hidden d-flex flex-column">
+            <div class="feature-card-img-wrap position-relative overflow-hidden">
+              <img src="assets/images/home-dev-radar-3ds2.jpg"
+                alt="PayFlowPro Radar Machine Learning 3D Secure 2.0 Risk-Based Authentication Engine"
+                class="w-100 feature-card-img" style="height: 195px; object-fit: cover;">
+              <span class="badge bg-primary position-absolute top-0 end-0 m-3 shadow-sm">Biometric 3DS2</span>
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <div class="card-icon-box mb-0"><i class="bi bi-shield-check"></i></div>
+                <h4 class="mb-0 fs-5 fw-bold">Radar Machine Learning 3DS2</h4>
+              </div>
+              <p class="text-muted small mb-4 flex-grow-1">Dynamic 3D Secure 2.0 authentication triggered only when risk thresholds dictate, maximizing conversion rates without fraud exposure.</p>
+              <a href="services/fraud-protection.html" class="fw-bold stretched-link mt-auto">Inspect Radar <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="col-md-6 col-lg-4 d-flex">
+          <div class="custom-card feature-showcase-card w-100 p-0 overflow-hidden d-flex flex-column">
+            <div class="feature-card-img-wrap position-relative overflow-hidden">
+              <img src="assets/images/home-dev-webhooks.jpg"
+                alt="PayFlowPro Real-Time Webhooks, API Streaming, and HMAC Event Delivery"
+                class="w-100 feature-card-img" style="height: 195px; object-fit: cover;">
+              <span class="badge bg-primary position-absolute top-0 end-0 m-3 shadow-sm">&lt; 10ms Delivery</span>
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <div class="card-icon-box mb-0"><i class="bi bi-lightning-charge"></i></div>
+                <h4 class="mb-0 fs-5 fw-bold">Real-Time Webhooks &amp; Events</h4>
+              </div>
+              <p class="text-muted small mb-4 flex-grow-1">Reliable HMAC-signed webhooks with automated retries, dead-letter queuing, and complete event payload replay mechanisms.</p>
+              <a href="services/payment-gateway.html" class="fw-bold stretched-link mt-auto">Explore Webhooks <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="col-md-6 col-lg-4 d-flex">
+          <div class="custom-card feature-showcase-card w-100 p-0 overflow-hidden d-flex flex-column">
+            <div class="feature-card-img-wrap position-relative overflow-hidden">
+              <img src="assets/images/home-dev-treasury.jpg"
+                alt="PayFlowPro Multi-Currency Treasury and Global FX Clearing Network"
+                class="w-100 feature-card-img" style="height: 195px; object-fit: cover;">
+              <span class="badge bg-primary position-absolute top-0 end-0 m-3 shadow-sm">135+ Currencies</span>
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <div class="card-icon-box mb-0"><i class="bi bi-globe2"></i></div>
+                <h4 class="mb-0 fs-5 fw-bold">Multi-Currency Treasury</h4>
+              </div>
+              <p class="text-muted small mb-4 flex-grow-1">Accept payments in 135+ currencies and settle directly into domestic merchant bank accounts with transparent wholesale FX rates.</p>
+              <a href="services/payment-processing.html" class="fw-bold stretched-link mt-auto">Explore Currencies <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="col-md-6 col-lg-4 d-flex">
+          <div class="custom-card feature-showcase-card w-100 p-0 overflow-hidden d-flex flex-column">
+            <div class="feature-card-img-wrap position-relative overflow-hidden">
+              <img src="assets/images/home-dev-telemetry.jpg"
+                alt="PayFlowPro Real-Time Financial Telemetry and Revenue Intelligence Dashboard"
+                class="w-100 feature-card-img" style="height: 195px; object-fit: cover;">
+              <span class="badge bg-primary position-absolute top-0 end-0 m-3 shadow-sm">Real-Time Telemetry</span>
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <div class="card-icon-box mb-0"><i class="bi bi-graph-up-arrow"></i></div>
+                <h4 class="mb-0 fs-5 fw-bold">Revenue Telemetry &amp; Analytics</h4>
+              </div>
+              <p class="text-muted small mb-4 flex-grow-1">Full visibility into Net ARR, churn velocity, cohort retention, and interchange cost breakdowns with our built-in telemetry suite.</p>
+              <a href="services/merchant-analytics.html" class="fw-bold stretched-link mt-auto">Explore Analytics <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Revenue Telemetry Section -->
+  <section class="section-py bg-light-surface">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="section-tag"><i class="bi bi-graph-up"></i> Real-Time Telemetry</span>
+          <h2 class="section-title">Deep Revenue Intelligence & Automated Churn Salvage</h2>
+          <p class="lead">Gain full visibility into Net ARR, churn velocity, cohort retention, and interchange cost
+            breakdowns with our built-in analytics suite.</p>
+          <ul class="list-unstyled d-flex flex-column gap-3 mb-4">
+            <li class="d-flex align-items-center gap-2">
+              <i class="bi bi-check-circle-fill text-primary fs-5"></i>
+              <span>Automated Monthly Recurring Revenue (MRR) tracking</span>
+            </li>
+            <li class="d-flex align-items-center gap-2">
+              <i class="bi bi-check-circle-fill text-primary fs-5"></i>
+              <span>Smart recovery salvage tracking for involuntary churn</span>
+            </li>
+            <li class="d-flex align-items-center gap-2">
+              <i class="bi bi-check-circle-fill text-primary fs-5"></i>
+              <span>Granular interchange fee optimization insights</span>
+            </li>
+          </ul>
+          <a href="services/merchant-analytics.html" class="btn btn-primary">Explore Analytics Engine</a>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="custom-card p-4 shadow-lg bg-white">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="fw-bold">Annualized Run Rate (ARR)</span>
+              <span class="badge-custom badge-success-subtle">+38.2% YoY</span>
+            </div>
+            <h2 class="display-6 fw-bold text-primary mb-3">$14,820,400</h2>
+            <div class="p-3 bg-light rounded">
+              <div class="d-flex justify-content-between small text-muted mb-2">
+                <span>Involuntary Churn Saved:</span>
+                <span class="fw-bold text-success">+$284,100 (Smart Retries)</span>
+              </div>
+              <div class="d-flex justify-content-between small text-muted mb-2">
+                <span>Active Subscriptions:</span>
+                <span class="fw-bold text-dark">42,910 Accounts</span>
+              </div>
+              <div class="d-flex justify-content-between small text-muted">
+                <span>Average Billing Latency:</span>
+                <span class="fw-bold text-primary">38ms per invoice</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works / Frictionless 4-Step Developer Journey -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="section-title-wrapper text-center">
+        <span class="section-tag"><i class="bi bi-lightning-charge"></i> Frictionless Integration</span>
+        <h2 class="section-title">From Sandbox to Production in 4 Simple Steps</h2>
+        <p class="section-subtitle">Zero bureaucracy. Instant sandbox credentials, comprehensive mock data, and turnkey
+          developer tooling.</p>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="custom-card step-bg-card step-bg-sandbox text-center align-items-center w-100 p-4">
+            <div class="badge-custom badge-primary-subtle rounded-circle fs-4 mb-3">01</div>
+            <h5>Create Sandbox</h5>
+            <p class="small mb-3">Instantly spin up a developer test account with full sandbox API keys and mock test cards.</p>
+            <a href="register.html" class="btn btn-sm btn-outline-primary mt-auto">Get Keys</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="custom-card step-bg-card step-bg-sdk text-center align-items-center w-100 p-4">
+            <div class="badge-custom badge-primary-subtle rounded-circle fs-4 mb-3">02</div>
+            <h5>Embed SDK</h5>
+            <p class="small mb-3">Drop our tokenized UI components or REST APIs into your frontend and backend stacks.</p>
+            <a href="services/payment-gateway.html" class="btn btn-sm btn-outline-primary mt-auto">View SDKs</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="custom-card step-bg-card step-bg-webhooks text-center align-items-center w-100 p-4">
+            <div class="badge-custom badge-primary-subtle rounded-circle fs-4 mb-3">03</div>
+            <h5>Test Webhooks</h5>
+            <p class="small mb-3">Simulate subscription renewals, refund workflows, and dispute alerts with our CLI tools.</p>
+            <a href="services/payment-gateway.html#sandbox" class="btn btn-sm btn-outline-primary mt-auto">Test Tools</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 d-flex">
+          <div class="custom-card step-bg-card step-bg-global text-center align-items-center w-100 p-4">
+            <div class="badge-custom badge-primary-subtle rounded-circle fs-4 mb-3">04</div>
+            <h5>Launch Globally</h5>
+            <p class="small mb-3">Flip your environment keys to live and accept payments worldwide with 99.999% SLA.</p>
+            <a href="user-dashboard.html" class="btn btn-sm btn-outline-primary mt-auto">Go Live</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tailored Architectures for Digital Business Models -->
+  <section class="section-py bg-light-surface">
+    <div class="container">
+      <div class="section-title-wrapper text-center">
+        <span class="section-tag"><i class="bi bi-diagram-2"></i> Architecture Blueprints</span>
+        <h2 class="section-title">Built for Your Digital Business Model</h2>
+        <p class="section-subtitle">Pre-engineered billing and settlement patterns optimized for your specific software
+          monetization model.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Blueprint 1 -->
+        <div class="col-md-4">
+          <div class="custom-card">
+            <i class="bi bi-layers fs-1 text-primary mb-3 d-block"></i>
+            <h4>B2B SaaS & Seat-Based</h4>
+            <p>Automate user seats, organization-level invoicing, tiered usage quotas, and self-serve billing portals
+              with prorated upgrades.</p>
+            <a href="services/recurring-billing.html" class="btn btn-sm btn-outline-primary">Explore B2B SaaS</a>
+          </div>
+        </div>
+
+        <!-- Blueprint 2 -->
+        <div class="col-md-4">
+          <div class="custom-card">
+            <i class="bi bi-speedometer2 fs-1 text-primary mb-3 d-block"></i>
+            <h4>Usage & Metered Billing</h4>
+            <p>Ingest millions of API calls, compute units, or gigabytes and convert them into accurate usage-based
+              end-of-month customer charges.</p>
+            <a href="services/payment-gateway.html" class="btn btn-sm btn-outline-primary">Explore Metered APIs</a>
+          </div>
+        </div>
+
+        <!-- Blueprint 3 -->
+        <div class="col-md-4">
+          <div class="custom-card">
+            <i class="bi bi-globe fs-1 text-primary mb-3 d-block"></i>
+            <h4>Marketplaces & Platforms</h4>
+            <p>Split payments dynamically between sellers, platform commission fees, and payout partners across 135+
+              countries with automated KYC.</p>
+            <a href="solutions.html" class="btn btn-sm btn-outline-primary">Explore Marketplaces</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Pricing Preview (Matching General Services Standard with Switcher) -->
+  <section class="section-py bg-white" id="pricing">
+    <div class="container">
+      <div class="section-title-wrapper text-center">
+        <span class="section-tag"><i class="bi bi-tags"></i> Transparent API Rates</span>
+        <h2 class="section-title">Predictable Developer & Enterprise Pricing</h2>
+        <p class="section-subtitle">Scale with pay-as-you-grow rates or volume-negotiated enterprise interchange
+          schedules.</p>
+
+        <!-- Pricing Switcher -->
+        <div class="billing-switcher-wrapper mt-3 mt-sm-4 mx-auto">
+          <span class="fw-bold billing-label">Monthly Billing</span>
+          <div class="form-check form-switch mb-0">
+            <input class="form-check-input" type="checkbox" role="switch" id="billingToggle" aria-label="Toggle annual or monthly billing">
+          </div>
+          <span class="fw-bold billing-label">Annual Billing <span class="badge-custom badge-success-subtle ms-1 ms-sm-2">Save 20%</span></span>
+        </div>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        <!-- Starter Plan -->
+        <div class="col-lg-4">
+          <div class="custom-card">
+            <h5>Developer Starter</h5>
+            <p class="text-muted small">Ideal for early-stage digital products, MVPs, and indie hackers.</p>
+            <div class="my-3">
+              <span class="display-5 fw-extrabold text-primary pricing-price-val" data-monthly="$19"
+                data-annual="$15">$19</span>
+              <span class="text-muted pricing-period-val">/month</span>
+            </div>
+            <div class="badge-custom badge-primary-subtle mb-4">Interchange + 0.25% + $0.10</div>
+            <ul class="list-unstyled mb-4 d-flex flex-column gap-2 small">
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i> 10,000 API Requests/month</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i> Turnkey Hosted Checkout</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i> Standard Smart Dunning</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i> Community & Email Support</li>
+            </ul>
+            <a href="register.html" class="btn btn-outline-primary w-100">Get Started</a>
+          </div>
+        </div>
+
+        <!-- Growth Plan -->
+        <div class="col-lg-4">
+          <div class="custom-card pricing-card-popular border-primary shadow-lg position-relative">
+            <div
+              class="position-absolute top-0 end-0 bg-primary text-white px-3 py-1 small fw-bold rounded-bottom-start">
+              POPULAR</div>
+            <h5>Growth SaaS</h5>
+            <p class="text-muted small">Perfect for scaling subscription businesses and digital platforms.</p>
+            <div class="my-3">
+              <span class="display-5 fw-extrabold text-primary pricing-price-val" data-monthly="$49"
+                data-annual="$39">$49</span>
+              <span class="text-muted pricing-period-val">/month</span>
+            </div>
+            <div class="badge-custom badge-primary-subtle mb-4">Interchange + 0.15% + $0.08</div>
+            <ul class="list-unstyled mb-4 d-flex flex-column gap-2 small">
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i> Unlimited API Requests</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i> Multi-Acquiring Smart Routing</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i> Advanced 3DS2 ML Radar Shield</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i> Real-time Webhooks & Event Replay</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i> 24/7 Slack & Phone Support</li>
+            </ul>
+            <a href="register.html" class="btn btn-primary w-100">Get Started</a>
+          </div>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="col-lg-4">
+          <div class="custom-card">
+            <h5>Enterprise Scale</h5>
+            <p class="text-muted small">Custom interchange volume rates for high-volume SaaS platforms ($100K+/mo).</p>
+            <div class="my-3">
+              <span class="display-5 fw-extrabold text-primary pricing-price-val" data-monthly="$149"
+                data-annual="$119">$149</span>
+              <span class="text-muted pricing-period-val">/month</span>
+            </div>
+            <div class="badge-custom badge-primary-subtle mb-4">Custom Volume Discount</div>
+            <ul class="list-unstyled mb-4 d-flex flex-column gap-2 small">
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i> Dedicated Infrastructure Cluster</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i> 99.999% Guaranteed SLA with PagerDuty</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i> Custom Fraud Model Training</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i> Dedicated Solutions Architect</li>
+            </ul>
+            <a href="contact.html" class="btn btn-outline-primary w-100">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client & CTO Testimonials Section (Matching General Services Standard) -->
+  <section class="section-py bg-light-surface">
+    <div class="container">
+      <div class="section-title-wrapper text-center">
+        <span class="section-tag"><i class="bi bi-chat-quote"></i> Engineering Reviews</span>
+        <h2 class="section-title">Loved by Technical Founders & Engineers</h2>
+        <p class="section-subtitle">Here is why high-throughput engineering teams trust PayFlowPro with their
+          mission-critical transactions.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Testimonial 1 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="custom-card">
+            <div class="text-warning mb-2"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="small text-muted mb-3">"We integrated their Node.js SDK and migrated 40,000 active subscriptions
+              in a single weekend with zero payment downtime."</p>
+            <div class="d-flex align-items-center gap-3">
+              <img src="assets/images/testimonials/david-liu.jpg" alt="David Liu" class="rounded-circle flex-shrink-0 shadow-sm" width="44" height="44" style="object-fit: cover;">
+              <div>
+                <div class="fw-bold small">David Liu</div>
+                <div class="text-muted" style="font-size: 0.75rem;">CTO, CloudScale.io</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="custom-card">
+            <div class="text-warning mb-2"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="small text-muted mb-3">"The automated smart dunning engine recovered over $284,000 in failed credit
+              card renewals in our very first quarter."</p>
+            <div class="d-flex align-items-center gap-3">
+              <img src="assets/images/testimonials/elena-rostova.jpg" alt="Elena Rostova" class="rounded-circle flex-shrink-0 shadow-sm" width="44" height="44" style="object-fit: cover;">
+              <div>
+                <div class="fw-bold small">Elena Rostova</div>
+                <div class="text-muted" style="font-size: 0.75rem;">VP Eng, DataStream</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="custom-card">
+            <div class="text-warning mb-2"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="small text-muted mb-3">"Webhook deliveries are rock-solid. With instant payload replay and HMAC
+              signatures, our billing microservices never desync."</p>
+            <div class="d-flex align-items-center gap-3">
+              <img src="assets/images/testimonials/alex-rivera.jpg" alt="Alex Rivera" class="rounded-circle flex-shrink-0 shadow-sm" width="44" height="44" style="object-fit: cover;">
+              <div>
+                <div class="fw-bold small">Alex Rivera</div>
+                <div class="text-muted" style="font-size: 0.75rem;">Founder, Synapse Labs</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="custom-card">
+            <div class="text-warning mb-2"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="small text-muted mb-3">"Multi-currency conversion at true wholesale interchange rates cut our
+              European cross-border processing costs by 41%."</p>
+            <div class="d-flex align-items-center gap-3">
+              <img src="assets/images/testimonials/maya-kapoor.jpg" alt="Maya Kapoor" class="rounded-circle flex-shrink-0 shadow-sm" width="44" height="44" style="object-fit: cover;">
+              <div>
+                <div class="fw-bold small">Maya Kapoor</div>
+                <div class="text-muted" style="font-size: 0.75rem;">Lead Architect, Broadcast HQ</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical FAQ Section (8 Items Matching General Services Standard) -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="section-title-wrapper text-center">
+        <span class="section-tag"><i class="bi bi-question-circle"></i> Developer FAQ</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything engineering teams and SaaS founders need to know about integrating
+          PayFlowPro.</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faq1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1"
+                  aria-expanded="true" aria-controls="collapse1">
+                  How fast can we integrate the SDK into our production codebase?
+                </button>
+              </h2>
+              <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="faq1"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  Most teams complete a full sandbox checkout integration in under an hour using our official SDKs for
+                  Node.js, Python, Go, Ruby, and PHP. Instant sandbox API keys are available upon registration without
+                  waiting for manual underwriting.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faq2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                  Does PayFlowPro handle prorations and mid-cycle plan changes?
+                </button>
+              </h2>
+              <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  Yes, our subscription engine computes exact second-by-second prorations for tier upgrades, downgrades,
+                  seat additions, and cancellations. You can choose whether to charge immediately, apply account credits,
+                  or roll balances into the next billing cycle.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faq3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                  How does Smart Dunning salvage involuntary failed renewals?
+                </button>
+              </h2>
+              <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="faq3"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  Instead of retrying failed cards on an arbitrary fixed cadence, our machine learning engine predicts
+                  optimal retry timestamps based on issuing bank batch windows, cardholder pay cycles, and decline error
+                  codes, recovering up to 43% of involuntary churn.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faq4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                  Are hosted checkout elements and card fields PCI-DSS Level 1 compliant?
+                </button>
+              </h2>
+              <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="faq4"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  Yes. Card details are tokenized in sandboxed iframes directly against our PCI-DSS Level 1 certified
+                  vault. Sensitive card PANs and CVVs never touch your servers, keeping your compliance requirements
+                  limited to the simple SAQ A questionnaire.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faq5">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                  Can we route payments through multiple acquiring banks dynamically?
+                </button>
+              </h2>
+              <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="faq5"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  Yes! Our multi-acquiring engine uses automated routing logic that dynamically selects the optimal
+                  domestic processor based on issuing card BIN, transaction currency, and regional interchange cost,
+                  boosting authorization rates while eliminating cross-border fees.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faq6">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                  What test card numbers and sandbox environments are provided?
+                </button>
+              </h2>
+              <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="faq6"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  Our developer dashboard provides dedicated test cards to trigger successful authorizations, 3DS
+                  challenges, card-testing fraud flags, insufficient funds, and expired card scenarios, allowing you to
+                  simulate all real-world edge cases effortlessly.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faq7">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                  Do you support international currencies and localized payment methods?
+                </button>
+              </h2>
+              <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="faq7"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  Yes, PayFlowPro supports payments in 135+ currencies and over 40 localized payment methods, including
+                  SEPA Direct Debit, iDEAL, Bancontact, Giropay, Sofort, Pix, and ACH debit with automated unified
+                  settlement.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faq8">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                  What is your API latency and uptime SLA guarantee?
+                </button>
+              </h2>
+              <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="faq8"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  Our globally distributed API edge delivers a median response latency under 85 milliseconds worldwide,
+                  backed by a financially guaranteed 99.999% uptime Service Level Agreement (SLA) with real-time public
+                  status telemetry.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Conversion CTA (Matching General Services Standard) -->
+  <section class="section-py bg-primary-gradient text-white text-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9 col-xl-8">
+          <h2 class="display-5 fw-extrabold text-white mb-3">Ready to Scale Your Digital Business?</h2>
+          <p class="lead text-light mb-4 mx-auto" style="max-width: 660px;">
+            Join 15,000+ software companies, SaaS platforms, and modern engineering teams scaling with PayFlowPro.
+          </p>
+          <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="register.html" class="btn btn-light btn-lg">Start Building Free</a>
+            <a href="contact.html" class="btn btn-outline-white btn-lg">Talk to a Solutions Architect</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a href="index.html" class="footer-logo">
+            <div class="brand-icon"><i class="bi bi-shield-check"></i></div>
+            <span>PayFlow<span class="text-primary">Pro</span></span>
+          </a>
+          <p class="footer-desc">Commercial payment processing, smart terminals, and automated analytics for growing businesses worldwide.</p>
+          <div class="footer-social-links">
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" aria-label="LinkedIn" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-btn twitter" aria-label="X (Twitter)" title="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn facebook" aria-label="Facebook" title="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn instagram" aria-label="Instagram" title="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="social-btn youtube" aria-label="YouTube" title="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn github" aria-label="GitHub" title="GitHub"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5 class="footer-title">Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="solutions.html">Solutions</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title">Services</h5>
+          <ul class="footer-links">
+            <li><a href="services/payment-processing.html">Payment Processing</a></li>
+            <li><a href="services/pos-systems.html">Smart POS Systems</a></li>
+            <li><a href="services/online-payments.html">Online Payments</a></li>
+            <li><a href="services/mobile-payments.html">Mobile Payments</a></li>
+            <li><a href="services/payment-gateway.html">Payment Gateway</a></li>
+            <li><a href="services/recurring-billing.html">Recurring & Subscriptions</a></li>
+            <li><a href="services/fraud-protection.html">Fraud Protection & 3DS</a></li>
+            <li><a href="services/merchant-analytics.html">Merchant Analytics</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title">Stay Connected</h5>
+          <p class="small text-muted mb-3">Subscribe for interchange rate updates and fintech industry news.</p>
+          <form class="footer-newsletter-form">
+            <div class="d-flex flex-column flex-sm-row gap-2 w-100">
+              <input type="email" class="form-control" placeholder="Enter your email" required aria-label="Email address">
+              <button type="submit" class="btn btn-primary text-nowrap">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center">
+        <div>&copy; 2026 PayFlowPro Inc. All rights reserved.</div>
+        <div class="d-flex gap-3 align-items-center">
+          <span>Privacy Policy</span>
+          <span>Terms of Service</span>
+          <span>Security</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/rtl.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/validation.js"></script>
+
+  <!-- Interactive Terminal Multi-Language Tabs & Copy Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.terminal-lang-tab');
+      const copyBtn = document.getElementById('copyCodeBtn');
+
+      // Tab switcher
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const lang = tab.getAttribute('data-lang');
+
+          document.querySelectorAll('.code-snippet-panel').forEach(panel => {
+            panel.classList.add('d-none');
+          });
+
+          const activePanel = document.getElementById(`snippet-${lang}`);
+          if (activePanel) {
+            activePanel.classList.remove('d-none');
+          }
+        });
+      });
+
+      // Copy button
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          const activePanel = document.querySelector('.code-snippet-panel:not(.d-none)');
+          if (activePanel) {
+            const codeText = activePanel.textContent.trim();
+            navigator.clipboard.writeText(codeText).then(() => {
+              copyBtn.innerHTML = '<i class="bi bi-check-lg text-success"></i> <span class="text-success">Copied!</span>';
+              setTimeout(() => {
+                copyBtn.innerHTML = '<i class="bi bi-clipboard"></i> <span>Copy</span>';
+              }, 2000);
+            }).catch(() => {
+              // Fallback
+              const textarea = document.createElement('textarea');
+              textarea.value = codeText;
+              document.body.appendChild(textarea);
+              textarea.select();
+              document.execCommand('copy');
+              textarea.remove();
+              copyBtn.innerHTML = '<i class="bi bi-check-lg text-success"></i> <span class="text-success">Copied!</span>';
+              setTimeout(() => {
+                copyBtn.innerHTML = '<i class="bi bi-clipboard"></i> <span>Copy</span>';
+              }, 2000);
+            });
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

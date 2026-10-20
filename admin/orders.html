@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders Management - PayFlowPro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar"><div class="admin-sidebar-header"><a class="navbar-brand-logo text-white" href="../index.html"><div class="brand-icon"><i class="bi bi-shield-check"></i></div><span class="ms-2">PayFlow<span class="text-primary">Pro</span></span></a></div><ul class="admin-nav"><li class="admin-nav-item"><a class="admin-nav-link" href="index.html"><i class="bi bi-grid-fill"></i> <span>Dashboard</span></a></li><li class="admin-nav-item"><a class="admin-nav-link" href="transactions.html"><i class="bi bi-receipt-cutoff"></i> <span>Transactions</span></a></li><li class="admin-nav-item"><a class="admin-nav-link active" href="orders.html"><i class="bi bi-bag-check-fill"></i> <span>Orders</span></a></li><li class="admin-nav-item"><a class="admin-nav-link" href="customers.html"><i class="bi bi-people-fill"></i> <span>Customers</span></a></li><li class="admin-nav-item"><a class="admin-nav-link" href="settlements.html"><i class="bi bi-bank2"></i> <span>Settlements</span></a></li><li class="admin-nav-item"><a class="admin-nav-link" href="reports.html"><i class="bi bi-file-earmark-bar-graph-fill"></i> <span>Reports</span></a></li><li class="admin-nav-item"><a class="admin-nav-link" href="terminals.html"><i class="bi bi-terminal-fill"></i> <span>POS Terminals</span></a></li><li class="admin-nav-item"><a class="admin-nav-link" href="messages.html"><i class="bi bi-chat-left-text-fill"></i> <span>Support Tickets</span></a></li><li class="admin-nav-item"><a class="admin-nav-link" href="analytics.html"><i class="bi bi-graph-up-arrow"></i> <span>Analytics</span></a></li><li class="admin-nav-item"><a class="admin-nav-link" href="settings.html"><i class="bi bi-gear-fill"></i> <span>Settings</span></a></li></ul></aside>
+    <main class="admin-main">
+      <header class="admin-topbar"><h5 class="mb-0 fw-bold">Omnichannel Orders</h5><button class="btn btn-sm btn-light theme-toggle-btn"><i class="bi bi-moon-stars-fill"></i></button></header>
+      <div class="admin-content">
+        <div class="custom-card p-0 overflow-hidden">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-light"><tr><th class="px-4">Order ID</th><th>Customer</th><th>Channel</th><th>Items</th><th>Total</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td class="px-4 fw-bold">#ORD-9012</td><td>Michael Anderson</td><td>Retail POS Terminal #1</td><td>3 items</td><td class="fw-bold">$285.00</td><td><span class="badge-custom badge-success-subtle">Fulfilled</span></td></tr>
+              <tr><td class="px-4 fw-bold">#ORD-9011</td><td>Sophia Williams</td><td>Online Checkout</td><td>1 item</td><td class="fw-bold">$1,450.00</td><td><span class="badge-custom badge-primary-subtle">Processing</span></td></tr>
+              <tr><td class="px-4 fw-bold">#ORD-9010</td><td>Ethan Miller</td><td>Mobile Reader</td><td>2 items</td><td class="fw-bold">$94.20</td><td><span class="badge-custom badge-warning-subtle">Pending</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+</body>
+</html>

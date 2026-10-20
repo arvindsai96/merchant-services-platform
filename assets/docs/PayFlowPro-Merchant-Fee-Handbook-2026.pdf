@@ -1,0 +1,93 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Length 2108 >>
+stream
+BT
+/F1 18 Tf
+50 730 Td
+(PayFlowPro - 2026 Merchant Fee Handbook) Tj
+0 -24 Td
+/F2 10 Tf
+(Comprehensive 2026 Interchange Rate Tables and Statement Audit Guide) Tj
+0 -36 Td
+/F1 13 Tf
+(1. Executive Overview: Interchange-Plus vs Flat-Rate Pricing) Tj
+0 -18 Td
+/F2 10 Tf
+(Interchange-Plus pricing passes true wholesale card brand interchange costs through directly,) Tj
+0 -14 Td
+(supplemented by a fixed, transparent processor margin (e.g. +0.15% + $0.08 per transaction).) Tj
+0 -14 Td
+(Unlike blended flat rates (e.g. 2.9% + $0.30), interchange pricing preserves merchant profit margins) Tj
+0 -14 Td
+(by eliminating undisclosed non-qualified markups on debit and standard credit transactions.) Tj
+0 -28 Td
+/F1 13 Tf
+(2. 2026 Core Interchange Benchmark Schedules) Tj
+0 -18 Td
+/F2 10 Tf
+(  * Visa Consumer Swiped/Tap Core Credit: 1.51% + $0.10) Tj
+0 -14 Td
+(  * Visa Regulated Debit (Durbin Amendment Cap): 0.05% + $0.21 + $0.01 fraud prevention) Tj
+0 -14 Td
+(  * Mastercard Merit III Retail Base: 1.58% + $0.10) Tj
+0 -14 Td
+(  * Mastercard Regulated Debit: 0.05% + $0.22) Tj
+0 -14 Td
+(  * Discover Retail Electronic: 1.56% + $0.10) Tj
+0 -14 Td
+(  * American Express OptBlue Wholesale Tier 1: 1.60% + $0.10) Tj
+0 -14 Td
+(  * Commercial / B2B Level 2 & Level 3: 1.85% + $0.10 (Requires Itemized Tax Data)) Tj
+0 -28 Td
+/F1 13 Tf
+(3. Statement Forensic Audit Checklist: 5 Hidden Junk Fees to Eliminate) Tj
+0 -18 Td
+/F2 10 Tf
+(  [1] Tiered Downgrades: Non-Qualified surcharges ranging from 1.50% to 2.80% above base.) Tj
+0 -14 Td
+(  [2] Monthly PCI Non-Validation Fees: Penalties of $19.95 to $99.95 per MID per month.) Tj
+0 -14 Td
+(  [3] Batch Settlement Surcharges: Per-batch clearance fees exceeding $0.10.) Tj
+0 -14 Td
+(  [4] Inflated Gateway & Portal Surcharges: Markups exceeding standard $15-$25/mo gateway costs.) Tj
+0 -14 Td
+(  [5] Liquidated Damages & Early Termination: Cancellation penalties exceeding $295.) Tj
+0 -30 Td
+/F1 11 Tf
+(Published by PayFlowPro Underwriting & Payment Strategy Group) Tj
+0 -14 Td
+/F2 9 Tf
+(To request your free 24-hour forensic statement audit, contact audit@payflowpro.com) Tj
+ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000000326 00000 n 
+0000000396 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+2556
+%%EOF

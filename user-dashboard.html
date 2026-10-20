@@ -1,0 +1,2623 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merchant Dashboard - PayFlowPro</title>
+  <meta name="description" content="All-in-one unified merchant dashboard with live analytics, transactions, virtual terminal payments, settlement reports, and API configuration.">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="alternate icon" href="assets/images/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <style>
+    /* ==========================================================================
+       Dashboard Layout & Core Alignment
+       ========================================================================== */
+    .admin-layout {
+      display: flex;
+      min-height: 100vh;
+      width: 100%;
+      background-color: var(--light-surface);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Sidebar Navigation */
+    .admin-sidebar {
+      width: 270px;
+      min-width: 270px;
+      flex-shrink: 0;
+      background-color: var(--dark-midnight);
+      color: #94a3b8;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 1040;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .admin-sidebar-header {
+      height: 70px;
+      padding: 0 1.25rem;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      flex-shrink: 0;
+    }
+
+    .admin-sidebar .navbar-brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      line-height: 1;
+    }
+
+    .admin-sidebar .navbar-brand-logo .brand-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 10px rgba(0, 102, 255, 0.25);
+      flex-shrink: 0;
+    }
+
+    .admin-sidebar .navbar-brand-logo span {
+      display: inline-flex;
+      align-items: center;
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #ffffff !important;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .admin-sidebar .navbar-brand-logo .text-primary {
+      color: var(--secondary-color) !important;
+    }
+
+    .user-profile-widget {
+      padding: 1.15rem 1.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .user-avatar-badge {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      border-radius: 50%;
+      background: #ffffff;
+      color: var(--secondary-color);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+      line-height: 1;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      flex-shrink: 0;
+    }
+
+    .user-profile-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .user-profile-name {
+      color: #ffffff !important;
+      font-weight: 700;
+      font-size: 0.95rem;
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+
+    .user-profile-role,
+    .admin-sidebar .text-muted,
+    .admin-sidebar .sidebar-user-org {
+      color: #94a3b8 !important;
+      font-size: 0.78rem;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .user-sidebar-nav {
+      padding: 1.25rem 0.85rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      list-style: none;
+      margin: 0;
+    }
+
+    .user-sidebar-nav .nav-link,
+    .user-sidebar-nav .admin-nav-link {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      text-align: left !important;
+      gap: 0.85rem !important;
+      padding: 0.72rem 0.85rem !important;
+      color: #94a3b8 !important;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: all var(--transition-fast);
+      border: none !important;
+      background: transparent;
+      width: 100% !important;
+      text-decoration: none;
+      cursor: pointer;
+      line-height: 1.3;
+      white-space: nowrap;
+      box-sizing: border-box;
+    }
+
+    .user-sidebar-nav .nav-link span,
+    .user-sidebar-nav .admin-nav-link span {
+      color: inherit;
+      text-align: left;
+    }
+
+    .user-sidebar-nav .nav-link i,
+    .user-sidebar-nav .admin-nav-link i {
+      font-size: 1.15rem;
+      width: 24px;
+      min-width: 24px;
+      height: 24px;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center;
+      color: inherit;
+      flex-shrink: 0;
+      margin: 0 !important;
+    }
+
+    .user-sidebar-nav .nav-link:hover,
+    .user-sidebar-nav .admin-nav-link:hover {
+      color: #ffffff !important;
+      background-color: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    .user-sidebar-nav .nav-link.active {
+      color: #ffffff !important;
+      background-color: var(--secondary-color) !important;
+      box-shadow: 0 4px 14px rgba(0, 102, 255, 0.35);
+    }
+    .user-sidebar-nav .nav-link.active span,
+    .user-sidebar-nav .nav-link.active i {
+      color: #ffffff !important;
+    }
+
+    .user-sidebar-nav .admin-nav-link.text-danger {
+      color: #f87171 !important;
+    }
+    .user-sidebar-nav .admin-nav-link.text-danger:hover {
+      color: #ffffff !important;
+      background-color: rgba(239, 68, 68, 0.18) !important;
+    }
+
+    /* Main Content Area */
+    .admin-main {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      min-height: 100vh;
+      background-color: var(--light-surface);
+      color: var(--text-color);
+    }
+
+    /* Topbar Header */
+    .admin-topbar {
+      min-height: 70px;
+      height: auto;
+      padding: 0.75rem 1.75rem;
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      position: static;
+      box-shadow: var(--shadow-xs);
+    }
+    .admin-topbar h6 {
+      color: var(--heading-color);
+      line-height: 1.3;
+    }
+
+    /* Dashboard Inner Content */
+    .admin-content {
+      padding: 2rem 1.75rem;
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    /* Animations & Cards */
+    .tab-pane-animate {
+      animation: tabFade 0.25s ease-in-out;
+    }
+    @keyframes tabFade {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .stat-mini-card {
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-xs);
+    }
+    .stat-mini-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .stat-mini-card h3 {
+      color: var(--heading-color);
+    }
+
+    .terminal-specs-box {
+      background-color: var(--light-surface);
+      border: 1px solid var(--border-color);
+    }
+
+    /* RTL Alignment Rules */
+    [dir="rtl"] .admin-sidebar {
+      border-right: none;
+      border-left: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    [dir="rtl"] .user-sidebar-nav .nav-link,
+    [dir="rtl"] .user-sidebar-nav .admin-nav-link {
+      text-align: right !important;
+      justify-content: flex-start !important;
+    }
+
+    /* Desktop Sidebar Collapsed */
+    @media (min-width: 992px) {
+      .admin-layout.sidebar-collapsed .admin-sidebar {
+        margin-left: -270px;
+      }
+      [dir="rtl"] .admin-layout.sidebar-collapsed .admin-sidebar {
+        margin-left: 0;
+        margin-right: -270px;
+      }
+    }
+
+    /* Mobile Responsive Off-Canvas Drawer */
+    @media (max-width: 991.98px) {
+      .admin-sidebar {
+        position: fixed;
+        left: -270px;
+        top: 0;
+        bottom: 0;
+        height: 100vh;
+        box-shadow: 0 0 25px rgba(0,0,0,0.5);
+      }
+      [dir="rtl"] .admin-sidebar {
+        left: auto;
+        right: -270px;
+      }
+      .admin-layout.sidebar-open .admin-sidebar {
+        left: 0;
+      }
+      [dir="rtl"] .admin-layout.sidebar-open .admin-sidebar {
+        left: auto;
+        right: 0;
+      }
+      .admin-content {
+        padding: 1.25rem 1rem;
+      }
+      .admin-topbar {
+        padding: 0.65rem 0.85rem;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .admin-topbar {
+        min-height: auto;
+        padding: 0.6rem 0.65rem;
+        gap: 0.5rem;
+      }
+      .admin-topbar .admin-topbar-info h6 {
+        font-size: 0.92rem;
+      }
+      .admin-topbar .admin-topbar-info span {
+        font-size: 0.7rem !important;
+        display: block;
+        line-height: 1.35;
+      }
+      .admin-topbar .btn#sidebarToggle {
+        padding: 0.25rem 0.45rem;
+      }
+      .admin-topbar .header-util-btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+        min-width: 32px;
+        height: 32px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .admin-topbar {
+        flex-direction: column;
+        align-items: stretch !important;
+        padding: 0.65rem 0.5rem;
+        gap: 0.5rem;
+      }
+      .admin-topbar-left {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .admin-topbar-actions {
+        width: 100%;
+        justify-content: flex-end;
+        border-top: 1px solid var(--border-color);
+        padding-top: 0.45rem;
+      }
+      .admin-topbar .admin-topbar-info h6 {
+        font-size: 0.88rem;
+      }
+      .admin-topbar .admin-topbar-info span {
+        font-size: 0.68rem !important;
+      }
+    }
+
+    /* Mobile Backdrop Overlay */
+    .sidebar-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 13, 30, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 1035;
+    }
+    .admin-layout.sidebar-open .sidebar-backdrop {
+      display: block;
+    }
+
+
+    /* Inactive Sidebar Nav Item High Contrast */
+    .user-sidebar-nav .nav-link:not(.active),
+    .user-sidebar-nav .admin-nav-link:not(.text-danger) {
+      color: #cbd5e1 !important;
+    }
+    .user-sidebar-nav .nav-link:not(.active) i,
+    .user-sidebar-nav .admin-nav-link:not(.text-danger) i {
+      color: #94a3b8 !important;
+    }
+    .user-sidebar-nav .nav-link:not(.active):hover,
+    .user-sidebar-nav .admin-nav-link:not(.text-danger):hover {
+      color: #ffffff !important;
+      background-color: rgba(255, 255, 255, 0.12) !important;
+    }
+    .user-sidebar-nav .nav-link:not(.active):hover i,
+    .user-sidebar-nav .admin-nav-link:not(.text-danger):hover i {
+      color: #ffffff !important;
+    }
+
+    /* Topbar Controls & Contrast */
+    .admin-topbar .btn-light {
+      background-color: var(--light-surface);
+      border: 1px solid var(--border-color);
+      color: var(--heading-color);
+    }
+    .admin-topbar .btn-light:hover {
+      background-color: var(--border-color);
+    }
+
+    /* Card Titles & Headings */
+    .custom-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-xs);
+    }
+    .custom-card h5,
+    .custom-card h6 {
+      color: var(--heading-color);
+      font-weight: 700;
+    }
+
+    /* Secondary action buttons inside cards */
+    .custom-card .btn-outline-primary {
+      border-color: var(--secondary-color);
+      color: var(--secondary-color);
+    }
+    .custom-card .btn-outline-primary:hover {
+      background-color: var(--secondary-color);
+      color: #ffffff;
+    }
+    .custom-card .btn-outline-secondary {
+      border-color: var(--border-color);
+      color: var(--text-color);
+      background-color: var(--light-surface);
+    }
+    .custom-card .btn-outline-secondary:hover {
+      background-color: var(--border-color);
+      color: var(--heading-color);
+    }
+    .custom-card .btn-outline-info {
+      border-color: #0284c7;
+      color: #0284c7;
+    }
+    .custom-card .btn-outline-info:hover {
+      background-color: #0284c7;
+      color: #ffffff;
+    }
+
+    /* Form Controls & High-Contrast Input Groups */
+    .form-label {
+      color: #1e293b;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+      text-align: start;
+    }
+    .form-control, .form-select {
+      background-color: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #0f172a !important;
+      padding: 0.65rem 1rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      text-align: start;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    .form-control::placeholder {
+      color: #94a3b8 !important;
+      opacity: 1 !important;
+      font-weight: 400;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+      color: #0f172a !important;
+      background-color: #ffffff;
+    }
+    .input-group-text {
+      background-color: #f8fafc;
+      border: 1px solid #cbd5e1;
+      color: #475569;
+    }
+    .input-group > .form-control:not(:last-child) {
+      border-right: none;
+    }
+    .input-group > .input-group-text:not(:first-child),
+    .input-group > .toggle-cvv-btn:not(:first-child),
+    .input-group > .card-brand-btn:not(:first-child),
+    .input-group > .btn:not(:first-child) {
+      border-left: 1px solid #cbd5e1;
+    }
+    .input-group:focus-within > .form-control {
+      border-color: var(--secondary-color);
+    }
+    .input-group:focus-within > .input-group-text,
+    .input-group:focus-within > .toggle-cvv-btn,
+    .input-group:focus-within > .card-brand-btn,
+    .input-group:focus-within > .btn {
+      border-color: var(--secondary-color);
+    }
+    .card-brand-btn {
+      background-color: #f8fafc;
+      border: 1px solid #cbd5e1;
+      color: #475569;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 0.85rem;
+      transition: all 0.2s ease;
+    }
+    .card-brand-btn:hover {
+      background-color: #e2e8f0;
+      color: #0284c7;
+      border-color: #0284c7;
+    }
+    .card-brand-btn:active,
+    .card-brand-btn.card-brand-active {
+      transform: scale(0.92);
+      background-color: #dbeafe;
+      color: #0284c7;
+    }
+    .input-group > .btn-outline-secondary {
+      background-color: #f8fafc;
+      border: 1px solid #cbd5e1;
+      color: #475569;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 0.85rem;
+      transition: all 0.15s ease;
+    }
+    .input-group > .btn-outline-secondary:hover {
+      background-color: #e2e8f0;
+      border-color: #cbd5e1;
+      color: var(--secondary-color);
+    }
+    .toggle-cvv-btn {
+      background-color: #f8fafc;
+      border: 1px solid #cbd5e1;
+      color: #475569;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 0.85rem;
+      transition: all 0.15s ease;
+    }
+    .toggle-cvv-btn:hover {
+      background-color: #e2e8f0;
+      color: var(--secondary-color);
+    }
+    .terminal-specs-box {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+    }
+    .spec-label {
+      color: #334155;
+      font-weight: 500;
+    }
+    .spec-value {
+      color: #0f172a;
+      font-weight: 700;
+    }
+    .alert-info {
+      background-color: #f0f9ff;
+      border: 1px solid #bae6fd;
+      color: #0369a1;
+    }
+
+    /* Table Base & Light Mode Styles */
+    .table {
+      --bs-table-bg: transparent !important;
+      --bs-table-accent-bg: transparent !important;
+      --bs-table-color: var(--text-color) !important;
+      --bs-table-border-color: var(--border-color) !important;
+      background-color: transparent !important;
+      color: var(--text-color) !important;
+      border-color: var(--border-color) !important;
+      margin-bottom: 0;
+      vertical-align: middle;
+    }
+    .table > :not(caption) > * > * {
+      background-color: transparent !important;
+      box-shadow: none !important;
+      vertical-align: middle !important;
+      padding: 0.95rem 1rem !important;
+      color: var(--text-color);
+      border-bottom: 1px solid var(--border-color) !important;
+    }
+    .table thead.table-light th,
+    .table thead th {
+      background-color: #f1f5f9 !important;
+      color: #0a1128 !important;
+      font-weight: 700 !important;
+      font-size: 0.8rem !important;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 2px solid var(--border-color) !important;
+      border-top: none !important;
+      vertical-align: middle !important;
+      white-space: nowrap;
+    }
+    .table tbody td {
+      background-color: transparent !important;
+      color: #1e293b !important;
+      border-color: var(--border-color) !important;
+      vertical-align: middle !important;
+      font-size: 0.88rem;
+    }
+    .table tbody td.font-monospace {
+      color: #0066ff !important;
+      font-weight: 700;
+    }
+    .table tbody td .text-muted,
+    .table tbody td.text-muted {
+      color: #64748b !important;
+    }
+    .table tbody tr:hover > * {
+      background-color: rgba(0, 102, 255, 0.04) !important;
+      color: #0a1128 !important;
+    }
+    .table .badge-custom,
+    .stat-mini-card .badge-custom {
+      margin-bottom: 0 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 0.35rem 0.75rem !important;
+      font-size: 0.78rem !important;
+      font-weight: 700 !important;
+      line-height: 1 !important;
+      border-radius: var(--radius-full);
+      vertical-align: middle !important;
+    }
+    .table .btn-sm {
+      padding: 0.35rem 0.85rem !important;
+      font-size: 0.78rem !important;
+      font-weight: 600 !important;
+      line-height: 1.25 !important;
+      border-radius: var(--radius-xs);
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      vertical-align: middle !important;
+      border: 1px solid var(--border-color) !important;
+      color: #334155 !important;
+      background-color: #ffffff !important;
+      transition: all var(--transition-fast);
+    }
+    .table .btn-sm:hover {
+      background-color: var(--secondary-color) !important;
+      border-color: var(--secondary-color) !important;
+      color: #ffffff !important;
+    }
+    #tableSearchInput,
+    #statusFilterSelect {
+      height: 38px;
+      font-size: 0.85rem;
+      border-radius: var(--radius-sm);
+    }
+    #tableSearchInput {
+      min-width: 220px;
+      padding: 0.375rem 0.75rem;
+      line-height: 1.5;
+    }
+    #statusFilterSelect {
+      min-width: 140px;
+      padding: 0.375rem 2.25rem 0.375rem 0.85rem !important;
+      line-height: 1.5 !important;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23475569' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+      background-repeat: no-repeat !important;
+      background-position: right 0.75rem center !important;
+      background-size: 14px 10px !important;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      cursor: pointer;
+    }
+
+    /* Badge Subtle Color Grading in Light Mode */
+    .badge-primary-subtle {
+      background-color: #eff6ff !important;
+      color: #1d4ed8 !important;
+      border: 1px solid #bfdbfe !important;
+    }
+    .badge-success-subtle {
+      background-color: #ecfdf5 !important;
+      color: #047857 !important;
+      border: 1px solid #a7f3d0 !important;
+    }
+    .badge-warning-subtle {
+      background-color: #fffbeb !important;
+      color: #b45309 !important;
+      border: 1px solid #fde68a !important;
+    }
+    .badge-danger-subtle {
+      background-color: #fef2f2 !important;
+      color: #b91c1c !important;
+      border: 1px solid #fecaca !important;
+    }
+    .badge-info-subtle {
+      background-color: #f0f9ff !important;
+      color: #0369a1 !important;
+      border: 1px solid #bae6fd !important;
+    }
+
+    /* Dark Mode Dashboard Specifics */
+    [data-theme="dark"] .admin-main {
+      background-color: var(--body-bg);
+      color: var(--text-color);
+    }
+    [data-theme="dark"] .admin-topbar {
+      background-color: var(--card-bg);
+      border-bottom-color: var(--border-color);
+    }
+    [data-theme="dark"] .admin-topbar h6 {
+      color: #ffffff !important;
+    }
+    [data-theme="dark"] .admin-topbar .text-muted {
+      color: #94a3b8 !important;
+    }
+    [data-theme="dark"] .admin-topbar .btn-light {
+      background-color: #101c3d;
+      border-color: var(--border-color);
+      color: #ffffff;
+    }
+    [data-theme="dark"] .admin-topbar .btn-light:hover {
+      background-color: #1a284e;
+    }
+    [data-theme="dark"] .custom-card {
+      background-color: var(--card-bg) !important;
+      border-color: var(--border-color) !important;
+      color: var(--text-color);
+    }
+    [data-theme="dark"] .custom-card h5,
+    [data-theme="dark"] .custom-card h6 {
+      color: #ffffff !important;
+    }
+    [data-theme="dark"] .custom-card .text-muted {
+      color: #94a3b8 !important;
+    }
+    [data-theme="dark"] .stat-mini-card {
+      background-color: var(--card-bg) !important;
+      border-color: var(--border-color) !important;
+    }
+    [data-theme="dark"] .stat-mini-card h3 {
+      color: #ffffff !important;
+    }
+    [data-theme="dark"] .terminal-specs-box {
+      background-color: #070e20 !important;
+      border: 1px solid #1a284e !important;
+      border-radius: 8px;
+    }
+    [data-theme="dark"] .spec-label {
+      color: #94a3b8 !important;
+    }
+    [data-theme="dark"] .spec-value {
+      color: #ffffff !important;
+    }
+    [data-theme="dark"] .form-label {
+      color: #f1f5f9 !important;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+      text-align: start;
+    }
+    [data-theme="dark"] .form-control {
+      background-color: #070f23 !important;
+      border: 1px solid #1e3366 !important;
+      color: #ffffff !important;
+      padding: 0.65rem 1rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      text-align: start;
+    }
+    [data-theme="dark"] .form-control:focus {
+      background-color: #0b1735 !important;
+      color: #ffffff !important;
+      border-color: #00d2ff !important;
+      box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.25) !important;
+    }
+    [data-theme="dark"] .form-control::placeholder {
+      color: #94a3b8 !important;
+      opacity: 0.65 !important;
+      font-weight: 400;
+    }
+    [data-theme="dark"] .form-control[readonly] {
+      background-color: #050a18 !important;
+      color: #94a3b8 !important;
+      border-color: #162447 !important;
+    }
+    [data-theme="dark"] .input-group-text {
+      background-color: #0c1836 !important;
+      border: 1px solid #1e3366 !important;
+      color: #94a3b8 !important;
+    }
+    [data-theme="dark"] .input-group > .form-control:not(:last-child) {
+      border-right: none !important;
+    }
+    [data-theme="dark"] .input-group > .input-group-text:not(:first-child),
+    [data-theme="dark"] .input-group > .toggle-cvv-btn:not(:first-child),
+    [data-theme="dark"] .input-group > .card-brand-btn:not(:first-child),
+    [data-theme="dark"] .input-group > .btn:not(:first-child) {
+      border-left: 1px solid #1e3366 !important;
+    }
+    [data-theme="dark"] .input-group:focus-within > .form-control {
+      border-color: #00d2ff !important;
+    }
+    [data-theme="dark"] .input-group:focus-within > .input-group-text,
+    [data-theme="dark"] .input-group:focus-within > .toggle-cvv-btn,
+    [data-theme="dark"] .input-group:focus-within > .card-brand-btn,
+    [data-theme="dark"] .input-group:focus-within > .btn {
+      border-color: #00d2ff !important;
+    }
+    [data-theme="dark"] .card-brand-btn {
+      background-color: #0c1836 !important;
+      border: 1px solid #1e3366 !important;
+      color: #94a3b8 !important;
+      cursor: pointer;
+    }
+    [data-theme="dark"] .card-brand-btn:hover {
+      background-color: #13244d !important;
+      border-color: #00d2ff !important;
+      color: #00d2ff !important;
+    }
+    [data-theme="dark"] .card-brand-btn:active,
+    [data-theme="dark"] .card-brand-btn.card-brand-active {
+      background-color: #1a2f64 !important;
+      border-color: #00d2ff !important;
+      color: #00d2ff !important;
+      transform: scale(0.92);
+    }
+    [data-theme="dark"] .input-group > .btn-outline-secondary {
+      background-color: #0c1836 !important;
+      border: 1px solid #1e3366 !important;
+      color: #94a3b8 !important;
+    }
+    [data-theme="dark"] .input-group > .btn-outline-secondary:hover {
+      background-color: #13244d !important;
+      border-color: #00d2ff !important;
+      color: #00d2ff !important;
+    }
+    [data-theme="dark"] .toggle-cvv-btn {
+      background-color: #0c1836 !important;
+      border: 1px solid #1e3366 !important;
+      color: #94a3b8 !important;
+    }
+    [data-theme="dark"] .toggle-cvv-btn:hover {
+      background-color: #13244d !important;
+      border-color: #00d2ff !important;
+      color: #00d2ff !important;
+    }
+    [data-theme="dark"] .alert-info {
+      background-color: rgba(0, 102, 255, 0.14) !important;
+      border-color: rgba(0, 210, 255, 0.28) !important;
+      color: #7dd3fc !important;
+    }
+    [data-theme="dark"] .custom-card .btn-outline-secondary {
+      background-color: #0c1836 !important;
+      border-color: #1e3366 !important;
+      color: #cbd5e1 !important;
+    }
+    [data-theme="dark"] .custom-card .btn-outline-secondary:hover {
+      background-color: var(--secondary-color) !important;
+      border-color: var(--secondary-color) !important;
+      color: #ffffff !important;
+    }
+    [data-theme="dark"] #tableSearchInput {
+      background-color: #070d1e !important;
+      border-color: #1a284e !important;
+      color: #ffffff !important;
+    }
+    [data-theme="dark"] #tableSearchInput::placeholder {
+      color: #94a3b8 !important;
+      opacity: 0.9 !important;
+    }
+    [data-theme="dark"] #statusFilterSelect {
+      background-color: #070d1e !important;
+      border-color: #1a284e !important;
+      color: #ffffff !important;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%2394a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+      background-repeat: no-repeat !important;
+      background-position: right 0.75rem center !important;
+      background-size: 14px 10px !important;
+    }
+    [data-theme="dark"] #statusFilterSelect option {
+      background-color: #0e1a38 !important;
+      color: #ffffff !important;
+    }
+
+    /* Dark Mode Table Reset & High-Contrast Typography */
+    [data-theme="dark"] .table {
+      --bs-table-bg: transparent !important;
+      --bs-table-accent-bg: transparent !important;
+      --bs-table-color: #f8fafc !important;
+      --bs-table-border-color: #1a284e !important;
+      background-color: transparent !important;
+      color: #f8fafc !important;
+      border-color: #1a284e !important;
+    }
+    [data-theme="dark"] .table > :not(caption) > * > * {
+      background-color: transparent !important;
+      box-shadow: none !important;
+      color: #f8fafc !important;
+      border-color: #1a284e !important;
+      vertical-align: middle !important;
+      padding: 0.95rem 1rem !important;
+    }
+    [data-theme="dark"] .table thead.table-light th,
+    [data-theme="dark"] .table thead th {
+      background-color: #070d1e !important;
+      color: #cbd5e1 !important;
+      border-bottom: 2px solid #1a284e !important;
+      border-top: none !important;
+    }
+    [data-theme="dark"] .table tbody td {
+      background-color: transparent !important;
+      color: #ffffff !important;
+      border-color: #1a284e !important;
+    }
+    [data-theme="dark"] .table tbody td.font-monospace {
+      color: #60a5fa !important;
+      font-weight: 700;
+    }
+    [data-theme="dark"] .table tbody td .text-muted,
+    [data-theme="dark"] .table tbody td.text-muted {
+      color: #94a3b8 !important;
+    }
+    [data-theme="dark"] .table-hover > tbody > tr:hover > *,
+    [data-theme="dark"] .table tbody tr:hover > * {
+      background-color: rgba(0, 102, 255, 0.15) !important;
+      color: #ffffff !important;
+    }
+    [data-theme="dark"] .table .btn-sm,
+    [data-theme="dark"] .table .btn-outline-secondary {
+      background-color: #101c3d !important;
+      border-color: #1e3061 !important;
+      color: #e2e8f0 !important;
+    }
+    [data-theme="dark"] .table .btn-sm:hover,
+    [data-theme="dark"] .table .btn-outline-secondary:hover {
+      background-color: var(--secondary-color) !important;
+      border-color: var(--secondary-color) !important;
+      color: #ffffff !important;
+    }
+    [data-theme="dark"] .text-success,
+    [data-theme="dark"] .table .text-success {
+      color: #34d399 !important;
+    }
+    [data-theme="dark"] .text-danger,
+    [data-theme="dark"] .table .text-danger {
+      color: #f87171 !important;
+    }
+    [data-theme="dark"] .text-primary,
+    [data-theme="dark"] .table .text-primary {
+      color: #60a5fa !important;
+    }
+    [data-theme="dark"] .text-warning,
+    [data-theme="dark"] .table .text-warning {
+      color: #fbbf24 !important;
+    }
+    [data-theme="dark"] .text-info,
+    [data-theme="dark"] .table .text-info {
+      color: #38bdf8 !important;
+    }
+    [data-theme="dark"] .form-check-label {
+      color: #f8fafc !important;
+    }
+    [data-theme="dark"] .form-select {
+      background-color: #0a1329;
+      border-color: var(--border-color);
+      color: #f8fafc;
+    }
+    [data-theme="dark"] .badge-primary-subtle {
+      background-color: rgba(0, 102, 255, 0.2) !important;
+      color: #60a5fa !important;
+      border: 1px solid rgba(96, 165, 250, 0.35) !important;
+    }
+    [data-theme="dark"] .badge-success-subtle {
+      background-color: rgba(16, 185, 129, 0.2) !important;
+      color: #34d399 !important;
+      border: 1px solid rgba(52, 211, 153, 0.35) !important;
+    }
+    [data-theme="dark"] .badge-info-subtle {
+      background-color: rgba(59, 130, 246, 0.2) !important;
+      color: #93c5fd !important;
+      border: 1px solid rgba(147, 197, 253, 0.35) !important;
+    }
+    [data-theme="dark"] .badge-danger-subtle {
+      background-color: rgba(239, 68, 68, 0.2) !important;
+      color: #f87171 !important;
+      border: 1px solid rgba(248, 113, 113, 0.35) !important;
+    }
+    [data-theme="dark"] .badge-warning-subtle {
+      background-color: rgba(245, 158, 11, 0.2) !important;
+      color: #fbbf24 !important;
+      border: 1px solid rgba(251, 191, 36, 0.35) !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="admin-layout" id="userDashboardLayout">
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar" id="dashboardSidebar">
+      <!-- Sidebar Brand Header -->
+      <div class="admin-sidebar-header">
+        <a class="navbar-brand-logo text-white" href="index.html">
+          <div class="brand-icon"><i class="bi bi-shield-check"></i></div>
+          <span class="text-white">PayFlow<span class="text-primary">Pro</span></span>
+        </a>
+      </div>
+
+      <!-- Merchant Profile Section -->
+      <div class="user-profile-widget">
+        <img src="assets/images/testimonials/marcus-vance.jpg" alt="Marcus Vance" class="user-avatar-badge p-0 border-0" style="object-fit: cover;">
+        <div class="user-profile-info text-truncate">
+          <div class="user-profile-name text-truncate">Marcus Vance</div>
+          <div class="user-profile-role text-truncate">Northstar Retail LLC</div>
+        </div>
+      </div>
+
+      <ul class="admin-nav user-sidebar-nav nav flex-column" id="dashboardTabList" role="tablist">
+        <li class="admin-nav-item">
+          <button class="nav-link admin-nav-link active" id="tab-overview" data-bs-toggle="pill" data-bs-target="#panel-overview" type="button" role="tab">
+            <i class="bi bi-grid-fill"></i> <span>Overview & Stats</span>
+          </button>
+        </li>
+        <li class="admin-nav-item">
+          <button class="nav-link admin-nav-link" id="tab-transactions" data-bs-toggle="pill" data-bs-target="#panel-transactions" type="button" role="tab">
+            <i class="bi bi-receipt-cutoff"></i> <span>Live Transactions</span>
+          </button>
+        </li>
+        <li class="admin-nav-item">
+          <button class="nav-link admin-nav-link" id="tab-terminal" data-bs-toggle="pill" data-bs-target="#panel-terminal" type="button" role="tab">
+            <i class="bi bi-credit-card-2-front-fill"></i> <span>Virtual Terminal</span>
+          </button>
+        </li>
+        <li class="admin-nav-item">
+          <button class="nav-link admin-nav-link" id="tab-settlements" data-bs-toggle="pill" data-bs-target="#panel-settlements" type="button" role="tab">
+            <i class="bi bi-bank2"></i> <span>Payouts & Settlements</span>
+          </button>
+        </li>
+        <li class="admin-nav-item">
+          <button class="nav-link admin-nav-link" id="tab-apikeys" data-bs-toggle="pill" data-bs-target="#panel-apikeys" type="button" role="tab">
+            <i class="bi bi-key-fill"></i> <span>API Keys & Webhooks</span>
+          </button>
+        </li>
+        <li class="admin-nav-item">
+          <button class="nav-link admin-nav-link" id="tab-settings" data-bs-toggle="pill" data-bs-target="#panel-settings" type="button" role="tab">
+            <i class="bi bi-gear-fill"></i> <span>Merchant Settings</span>
+          </button>
+        </li>
+
+        <li class="admin-nav-item mt-4 pt-3 border-top border-white border-opacity-10">
+          <a class="admin-nav-link" href="index.html">
+            <i class="bi bi-house-door-fill"></i> <span>Return to Website</span>
+          </a>
+        </li>
+        <li class="admin-nav-item">
+          <a class="admin-nav-link text-danger" href="login.html">
+            <i class="bi bi-box-arrow-left"></i> <span>Log Out</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-main">
+      <!-- Topbar Header -->
+      <header class="admin-topbar">
+        <div class="d-flex align-items-center gap-2 gap-sm-3 admin-topbar-left">
+          <button class="btn btn-sm btn-light flex-shrink-0" id="sidebarToggle" title="Toggle Sidebar">
+            <i class="bi bi-list fs-5"></i>
+          </button>
+          <div class="admin-topbar-info min-w-0">
+            <h6 class="mb-0 fw-bold">Merchant Dashboard</h6>
+            <span class="text-muted" style="font-size: 0.75rem;">Account MID: #8492-9102-4820 • Level-1 PCI Compliant</span>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-2 admin-topbar-actions">
+          <button class="header-util-btn rtl-toggle-btn" title="Toggle RTL/LTR" type="button">RTL</button>
+          <button class="header-util-btn theme-toggle-btn" title="Toggle Light/Dark" type="button">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- Tab Content Area -->
+      <div class="admin-content">
+        <div class="tab-content" id="dashboardTabContent">
+
+          <!-- 1. OVERVIEW TAB -->
+          <div class="tab-pane fade show active tab-pane-animate" id="panel-overview" role="tabpanel">
+            <!-- 4 Metrics Row -->
+            <div class="row g-4 mb-4">
+              <div class="col-sm-6 col-xl-3">
+                <div class="custom-card p-4 stat-mini-card">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="text-muted small">Today's Gross Volume</span>
+                    <span class="badge-custom badge-success-subtle">+18.4%</span>
+                  </div>
+                  <h3 class="fw-bold mb-0 text-primary">$48,920.50</h3>
+                  <span class="text-muted" style="font-size: 0.75rem;">Auto-settles tomorrow 7:00 AM</span>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="custom-card p-4 stat-mini-card">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="text-muted small">Total Transactions</span>
+                    <span class="badge-custom badge-primary-subtle">1,482</span>
+                  </div>
+                  <h3 class="fw-bold mb-0">1,482</h3>
+                  <span class="text-muted" style="font-size: 0.75rem;">Avg: $33.01 / transaction</span>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="custom-card p-4 stat-mini-card">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="text-muted small">Approved Success Rate</span>
+                    <span class="badge-custom badge-success-subtle">99.8%</span>
+                  </div>
+                  <h3 class="fw-bold mb-0 text-success">1,479</h3>
+                  <span class="text-muted" style="font-size: 0.75rem;">Instant Authorization</span>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <div class="custom-card p-4 stat-mini-card">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="text-muted small">Active POS Terminals</span>
+                    <span class="badge-custom badge-info-subtle">48 / 48</span>
+                  </div>
+                  <h3 class="fw-bold mb-0 text-info">100%</h3>
+                  <span class="text-muted" style="font-size: 0.75rem;">Zero connectivity downtime</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="row g-4">
+              <div class="col-lg-8">
+                <div class="custom-card p-4 h-100">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0">Revenue Velocity Overview</h5>
+                    <span class="badge-custom badge-primary-subtle">Past 7 Days</span>
+                  </div>
+                  <div style="height: 280px; position: relative;">
+                    <canvas id="revenueChartCanvas"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4">
+                <div class="custom-card p-4 h-100">
+                  <h5 class="mb-3">Payment Methods Distribution</h5>
+                  <div style="height: 240px; position: relative;">
+                    <canvas id="paymentMethodCanvas"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. TRANSACTIONS TAB -->
+          <div class="tab-pane fade tab-pane-animate" id="panel-transactions" role="tabpanel">
+            <div class="custom-card p-4">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+                <div>
+                  <h5 class="mb-1">Live Transaction Ledger</h5>
+                  <p class="text-muted small mb-0">Real-time authorized payments, refunds, and batch status.</p>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <input type="text" id="tableSearchInput" class="form-control form-control-sm" placeholder="e.g. Search Michael Anderson or #TX-94821...">
+                  <select id="statusFilterSelect" class="form-select form-select-sm" style="min-width: 140px;">
+                    <option value="all">All Status</option>
+                    <option value="approved">Approved</option>
+                    <option value="declined">Declined</option>
+                    <option value="pending">Pending</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th>Tx ID</th>
+                      <th>Customer</th>
+                      <th>Method</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                      <th>Timestamp</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="filterable-row" data-status="approved">
+                      <td class="fw-bold font-monospace">#TX-94821</td>
+                      <td>Michael Anderson</td>
+                      <td><i class="bi bi-credit-card text-primary me-1"></i> Visa •• 4242</td>
+                      <td class="fw-bold text-success">$285.00</td>
+                      <td><span class="badge-custom badge-success-subtle">Approved</span></td>
+                      <td class="small text-muted">12:44 PM</td>
+                      <td><button class="btn btn-sm btn-outline-secondary" onclick="alert('Receipt #TX-94821 sent to customer.')">Receipt</button></td>
+                    </tr>
+                    <tr class="filterable-row" data-status="approved">
+                      <td class="fw-bold font-monospace">#TX-94820</td>
+                      <td>Sophia Williams</td>
+                      <td><i class="bi bi-apple me-1"></i> Apple Pay</td>
+                      <td class="fw-bold text-success">$1,450.00</td>
+                      <td><span class="badge-custom badge-success-subtle">Approved</span></td>
+                      <td class="small text-muted">12:40 PM</td>
+                      <td><button class="btn btn-sm btn-outline-secondary" onclick="alert('Receipt #TX-94820 sent to customer.')">Receipt</button></td>
+                    </tr>
+                    <tr class="filterable-row" data-status="declined">
+                      <td class="fw-bold font-monospace">#TX-94819</td>
+                      <td>Ethan Miller</td>
+                      <td><i class="bi bi-credit-card text-warning me-1"></i> Mastercard •• 8812</td>
+                      <td class="fw-bold text-danger">$94.20</td>
+                      <td><span class="badge-custom badge-danger-subtle">Declined</span></td>
+                      <td class="small text-muted">12:35 PM</td>
+                      <td><button class="btn btn-sm btn-outline-secondary" onclick="alert('Declined reason: Insufficient funds.')">Details</button></td>
+                    </tr>
+                    <tr class="filterable-row" data-status="pending">
+                      <td class="fw-bold font-monospace">#TX-94818</td>
+                      <td>Ava Thompson</td>
+                      <td><i class="bi bi-bank me-1"></i> ACH Direct Debit</td>
+                      <td class="fw-bold text-primary">$3,200.00</td>
+                      <td><span class="badge-custom badge-warning-subtle">Pending</span></td>
+                      <td class="small text-muted">12:20 PM</td>
+                      <td><button class="btn btn-sm btn-outline-secondary" onclick="alert('ACH clearing in progress.')">Status</button></td>
+                    </tr>
+                    <tr class="filterable-row" data-status="approved">
+                      <td class="fw-bold font-monospace">#TX-94817</td>
+                      <td>David Chen</td>
+                      <td><i class="bi bi-google text-danger me-1"></i> Google Pay</td>
+                      <td class="fw-bold text-success">$640.00</td>
+                      <td><span class="badge-custom badge-success-subtle">Approved</span></td>
+                      <td class="small text-muted">11:58 AM</td>
+                      <td><button class="btn btn-sm btn-outline-secondary" onclick="alert('Receipt #TX-94817 sent.')">Receipt</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. VIRTUAL TERMINAL TAB -->
+          <div class="tab-pane fade tab-pane-animate" id="panel-terminal" role="tabpanel">
+            <div class="row g-4 align-items-stretch">
+              <div class="col-lg-7 d-flex">
+                <div class="custom-card p-4 w-100">
+                  <h5 class="fw-bold mb-1">Virtual Terminal Card Charge</h5>
+                  <p class="text-muted small mb-4">Authorize a payment over phone, mail, or instant terminal charge.</p>
+
+                  <form id="vtForm" novalidate>
+                    <div id="vtSuccessAlert" class="alert alert-success d-none mb-3">
+                      <i class="bi bi-check-circle-fill me-2"></i> Payment of authorized amount processed successfully! Auth code: #AUTH-781920
+                    </div>
+                    <div id="vtErrorAlert" class="alert alert-danger d-none mb-3">
+                      <i class="bi bi-exclamation-triangle-fill me-2"></i> <span id="vtErrorAlertText">Invalid payment details.</span>
+                    </div>
+
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label for="vtAmountInput" class="form-label small fw-bold">Charge Amount ($ USD)</label>
+                        <input type="number" id="vtAmountInput" step="0.01" class="form-control" placeholder="e.g. 250.00" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="vtCardholderName" class="form-label small fw-bold">Cardholder Name</label>
+                        <input type="text" id="vtCardholderName" class="form-control" placeholder="e.g. Marcus Vance" required>
+                      </div>
+                      <div class="col-12">
+                        <label for="vtCardNumber" class="form-label small fw-bold">Card Number</label>
+                        <div class="input-group">
+                          <input type="text" id="vtCardNumber" class="form-control font-monospace" placeholder="e.g. 4532 8920 1928 3847" maxlength="19" inputmode="numeric" autocomplete="cc-number" required>
+                          <button type="button" class="btn input-group-text card-brand-btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="vtCardBrandBtn" title="Select card type" aria-label="Select card type">
+                            <i class="bi bi-credit-card-2-front" id="vtCardBrandIcon"></i>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end shadow p-2" id="vtCardDropdownMenu">
+                            <li><h6 class="dropdown-header small text-uppercase fw-bold text-muted px-2 py-1">Select Card Type</h6></li>
+                            <li><a class="dropdown-item d-flex align-items-center justify-content-between py-2 px-3 rounded card-dropdown-opt" href="#" data-card="visa">
+                              <span class="d-flex align-items-center gap-2"><i class="bi bi-credit-card-2-front-fill card-visa-color"></i> <span class="card-visa-color fw-semibold">Visa</span></span>
+                              <i class="bi bi-check2 card-visa-color d-none check-icon"></i>
+                            </a></li>
+                            <li><a class="dropdown-item d-flex align-items-center justify-content-between py-2 px-3 rounded card-dropdown-opt" href="#" data-card="mastercard">
+                              <span class="d-flex align-items-center gap-2"><i class="bi bi-credit-card-2-front-fill card-mastercard-color"></i> <span class="card-mastercard-color fw-semibold">Mastercard</span></span>
+                              <i class="bi bi-check2 card-mastercard-color d-none check-icon"></i>
+                            </a></li>
+                            <li><a class="dropdown-item d-flex align-items-center justify-content-between py-2 px-3 rounded card-dropdown-opt" href="#" data-card="amex">
+                              <span class="d-flex align-items-center gap-2"><i class="bi bi-credit-card-2-front-fill text-info"></i> <span>American Express</span></span>
+                              <i class="bi bi-check2 text-info d-none check-icon"></i>
+                            </a></li>
+                            <li><a class="dropdown-item d-flex align-items-center justify-content-between py-2 px-3 rounded card-dropdown-opt" href="#" data-card="discover">
+                              <span class="d-flex align-items-center gap-2"><i class="bi bi-credit-card-2-front-fill card-discover-color"></i> <span class="card-discover-color fw-semibold">Discover</span></span>
+                              <i class="bi bi-check2 card-discover-color d-none check-icon"></i>
+                            </a></li>
+                            <li><a class="dropdown-item d-flex align-items-center justify-content-between py-2 px-3 rounded card-dropdown-opt" href="#" data-card="jcb">
+                              <span class="d-flex align-items-center gap-2"><i class="bi bi-credit-card-2-front-fill text-danger"></i> <span>JCB International</span></span>
+                              <i class="bi bi-check2 text-danger d-none check-icon"></i>
+                            </a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="vtExpiryInput" class="form-label small fw-bold">Expiration (MM/YY)</label>
+                        <input type="text" id="vtExpiryInput" class="form-control font-monospace" placeholder="MM/YY (e.g. 10/28)" maxlength="5" inputmode="numeric" autocomplete="cc-exp" required>
+                        <div id="vtExpiryFeedback" class="invalid-feedback"></div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="vtCvvInput" class="form-label small fw-bold">CVV / CVC</label>
+                        <div class="input-group">
+                          <input type="password" id="vtCvvInput" class="form-control font-monospace" placeholder="e.g. 123" maxlength="4" inputmode="numeric" autocomplete="cc-csc" required>
+                          <button type="button" class="btn input-group-text toggle-cvv-btn" id="vtToggleCvvBtn" aria-label="Toggle CVV visibility" title="Show/Hide CVV">
+                            <i class="bi bi-eye" id="vtCvvIcon"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <button type="submit" id="vtSubmitBtn" class="btn btn-primary btn-lg w-100 mt-2">
+                          <i class="bi bi-shield-lock me-1"></i> Process Instant Charge
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <div class="col-lg-5 d-flex">
+                <div class="custom-card p-4 w-100 d-flex flex-column justify-content-between">
+                  <div>
+                    <h5 class="fw-bold mb-1">Terminal Specifications</h5>
+                    <p class="text-muted small mb-3">Gateway parameters & security standards.</p>
+                    <div class="p-3 terminal-specs-box mb-3">
+                      <div class="d-flex justify-content-between mb-2 small"><span class="spec-label">Interchange Tier:</span><span class="spec-value">Level 2 / Level 3 Data</span></div>
+                      <div class="d-flex justify-content-between mb-2 small"><span class="spec-label">AVS Check:</span><span class="text-success fw-bold">Active &amp; Verified</span></div>
+                      <div class="d-flex justify-content-between mb-2 small"><span class="spec-label">3D Secure 2.0:</span><span class="text-success fw-bold">Enabled</span></div>
+                      <div class="d-flex justify-content-between small"><span class="spec-label">Settlement Timing:</span><span class="spec-value">Next Business Day</span></div>
+                    </div>
+                  </div>
+                  <div class="alert alert-info small mb-0">
+                    <i class="bi bi-info-circle me-1"></i> All manual card entries are tokenized end-to-end with 256-bit encryption before transmission.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. SETTLEMENTS TAB -->
+          <div class="tab-pane fade tab-pane-animate" id="panel-settlements" role="tabpanel">
+            <div class="custom-card p-4">
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                  <h5 class="mb-1">Payout & Bank Settlement Schedule</h5>
+                  <p class="text-muted small mb-0">Direct ACH deposits linked to JPMorgan Chase (•••4820).</p>
+                </div>
+                <button class="btn btn-sm btn-outline-primary" id="exportSettlementCsvBtn" title="Export Settlement Report as CSV" type="button">
+                  <i class="bi bi-download me-1"></i> Export CSV
+                </button>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0" id="settlementScheduleTable">
+                  <thead class="table-light">
+                    <tr>
+                      <th>Settlement Batch</th>
+                      <th>Gross Volume</th>
+                      <th>Interchange & Fees</th>
+                      <th>Net Payout</th>
+                      <th>Status</th>
+                      <th>Settled Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="fw-bold font-monospace">#BATCH-2026-1008</td>
+                      <td>$54,210.00</td>
+                      <td class="text-muted">-$487.89</td>
+                      <td class="fw-bold text-success">$53,722.11</td>
+                      <td><span class="badge-custom badge-success-subtle">Deposited</span></td>
+                      <td>Today, 7:00 AM</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-bold font-monospace">#BATCH-2026-1007</td>
+                      <td>$42,880.50</td>
+                      <td class="text-muted">-$385.92</td>
+                      <td class="fw-bold text-success">$42,494.58</td>
+                      <td><span class="badge-custom badge-success-subtle">Deposited</span></td>
+                      <td>Oct 08, 2026</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-bold font-monospace">#BATCH-2026-1006</td>
+                      <td>$39,120.00</td>
+                      <td class="text-muted">-$352.08</td>
+                      <td class="fw-bold text-success">$38,767.92</td>
+                      <td><span class="badge-custom badge-success-subtle">Deposited</span></td>
+                      <td>Oct 07, 2026</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. API KEYS TAB -->
+          <div class="tab-pane fade tab-pane-animate" id="panel-apikeys" role="tabpanel">
+            <div class="row g-4 align-items-stretch">
+              <div class="col-lg-6 d-flex">
+                <div class="custom-card p-4 w-100 d-flex flex-column justify-content-between">
+                  <div>
+                    <h5 class="fw-bold mb-1">Developer API Credentials</h5>
+                    <p class="text-muted small mb-3">Use these production credentials to integrate PayFlowPro with your checkout, mobile app, or backend.</p>
+
+                    <div class="mb-3">
+                      <label class="form-label small fw-bold" for="livePubKey">Live Publishable Key</label>
+                      <div class="input-group">
+                        <input type="text" id="livePubKey" class="form-control font-monospace" value="pk_live_948291048201" readonly>
+                        <button class="btn btn-outline-secondary" type="button" onclick="copyText('livePubKey', this)" title="Copy Key" aria-label="Copy Live Publishable Key">
+                          <i class="bi bi-clipboard"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label small fw-bold" for="liveSecKey">Live Secret Key</label>
+                      <div class="input-group">
+                        <input type="password" id="liveSecKey" class="form-control font-monospace" value="sk_live_9948201948201" readonly>
+                        <button class="btn btn-outline-secondary" type="button" onclick="toggleSecField('liveSecKey', this)" title="Toggle Visibility" aria-label="Toggle Secret Key Visibility">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button class="btn btn-outline-secondary" type="button" onclick="copyText('liveSecKey', this)" title="Copy Key" aria-label="Copy Live Secret Key">
+                          <i class="bi bi-clipboard"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-4">
+                    <div class="d-flex align-items-center gap-2">
+                      <button class="btn btn-outline-primary btn-sm" type="button" id="btnRollSecretKey" onclick="rollSecretKey(this)">
+                        <i class="bi bi-arrow-repeat me-1"></i> Roll Secret Key
+                      </button>
+                    </div>
+                    <div id="rollKeyStatus" class="small text-success mt-2 d-none">
+                      <i class="bi bi-check-circle-fill me-1"></i> New secret key generated &amp; copied to clipboard!
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-6 d-flex">
+                <div class="custom-card p-4 w-100 d-flex flex-column justify-content-between">
+                  <div>
+                    <h5 class="fw-bold mb-1">Webhook Endpoints</h5>
+                    <p class="text-muted small mb-3">Receive instant server-to-server notifications for charge approvals, refunds, and dispute events.</p>
+
+                    <div class="mb-3">
+                      <label class="form-label small fw-bold" for="webhookDestUrl">Destination URL</label>
+                      <div class="input-group">
+                        <input type="url" id="webhookDestUrl" class="form-control" value="https://api.northstarretail.com/webhooks/payflow" readonly>
+                        <button class="btn btn-outline-secondary" type="button" onclick="copyText('webhookDestUrl', this)" title="Copy Destination URL" aria-label="Copy Destination URL">
+                          <i class="bi bi-clipboard"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label small fw-bold" for="webhookSignSecret">Signing Secret</label>
+                      <div class="input-group">
+                        <input type="password" id="webhookSignSecret" class="form-control font-monospace" value="whsec_981428019480129" readonly>
+                        <button class="btn btn-outline-secondary" type="button" onclick="toggleSecField('webhookSignSecret', this)" title="Toggle Visibility" aria-label="Toggle Signing Secret Visibility">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button class="btn btn-outline-secondary" type="button" onclick="copyText('webhookSignSecret', this)" title="Copy Signing Secret" aria-label="Copy Signing Secret">
+                          <i class="bi bi-clipboard"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2 mt-4">
+                    <button class="btn btn-outline-secondary btn-sm" type="button" id="btnTestWebhook" onclick="sendTestWebhook(this)">
+                      <i class="bi bi-send me-1"></i> Send Test Event
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. SETTINGS TAB -->
+          <div class="tab-pane fade tab-pane-animate" id="panel-settings" role="tabpanel">
+            <div class="row g-4">
+              <div class="col-lg-7">
+                <div class="custom-card p-4 h-100">
+                  <h5>Merchant Business Profile</h5>
+                  <form class="mt-3" id="merchantSettingsForm">
+                    <div id="profileSaveAlert" class="alert alert-success d-none py-2 px-3 small mb-3 align-items-center gap-2" role="alert">
+                      <i class="bi bi-check-circle-fill"></i> <span>Merchant profile settings saved successfully! Form cleared and ready for next entry.</span>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label small fw-bold" for="settingsLegalEntity">Business Legal Entity</label>
+                      <input type="text" id="settingsLegalEntity" class="form-control" placeholder="e.g. Northstar Retail LLC" value="">
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label small fw-bold" for="settingsEmail">Notification Email</label>
+                      <input type="email" id="settingsEmail" class="form-control" placeholder="e.g. marcus@northstarretail.com" value="">
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label small fw-bold" for="settingsPhone">Customer Support Phone</label>
+                      <input type="tel" id="settingsPhone" class="form-control" placeholder="e.g. +1 (800) 555-0199" value="">
+                    </div>
+                    <button type="submit" id="saveProfileBtn" class="btn btn-primary d-inline-flex align-items-center gap-2">
+                      <i class="bi bi-check2"></i> <span>Save Profile Settings</span>
+                    </button>
+                  </form>
+                </div>
+              </div>
+
+              <div class="col-lg-5">
+                <div class="custom-card p-4 h-100">
+                  <h5>Security & Notifications</h5>
+                  <div class="form-check form-switch mb-3 mt-3">
+                    <input class="form-check-input" type="checkbox" id="twoFaSwitch" checked>
+                    <label class="form-check-label small fw-bold" for="twoFaSwitch">Two-Factor Authentication (SMS/Auth App)</label>
+                  </div>
+                  <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" id="dailyReportSwitch" checked>
+                    <label class="form-check-label small fw-bold" for="dailyReportSwitch">Daily Settlement Summary Email</label>
+                  </div>
+                  <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" id="fraudAlertSwitch" checked>
+                    <label class="form-check-label small fw-bold" for="fraudAlertSwitch">Real-time Fraud Velocity Alert</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/rtl.js"></script>
+  <script>
+    // Tab switcher helper
+    function switchDashboardTab(tabId) {
+      const tabTrigger = document.getElementById(tabId);
+      if (tabTrigger) {
+        const tabInstance = new bootstrap.Tab(tabTrigger);
+        tabInstance.show();
+      }
+    }
+
+    // Copy to clipboard helper
+    function copyText(inputId, btn) {
+      const input = document.getElementById(inputId);
+      if (!input) return;
+      const copySuccess = () => {
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<i class="bi bi-check2 text-success"></i>';
+        setTimeout(() => {
+          btn.innerHTML = orig;
+        }, 2000);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(input.value).then(copySuccess).catch(() => {
+          input.select();
+          document.execCommand('copy');
+          copySuccess();
+        });
+      } else {
+        input.select();
+        document.execCommand('copy');
+        copySuccess();
+      }
+    }
+
+    // Toggle Secret Key Visibility
+    function toggleSecField(inputId, btn) {
+      const input = document.getElementById(inputId);
+      if (!input) return;
+      const icon = btn.querySelector('i');
+      if (input.type === 'password') {
+        input.type = 'text';
+        if (icon) {
+          icon.classList.remove('bi-eye');
+          icon.classList.add('bi-eye-slash');
+        }
+        btn.setAttribute('title', 'Hide');
+        btn.setAttribute('aria-label', 'Hide');
+      } else {
+        input.type = 'password';
+        if (icon) {
+          icon.classList.remove('bi-eye-slash');
+          icon.classList.add('bi-eye');
+        }
+        btn.setAttribute('title', 'Show');
+        btn.setAttribute('aria-label', 'Show');
+      }
+    }
+
+    // Send Test Webhook Event
+    function sendTestWebhook(btn) {
+      if (!btn) return;
+      const orig = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span> Dispatching...';
+      setTimeout(() => {
+        btn.innerHTML = '<i class="bi bi-check-circle-fill text-success me-1"></i> Webhook Event Sent (200 OK)';
+        setTimeout(() => {
+          btn.innerHTML = orig;
+          btn.disabled = false;
+        }, 2500);
+      }, 700);
+    }
+
+    // Roll Secret Key (non-intrusive, no alert popup)
+    function rollSecretKey(btn) {
+      const randomSuffix = Math.random().toString(36).substring(2, 12) + Math.random().toString(36).substring(2, 6);
+      const newSecret = 'sk_live_' + randomSuffix;
+      const secretInput = document.getElementById('liveSecKey');
+      if (secretInput) {
+        secretInput.value = newSecret;
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(newSecret).catch(() => {});
+      }
+
+      const statusEl = document.getElementById('rollKeyStatus');
+      if (statusEl) {
+        statusEl.classList.remove('d-none');
+        setTimeout(() => {
+          statusEl.classList.add('d-none');
+        }, 3000);
+      }
+
+      const targetBtn = btn || document.getElementById('btnRollSecretKey');
+      if (targetBtn) {
+        const origHtml = targetBtn.innerHTML;
+        targetBtn.innerHTML = '<i class="bi bi-check2 text-success me-1"></i> Key Rolled!';
+        targetBtn.classList.add('btn-outline-success');
+        targetBtn.classList.remove('btn-outline-primary');
+        setTimeout(() => {
+          targetBtn.innerHTML = origHtml;
+          targetBtn.classList.remove('btn-outline-success');
+          targetBtn.classList.add('btn-outline-primary');
+        }, 2200);
+      }
+    }
+
+    // Sidebar Toggle (Mobile Drawer & Desktop Collapse)
+    document.addEventListener('DOMContentLoaded', () => {
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      const adminLayout = document.getElementById('userDashboardLayout');
+      const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+
+      if (sidebarToggle && adminLayout) {
+        sidebarToggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (window.innerWidth < 992) {
+            adminLayout.classList.toggle('sidebar-open');
+          } else {
+            adminLayout.classList.toggle('sidebar-collapsed');
+          }
+        });
+      }
+
+      if (sidebarBackdrop && adminLayout) {
+        sidebarBackdrop.addEventListener('click', () => {
+          adminLayout.classList.remove('sidebar-open');
+        });
+      }
+
+      // Close mobile drawer when a tab is clicked
+      const sidebarLinks = document.querySelectorAll('.user-sidebar-nav .nav-link');
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth < 992 && adminLayout) {
+            adminLayout.classList.remove('sidebar-open');
+          }
+        });
+      });
+
+      // Chart Initializations
+      const getChartColors = (theme) => ({
+        primary: '#0066ff',
+        primaryFill: theme === 'dark' ? 'rgba(0, 102, 255, 0.15)' : 'rgba(0, 102, 255, 0.08)',
+        text: theme === 'dark' ? '#94a3b8' : '#64748b',
+        grid: theme === 'dark' ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0, 0, 0, 0.05)'
+      });
+
+      let revChart, methodChart;
+      function renderCharts() {
+        const theme = document.documentElement.getAttribute('data-theme') || 'light';
+        const colors = getChartColors(theme);
+
+        const revCanvas = document.getElementById('revenueChartCanvas');
+        if (revCanvas) {
+          if (revChart) revChart.destroy();
+          revChart = new Chart(revCanvas, {
+            type: 'line',
+            data: {
+              labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+              datasets: [{
+                label: 'Net Revenue ($)',
+                data: [12400, 18900, 15600, 24800, 31200, 48920, 42100],
+                borderColor: colors.primary,
+                backgroundColor: colors.primaryFill,
+                fill: true,
+                tension: 0.4
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: { legend: { display: false } },
+              scales: {
+                x: { grid: { color: colors.grid }, ticks: { color: colors.text } },
+                y: { grid: { color: colors.grid }, ticks: { color: colors.text, callback: (v) => '$' + v.toLocaleString() } }
+              }
+            }
+          });
+        }
+
+        const methodCanvas = document.getElementById('paymentMethodCanvas');
+        if (methodCanvas) {
+          if (methodChart) methodChart.destroy();
+          methodChart = new Chart(methodCanvas, {
+            type: 'doughnut',
+            data: {
+              labels: ['Visa / MC', 'Apple Pay', 'Google Pay', 'Amex', 'ACH Transfer'],
+              datasets: [{
+                data: [52, 24, 12, 8, 4],
+                backgroundColor: ['#0066ff', '#00d2ff', '#10b981', '#f59e0b', '#8b5cf6'],
+                borderWidth: 0
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: { position: 'bottom', labels: { color: colors.text, boxWidth: 12 } }
+              },
+              cutout: '70%'
+            }
+          });
+        }
+      }
+
+      renderCharts();
+      window.addEventListener('themeChanged', renderCharts);
+
+      // Search & Filter
+      const searchInput = document.getElementById('tableSearchInput');
+      const statusSelect = document.getElementById('statusFilterSelect');
+      const rows = document.querySelectorAll('.filterable-row');
+
+      function filterLedger() {
+        const q = (searchInput ? searchInput.value : '').toLowerCase().trim();
+        const s = statusSelect ? statusSelect.value : 'all';
+        rows.forEach(r => {
+          const txt = r.textContent.toLowerCase();
+          const st = r.getAttribute('data-status') || '';
+          r.style.display = (q === '' || txt.includes(q)) && (s === 'all' || st === s) ? '' : 'none';
+        });
+      }
+
+      if (searchInput) searchInput.addEventListener('input', filterLedger);
+      if (statusSelect) statusSelect.addEventListener('change', filterLedger);
+
+      // =======================================================================
+      // Virtual Terminal: Card Selection, Formatting, Validation & CVV Toggle
+      // =======================================================================
+      const cardInput = document.getElementById('vtCardNumber');
+      const brandBtn = document.getElementById('vtCardBrandBtn');
+      const brandIcon = document.getElementById('vtCardBrandIcon');
+      const expiryInput = document.getElementById('vtExpiryInput');
+      const cvvInput = document.getElementById('vtCvvInput');
+      const toggleCvvBtn = document.getElementById('vtToggleCvvBtn');
+      const cvvIcon = document.getElementById('vtCvvIcon');
+      const cardDropdownMenu = document.getElementById('vtCardDropdownMenu');
+
+      const supportedCards = {
+        visa: {
+          key: 'visa',
+          name: 'Visa',
+          placeholder: 'e.g. 4532 8920 1928 3847',
+          iconClass: 'bi bi-credit-card-2-front-fill card-visa-color'
+        },
+        mastercard: {
+          key: 'mastercard',
+          name: 'Mastercard',
+          placeholder: 'e.g. 5425 2334 3010 9823',
+          iconClass: 'bi bi-credit-card-2-front-fill card-mastercard-color'
+        },
+        amex: {
+          key: 'amex',
+          name: 'American Express',
+          placeholder: 'e.g. 3782 822463 10005',
+          iconClass: 'bi bi-credit-card-2-front-fill text-info'
+        },
+        discover: {
+          key: 'discover',
+          name: 'Discover',
+          placeholder: 'e.g. 6011 4520 1982 7392',
+          iconClass: 'bi bi-credit-card-2-front-fill card-discover-color'
+        },
+        jcb: {
+          key: 'jcb',
+          name: 'JCB International',
+          placeholder: 'e.g. 3528 1234 5678 9012',
+          iconClass: 'bi bi-credit-card-2-front-fill text-danger'
+        }
+      };
+
+      function updateActiveCardType(cardKey) {
+        if (cardDropdownMenu) {
+          cardDropdownMenu.querySelectorAll('.card-dropdown-opt').forEach(opt => {
+            const isMatch = opt.getAttribute('data-card') === cardKey;
+            const checkIcon = opt.querySelector('.check-icon');
+            if (isMatch) {
+              opt.classList.add('active');
+              if (checkIcon) checkIcon.classList.remove('d-none');
+            } else {
+              opt.classList.remove('active');
+              if (checkIcon) checkIcon.classList.add('d-none');
+            }
+          });
+        }
+      }
+
+      function selectCardType(cardKey) {
+        const card = supportedCards[cardKey];
+        if (!card) return;
+
+        updateActiveCardType(cardKey);
+
+        if (brandIcon) {
+          brandIcon.className = card.iconClass;
+        }
+
+        if (brandBtn) {
+          brandBtn.setAttribute('title', `Selected Card Type: ${card.name}`);
+        }
+
+        // Card number must be entered by the user - do not fill any suggested card number
+        if (cardInput) {
+          if (!cardInput.value) {
+            cardInput.placeholder = card.placeholder;
+          }
+          cardInput.focus();
+        }
+      }
+
+      // Handle dropdown options clicks
+      if (cardDropdownMenu) {
+        cardDropdownMenu.querySelectorAll('.card-dropdown-opt').forEach(opt => {
+          opt.addEventListener('click', (e) => {
+            e.preventDefault();
+            const key = opt.getAttribute('data-card');
+            selectCardType(key);
+          });
+        });
+      }
+
+      // 1. Card Number Formatting: "1234 5678 9012 3456"
+      if (cardInput) {
+        cardInput.addEventListener('keydown', (e) => {
+          const allowed = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter', 'Home', 'End'];
+          if (allowed.includes(e.key) || e.ctrlKey || e.metaKey) return;
+          if (!/^\d$/.test(e.key)) {
+            e.preventDefault();
+          }
+        });
+
+        cardInput.addEventListener('input', (e) => {
+          let digits = e.target.value.replace(/\D/g, '').substring(0, 16);
+          let formatted = '';
+          for (let i = 0; i < digits.length; i++) {
+            if (i > 0 && i % 4 === 0) formatted += ' ';
+            formatted += digits[i];
+          }
+          e.target.value = formatted;
+
+          // Network Brand Detection & active pill sync
+          let detectedKey = '';
+          if (digits.startsWith('4')) {
+            detectedKey = 'visa';
+          } else if (/^(?:5[1-5]|2[2-7])/.test(digits)) {
+            detectedKey = 'mastercard';
+          } else if (/^3[47]/.test(digits)) {
+            detectedKey = 'amex';
+          } else if (/^6(?:011|5)/.test(digits)) {
+            detectedKey = 'discover';
+          } else if (/^35/.test(digits)) {
+            detectedKey = 'jcb';
+          }
+
+          if (detectedKey && supportedCards[detectedKey]) {
+            if (brandIcon) brandIcon.className = supportedCards[detectedKey].iconClass;
+            updateActiveCardType(detectedKey);
+          } else {
+            if (brandIcon) brandIcon.className = 'bi bi-credit-card-2-front';
+            updateActiveCardType('');
+          }
+        });
+      }
+
+      // 2. Expiration Date Auto-Navigation & Calendar Validation (MM/YY)
+      const expiryFeedback = document.getElementById('vtExpiryFeedback');
+      const errorAlert = document.getElementById('vtErrorAlert');
+      const errorAlertText = document.getElementById('vtErrorAlertText');
+      const successAlert = document.getElementById('vtSuccessAlert');
+      const vtForm = document.getElementById('vtForm');
+      const amountInput = document.getElementById('vtAmountInput');
+      const cardholderInput = document.getElementById('vtCardholderName');
+
+      function shakeElement(el) {
+        if (!el) return;
+        el.classList.remove('shake-error');
+        void el.offsetWidth;
+        el.classList.add('shake-error');
+        setTimeout(() => el.classList.remove('shake-error'), 400);
+      }
+
+      function showExpiryError(msg) {
+        if (expiryInput) {
+          expiryInput.classList.remove('is-valid');
+          expiryInput.classList.add('is-invalid');
+        }
+        if (expiryFeedback) {
+          expiryFeedback.textContent = msg;
+          expiryFeedback.style.display = 'block';
+        }
+      }
+
+      function clearExpiryError() {
+        if (expiryInput) {
+          expiryInput.classList.remove('is-invalid');
+        }
+        if (expiryFeedback) {
+          expiryFeedback.textContent = '';
+          expiryFeedback.style.display = 'none';
+        }
+      }
+
+      function showFormError(msg) {
+        if (errorAlert && errorAlertText) {
+          errorAlertText.textContent = msg;
+          errorAlert.classList.remove('d-none');
+        }
+        if (successAlert) {
+          successAlert.classList.add('d-none');
+        }
+      }
+
+      function hideFormError() {
+        if (errorAlert) {
+          errorAlert.classList.add('d-none');
+        }
+      }
+
+      function validateExpiry(val, isStrict = false) {
+        const clean = val.replace(/\D/g, '');
+        if (clean.length === 0) {
+          return isStrict
+            ? { isValid: false, message: 'Please enter expiration date (MM/YY).', shouldClear: false }
+            : { isValid: true, message: '', shouldClear: false };
+        }
+
+        // Calendar Month Validation (01–12)
+        if (clean.length >= 2) {
+          const monthStr = clean.substring(0, 2);
+          const m = parseInt(monthStr, 10);
+          if (m === 0) {
+            return {
+              isValid: false,
+              message: "Invalid month: '00' does not exist in the calendar. Please enter 01–12.",
+              shouldClear: true
+            };
+          }
+          if (m === 34) {
+            return {
+              isValid: false,
+              message: "Invalid month: '34' does not exist in the calendar. Months are 01–12.",
+              shouldClear: true
+            };
+          }
+          if (m === 39) {
+            return {
+              isValid: false,
+              message: "Invalid calendar entry: '39' is not a valid month (01–12) or date (01–31).",
+              shouldClear: true
+            };
+          }
+          if (m > 12) {
+            return {
+              isValid: false,
+              message: `Invalid calendar month: '${monthStr}'. Month must be between 01 and 12.`,
+              shouldClear: true
+            };
+          }
+        }
+
+        // Calendar Year Validation (YY)
+        if (clean.length === 4) {
+          const m = parseInt(clean.substring(0, 2), 10);
+          const yearStr = clean.substring(2, 4);
+          const y = parseInt(yearStr, 10);
+          const now = new Date();
+          const curYear = now.getFullYear() % 100;
+          const curMonth = now.getMonth() + 1;
+
+          if (y < curYear) {
+            return {
+              isValid: false,
+              message: `Card expired: 20${yearStr} is in the past.`,
+              shouldClear: false
+            };
+          }
+          if (y === curYear && m < curMonth) {
+            return {
+              isValid: false,
+              message: `Card expired: ${clean.substring(0, 2)}/${yearStr} has already passed.`,
+              shouldClear: false
+            };
+          }
+          if (y > curYear + 25) {
+            return {
+              isValid: false,
+              message: `Invalid year: Expiration year cannot exceed 25 years into the future.`,
+              shouldClear: false
+            };
+          }
+          return { isValid: true, message: '', shouldClear: false };
+        }
+
+        if (isStrict) {
+          return { isValid: false, message: 'Please enter a complete expiration date in MM/YY format.', shouldClear: false };
+        }
+
+        return { isValid: true, message: '', shouldClear: false };
+      }
+
+      if (expiryInput) {
+        expiryInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace') {
+            const start = expiryInput.selectionStart;
+            const end = expiryInput.selectionEnd;
+            const val = expiryInput.value;
+
+            // If cursor right after slash: "MM/|"
+            if (start === end && start === 3 && val.endsWith('/')) {
+              e.preventDefault();
+              expiryInput.value = val.slice(0, 1);
+              clearExpiryError();
+              return;
+            }
+            // If cursor before slash: "MM|/"
+            if (start === end && start === 2 && val.charAt(2) === '/') {
+              e.preventDefault();
+              expiryInput.value = val.slice(0, 1);
+              clearExpiryError();
+              return;
+            }
+            return;
+          }
+
+          const allowed = ['Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter', 'Home', 'End'];
+          if (allowed.includes(e.key) || e.ctrlKey || e.metaKey) return;
+          if (!/^\d$/.test(e.key)) {
+            e.preventDefault();
+          }
+        });
+
+        expiryInput.addEventListener('input', (e) => {
+          if (e.inputType === 'deleteContentBackward') {
+            if (/^\d{2}$/.test(e.target.value)) {
+              e.target.value = e.target.value.slice(0, 1);
+              clearExpiryError();
+              return;
+            }
+          }
+
+          let raw = e.target.value.replace(/\D/g, '').substring(0, 4);
+          if (raw.length === 0) {
+            e.target.value = '';
+            clearExpiryError();
+            return;
+          }
+
+          let month = raw.substring(0, 2);
+          let year = raw.substring(2, 4);
+
+          if (month.length === 2) {
+            let mNum = parseInt(month, 10);
+            // Strict calendar month validation: does not accept or clamp invalid month
+            if (mNum === 0 || mNum > 12) {
+              let msg = mNum === 34 ? "Invalid month: '34' does not exist in the calendar. Months are 01–12." :
+                        mNum === 39 ? "Invalid calendar entry: '39' is not a valid month (01–12) or date (01–31)." :
+                        mNum === 0 ? "Invalid month: '00' does not exist in the calendar. Enter 01–12." :
+                        `Invalid calendar month: '${month}'. Month must be between 01 and 12.`;
+
+              showExpiryError(msg);
+              shakeElement(e.target);
+              e.target.value = month;
+              return;
+            }
+
+            // Valid month (01–12)
+            clearExpiryError();
+
+            if (raw.length === 2) {
+              e.target.value = month + '/';
+              setTimeout(() => {
+                e.target.setSelectionRange(3, 3);
+              }, 0);
+              return;
+            }
+
+            if (year.length === 1) {
+              e.target.value = month + '/' + year;
+              clearExpiryError();
+            } else if (year.length === 2) {
+              e.target.value = month + '/' + year;
+              const check = validateExpiry(e.target.value, false);
+              if (!check.isValid) {
+                showExpiryError(check.message);
+                shakeElement(e.target);
+              } else {
+                clearExpiryError();
+                e.target.classList.add('is-valid');
+              }
+            }
+          } else {
+            clearExpiryError();
+            e.target.value = month;
+          }
+        });
+
+        expiryInput.addEventListener('blur', (e) => {
+          let val = e.target.value.trim();
+          if (!val) {
+            clearExpiryError();
+            return;
+          }
+
+          if (val.length === 1 && /^\d$/.test(val)) {
+            let d = parseInt(val, 10);
+            if (d === 0) {
+              showExpiryError("Invalid month: '00' does not exist in the calendar.");
+              e.target.value = '';
+            } else {
+              e.target.value = '0' + d + '/';
+              clearExpiryError();
+            }
+            return;
+          }
+
+          if (/^\d{2}$/.test(val)) {
+            let m = parseInt(val, 10);
+            if (m === 0 || m > 12) {
+              let msg = m === 34 ? "Invalid month: '34' does not exist in the calendar." :
+                        m === 39 ? "Invalid calendar entry: '39' is not a valid month (01–12) or date (01–31)." :
+                        `Invalid month: '${val}' is not a valid calendar month (01–12).`;
+              showExpiryError(`${msg} Value rejected.`);
+              e.target.value = '';
+              return;
+            }
+            e.target.value = val + '/';
+            clearExpiryError();
+            return;
+          }
+
+          const check = validateExpiry(val, true);
+          if (!check.isValid) {
+            showExpiryError(check.message);
+            if (check.shouldClear) {
+              e.target.value = '';
+            }
+          } else {
+            clearExpiryError();
+            e.target.classList.add('is-valid');
+          }
+        });
+      }
+
+      // 3. CVV/CVC Digits Only (3-4 digits limit) & Visibility Toggle
+      if (cvvInput) {
+        cvvInput.addEventListener('keydown', (e) => {
+          const allowed = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter', 'Home', 'End'];
+          if (allowed.includes(e.key) || e.ctrlKey || e.metaKey) return;
+          if (!/^\d$/.test(e.key)) {
+            e.preventDefault();
+          }
+        });
+
+        cvvInput.addEventListener('input', (e) => {
+          e.target.value = e.target.value.replace(/\D/g, '').substring(0, 4);
+        });
+      }
+
+      if (toggleCvvBtn && cvvInput && cvvIcon) {
+        toggleCvvBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (cvvInput.type === 'password') {
+            cvvInput.type = 'text';
+            cvvIcon.classList.remove('bi-eye');
+            cvvIcon.classList.add('bi-eye-slash');
+            toggleCvvBtn.setAttribute('title', 'Hide CVV');
+            toggleCvvBtn.setAttribute('aria-label', 'Hide CVV');
+          } else {
+            cvvInput.type = 'password';
+            cvvIcon.classList.remove('bi-eye-slash');
+            cvvIcon.classList.add('bi-eye');
+            toggleCvvBtn.setAttribute('title', 'Show CVV');
+            toggleCvvBtn.setAttribute('aria-label', 'Show CVV');
+          }
+          cvvInput.focus();
+        });
+      }
+
+      // 4. Virtual Terminal Form Submission & Strict Validation
+      if (vtForm) {
+        vtForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          // Amount
+          const amt = parseFloat(amountInput ? amountInput.value : '0');
+          if (isNaN(amt) || amt <= 0) {
+            showFormError("Please enter a valid charge amount greater than $0.00.");
+            if (amountInput) {
+              amountInput.classList.add('is-invalid');
+              amountInput.focus();
+              shakeElement(amountInput);
+            }
+            return;
+          } else if (amountInput) {
+            amountInput.classList.remove('is-invalid');
+          }
+
+          // Cardholder Name
+          if (cardholderInput && !cardholderInput.value.trim()) {
+            showFormError("Please enter the cardholder's full legal name.");
+            cardholderInput.classList.add('is-invalid');
+            cardholderInput.focus();
+            shakeElement(cardholderInput);
+            return;
+          } else if (cardholderInput) {
+            cardholderInput.classList.remove('is-invalid');
+          }
+
+          // Card Number
+          const digits = cardInput ? cardInput.value.replace(/\D/g, '') : '';
+          if (digits.length < 15 || digits.length > 16) {
+            showFormError("Please enter a valid 15 or 16-digit card number.");
+            if (cardInput) {
+              cardInput.classList.add('is-invalid');
+              cardInput.focus();
+              shakeElement(cardInput);
+            }
+            return;
+          } else if (cardInput) {
+            cardInput.classList.remove('is-invalid');
+          }
+
+          // Expiry Date (calendar date & month validation)
+          const expVal = expiryInput ? expiryInput.value.trim() : '';
+          const expCheck = validateExpiry(expVal, true);
+          if (!expCheck.isValid) {
+            showExpiryError(expCheck.message);
+            showFormError(`Payment rejected: ${expCheck.message}`);
+            if (expiryInput) {
+              expiryInput.focus();
+              shakeElement(expiryInput);
+              if (expCheck.shouldClear) {
+                expiryInput.value = '';
+              }
+            }
+            return;
+          }
+
+          // CVV
+          const cvvVal = cvvInput ? cvvInput.value.trim() : '';
+          if (cvvVal.length < 3 || cvvVal.length > 4) {
+            showFormError("Please enter a valid 3 or 4-digit security code (CVV/CVC).");
+            if (cvvInput) {
+              cvvInput.classList.add('is-invalid');
+              cvvInput.focus();
+              shakeElement(cvvInput);
+            }
+            return;
+          } else if (cvvInput) {
+            cvvInput.classList.remove('is-invalid');
+          }
+
+          // All validations passed!
+          hideFormError();
+          if (successAlert) {
+            successAlert.classList.remove('d-none');
+            setTimeout(() => successAlert.classList.add('d-none'), 5000);
+          }
+
+          vtForm.reset();
+          updateActiveCardType('');
+          if (cardInput) cardInput.placeholder = 'e.g. 4532 8920 1928 3847';
+          if (expiryInput) expiryInput.classList.remove('is-valid', 'is-invalid');
+          if (cardInput) cardInput.classList.remove('is-valid', 'is-invalid');
+          if (cvvInput) cvvInput.classList.remove('is-valid', 'is-invalid');
+          if (amountInput) amountInput.classList.remove('is-valid', 'is-invalid');
+          if (cardholderInput) cardholderInput.classList.remove('is-valid', 'is-invalid');
+          if (brandIcon) brandIcon.className = 'bi bi-credit-card-2-front';
+          if (cvvInput && cvvInput.type === 'text') {
+            cvvInput.type = 'password';
+            if (cvvIcon) {
+              cvvIcon.classList.remove('bi-eye-slash');
+              cvvIcon.classList.add('bi-eye');
+            }
+            if (toggleCvvBtn) {
+              toggleCvvBtn.setAttribute('title', 'Show CVV');
+              toggleCvvBtn.setAttribute('aria-label', 'Show CVV');
+            }
+          }
+        });
+      }
+
+      // Merchant Business Profile Settings Save Handler
+      const settingsForm = document.getElementById('merchantSettingsForm');
+      const settingsAlert = document.getElementById('profileSaveAlert');
+      const saveProfileBtn = document.getElementById('saveProfileBtn');
+      const settingsLegalEntity = document.getElementById('settingsLegalEntity');
+      if (settingsForm) {
+        settingsForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          // Hide / clear entered user data, exposing lighter placeholders and preparing for next entry
+          settingsForm.reset();
+
+          if (saveProfileBtn) {
+            const originalHTML = saveProfileBtn.innerHTML;
+            saveProfileBtn.disabled = true;
+            saveProfileBtn.innerHTML = '<i class="bi bi-check-circle-fill"></i> <span>Saved! Ready for Next Entry</span>';
+            if (settingsAlert) {
+              settingsAlert.classList.remove('d-none');
+              settingsAlert.classList.add('d-flex');
+            }
+
+            // Immediately ready to receive next user entry
+            if (settingsLegalEntity) {
+              settingsLegalEntity.focus();
+            }
+
+            setTimeout(() => {
+              saveProfileBtn.disabled = false;
+              saveProfileBtn.innerHTML = originalHTML;
+              if (settingsAlert) {
+                settingsAlert.classList.add('d-none');
+                settingsAlert.classList.remove('d-flex');
+              }
+            }, 3000);
+          }
+        });
+      }
+
+      // ----------------------------------------------------------------------
+      // Settlement Table Excel/CSV Export Handler
+      // ----------------------------------------------------------------------
+      const exportCsvBtn = document.getElementById('exportSettlementCsvBtn');
+      if (exportCsvBtn) {
+        exportCsvBtn.addEventListener('click', () => {
+          try {
+            // Data records
+            const settlementRecords = [
+              {
+                batchId: '#BATCH-2026-1008',
+                gross: '$54,210.00',
+                fees: '-$487.89',
+                net: '$53,722.11',
+                status: 'Deposited',
+                settledDate: 'Today, 7:00 AM',
+                account: 'JPMorgan Chase (•••4820)',
+                acquirer: 'Visa / Mastercard Direct',
+                settlementType: 'Next-Day ACH Express'
+              },
+              {
+                batchId: '#BATCH-2026-1007',
+                gross: '$42,880.50',
+                fees: '-$385.92',
+                net: '$42,494.58',
+                status: 'Deposited',
+                settledDate: 'Oct 08, 2026',
+                account: 'JPMorgan Chase (•••4820)',
+                acquirer: 'Visa / Mastercard Direct',
+                settlementType: 'Next-Day ACH Express'
+              },
+              {
+                batchId: '#BATCH-2026-1006',
+                gross: '$39,120.00',
+                fees: '-$352.08',
+                net: '$38,767.92',
+                status: 'Deposited',
+                settledDate: 'Oct 07, 2026',
+                account: 'JPMorgan Chase (•••4820)',
+                acquirer: 'Visa / Mastercard Direct',
+                settlementType: 'Next-Day ACH Express'
+              }
+            ];
+
+            // Build an attractive, styled HTML-based Excel spreadsheet
+            // This format opens natively in Microsoft Excel, Google Sheets, Apple Numbers, LibreOffice with full CSS colors, borders, and typography
+            const excelTemplate = `
+              <html xmlns:o="urn:schemas-microsoft-com:office:office" 
+                    xmlns:x="urn:schemas-microsoft-com:office:excel" 
+                    xmlns="http://www.w3.org/TR/REC-html40">
+              <head>
+                <meta charset="utf-8">
+                <!--[if gte mso 9]>
+                <xml>
+                  <x:ExcelWorkbook>
+                    <x:ExcelWorksheets>
+                      <x:ExcelWorksheet>
+                        <x:Name>Settlement Schedule</x:Name>
+                        <x:WorksheetOptions>
+                          <x:DisplayGridlines/>
+                        </x:WorksheetOptions>
+                      </x:ExcelWorksheet>
+                    </x:ExcelWorksheets>
+                  </x:ExcelWorkbook>
+                </xml>
+                <![endif]-->
+                <style>
+                  body { font-family: 'Segoe UI', Calibri, Arial, sans-serif; font-size: 11pt; color: #1e293b; }
+                  .title-banner { background-color: #0b152d; color: #ffffff; font-size: 16pt; font-weight: bold; height: 42px; vertical-align: middle; padding-left: 12px; }
+                  .subtitle { background-color: #0b152d; color: #94a3b8; font-size: 10pt; height: 24px; vertical-align: middle; padding-left: 12px; }
+                  .meta-label { font-weight: bold; color: #475569; background-color: #f1f5f9; border: 1px solid #cbd5e1; padding: 6px; }
+                  .meta-val { color: #0f172a; background-color: #ffffff; border: 1px solid #cbd5e1; padding: 6px; }
+                  
+                  .kpi-title { font-size: 9pt; color: #64748b; font-weight: bold; text-transform: uppercase; background-color: #f8fafc; border: 1px solid #e2e8f0; padding: 6px; }
+                  .kpi-val { font-size: 13pt; font-weight: bold; color: #0066ff; background-color: #f8fafc; border: 1px solid #e2e8f0; padding: 6px; }
+                  .kpi-val-success { font-size: 13pt; font-weight: bold; color: #10b981; background-color: #f8fafc; border: 1px solid #e2e8f0; padding: 6px; }
+                  
+                  .th-header { background-color: #0066ff; color: #ffffff; font-weight: bold; font-size: 11pt; border: 1px solid #0052cc; height: 32px; vertical-align: middle; text-align: left; padding: 8px; }
+                  .th-header-num { background-color: #0066ff; color: #ffffff; font-weight: bold; font-size: 11pt; border: 1px solid #0052cc; height: 32px; vertical-align: middle; text-align: right; padding: 8px; }
+                  
+                  .td-batch { font-family: 'Consolas', 'Courier New', monospace; font-weight: bold; color: #0066ff; border: 1px solid #e2e8f0; padding: 8px; vertical-align: middle; }
+                  .td-text { color: #334155; border: 1px solid #e2e8f0; padding: 8px; vertical-align: middle; }
+                  .td-num { text-align: right; color: #0f172a; border: 1px solid #e2e8f0; padding: 8px; vertical-align: middle; }
+                  .td-fee { text-align: right; color: #ef4444; border: 1px solid #e2e8f0; padding: 8px; vertical-align: middle; }
+                  .td-net { text-align: right; font-weight: bold; color: #10b981; border: 1px solid #e2e8f0; padding: 8px; vertical-align: middle; }
+                  .td-status { text-align: center; font-weight: bold; color: #047857; background-color: #ecfdf5; border: 1px solid #a7f3d0; padding: 8px; vertical-align: middle; }
+                  
+                  .total-row { background-color: #f1f5f9; font-weight: bold; border-top: 2px solid #0066ff; border-bottom: 2px solid #0066ff; height: 30px; vertical-align: middle; }
+                  .total-net { color: #10b981; font-weight: bold; font-size: 12pt; text-align: right; }
+                  .footer-note { font-size: 9pt; color: #94a3b8; font-style: italic; }
+                </style>
+              </head>
+              <body>
+                <table>
+                  <!-- Brand Header -->
+                  <tr>
+                    <td colspan="7" class="title-banner">PayFlowPro &bull; Payout &amp; Bank Settlement Schedule</td>
+                  </tr>
+                  <tr>
+                    <td colspan="7" class="subtitle">Official Merchant Settlement Report &bull; Direct ACH Telemetry</td>
+                  </tr>
+                  <tr><td colspan="7"></td></tr>
+
+                  <!-- Metadata Details -->
+                  <tr>
+                    <td class="meta-label">Merchant Account ID:</td>
+                    <td class="meta-val">MID #8492-9102-4820</td>
+                    <td class="meta-label">Settlement Currency:</td>
+                    <td class="meta-val">USD ($)</td>
+                    <td class="meta-label">Export Date:</td>
+                    <td colspan="2" class="meta-val">${new Date().toLocaleString()}</td>
+                  </tr>
+                  <tr>
+                    <td class="meta-label">Bank Institution:</td>
+                    <td class="meta-val">JPMorgan Chase Bank, N.A.</td>
+                    <td class="meta-label">Routing Destination:</td>
+                    <td class="meta-val">ACH Direct &bull;&bull;&bull;4820</td>
+                    <td class="meta-label">Report Status:</td>
+                    <td colspan="2" class="meta-val" style="color: #047857; font-weight: bold;">Verified &amp; Cleared</td>
+                  </tr>
+                  <tr><td colspan="7"></td></tr>
+
+                  <!-- Executive KPI Summary Cards -->
+                  <tr>
+                    <td colspan="2" class="kpi-title">TOTAL GROSS PROCESSED</td>
+                    <td colspan="2" class="kpi-title">INTERCHANGE &amp; SCHEME FEES</td>
+                    <td colspan="3" class="kpi-title">NET SETTLED PAYOUT</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="kpi-val">$136,210.50</td>
+                    <td colspan="2" class="kpi-val" style="color: #ef4444;">-$1,225.89</td>
+                    <td colspan="3" class="kpi-val-success">$134,984.61</td>
+                  </tr>
+                  <tr><td colspan="7"></td></tr>
+
+                  <!-- Data Table Columns -->
+                  <thead>
+                    <tr>
+                      <th class="th-header" style="width: 170px;">Settlement Batch ID</th>
+                      <th class="th-header-num" style="width: 140px;">Gross Volume</th>
+                      <th class="th-header-num" style="width: 150px;">Interchange &amp; Fees</th>
+                      <th class="th-header-num" style="width: 150px;">Net Payout</th>
+                      <th class="th-header" style="text-align: center; width: 120px;">Payout Status</th>
+                      <th class="th-header" style="width: 150px;">Settled Date</th>
+                      <th class="th-header" style="width: 210px;">Deposit Destination</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${settlementRecords.map(item => `
+                      <tr>
+                        <td class="td-batch">${item.batchId}</td>
+                        <td class="td-num">${item.gross}</td>
+                        <td class="td-fee">${item.fees}</td>
+                        <td class="td-net">${item.net}</td>
+                        <td class="td-status">${item.status}</td>
+                        <td class="td-text">${item.settledDate}</td>
+                        <td class="td-text">${item.account}</td>
+                      </tr>
+                    `).join('')}
+                    <!-- Summary Totals Row -->
+                    <tr class="total-row">
+                      <td style="border: 1px solid #cbd5e1; padding: 8px;">Total (${settlementRecords.length} Batches)</td>
+                      <td class="td-num" style="font-weight: bold; border: 1px solid #cbd5e1;">$136,210.50</td>
+                      <td class="td-fee" style="font-weight: bold; border: 1px solid #cbd5e1;">-$1,225.89</td>
+                      <td class="total-net" style="border: 1px solid #cbd5e1;">$134,984.61</td>
+                      <td class="td-status" style="border: 1px solid #cbd5e1;">100% Deposited</td>
+                      <td colspan="2" class="td-text" style="border: 1px solid #cbd5e1; font-weight: bold; color: #64748b;">Daily Auto-Sweep Active</td>
+                    </tr>
+                  </tbody>
+                  <tr><td colspan="7"></td></tr>
+                  <tr>
+                    <td colspan="7" class="footer-note">
+                      * This document is generated for merchant financial reconciliations. All transactions cleared through PCI-DSS Level 1 certified gateway.
+                    </td>
+                  </tr>
+                </table>
+              </body>
+              </html>
+            `;
+
+            // Download file with proper Excel MIME type
+            const blob = new Blob([excelTemplate], { type: 'application/vnd.ms-excel;charset=utf-8;' });
+            const fileName = 'settlement_report.xls';
+
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+              window.navigator.msSaveOrOpenBlob(blob, fileName);
+            } else {
+              const url = URL.createObjectURL(blob);
+              const link = document.createElement('a');
+              link.setAttribute('href', url);
+              link.setAttribute('download', fileName);
+              link.style.display = 'none';
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+              setTimeout(() => URL.revokeObjectURL(url), 1000);
+            }
+
+            // Visual UI confirmation on button
+            const originalBtnHTML = exportCsvBtn.innerHTML;
+            exportCsvBtn.innerHTML = '<i class="bi bi-file-earmark-spreadsheet-fill me-1"></i> Excel Exported';
+            exportCsvBtn.classList.remove('btn-outline-primary');
+            exportCsvBtn.classList.add('btn-success');
+
+            setTimeout(() => {
+              exportCsvBtn.innerHTML = originalBtnHTML;
+              exportCsvBtn.classList.remove('btn-success');
+              exportCsvBtn.classList.add('btn-outline-primary');
+            }, 2500);
+
+          } catch (err) {
+            console.error('Error exporting settlement Excel report:', err);
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

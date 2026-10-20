@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Terminal & Charge - PayFlowPro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-header"><a class="navbar-brand-logo text-white" href="../index.html"><div class="brand-icon"><i class="bi bi-shield-check"></i></div><span class="ms-2">PayFlow<span class="text-primary">Pro</span></span></a></div>
+      <ul class="admin-nav">
+        <li class="admin-nav-item"><a class="admin-nav-link" href="index.html"><i class="bi bi-grid-fill"></i> <span>Dashboard</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="transactions.html"><i class="bi bi-receipt-cutoff"></i> <span>Transactions</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link active" href="payments.html"><i class="bi bi-credit-card-2-front-fill"></i> <span>Virtual Terminal</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="orders.html"><i class="bi bi-bag-check-fill"></i> <span>Orders</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="customers.html"><i class="bi bi-people-fill"></i> <span>Customers</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="settlements.html"><i class="bi bi-bank2"></i> <span>Settlements</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="reports.html"><i class="bi bi-file-earmark-bar-graph-fill"></i> <span>Reports</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="terminals.html"><i class="bi bi-terminal-fill"></i> <span>POS Terminals</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="messages.html"><i class="bi bi-chat-left-text-fill"></i> <span>Support Tickets</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="analytics.html"><i class="bi bi-graph-up-arrow"></i> <span>Analytics</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="settings.html"><i class="bi bi-gear-fill"></i> <span>Settings</span></a></li>
+      </ul>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <h5 class="mb-0 fw-bold">Virtual Terminal - Process Direct Charge</h5>
+        <button class="btn btn-sm btn-light theme-toggle-btn"><i class="bi bi-moon-stars-fill"></i></button>
+      </header>
+
+      <div class="admin-content">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="custom-card p-4 p-md-5">
+              <form id="admForm" novalidate>
+                <div id="admSuccessAlert" class="alert alert-success d-none mb-3">
+                  <i class="bi bi-check-circle-fill me-2"></i> Demo Charge Processed: $450.00 Approved. Auth code: #AUTH-992140
+                </div>
+                <div id="admErrorAlert" class="alert alert-danger d-none mb-3">
+                  <i class="bi bi-exclamation-triangle-fill me-2"></i> <span id="admErrorAlertText">Invalid payment details.</span>
+                </div>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="admAmountInput" class="form-label fw-bold small">Charge Amount ($ USD)</label>
+                    <input type="number" id="admAmountInput" step="0.01" class="form-control" placeholder="e.g. 250.00" value="" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="admCustomerName" class="form-label fw-bold small">Customer Name</label>
+                    <input type="text" id="admCustomerName" class="form-control" placeholder="e.g. Marcus Vance" value="" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="admCardNumber" class="form-label fw-bold small">Card Number</label>
+                    <div class="input-group">
+                      <input type="text" id="admCardNumber" class="form-control font-monospace" placeholder="e.g. 4532 8920 1928 3847" maxlength="19" inputmode="numeric" autocomplete="cc-number" required>
+                      <button type="button" class="btn input-group-text card-brand-btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="admCardBrandBtn" title="Select card type" aria-label="Select card type">
+                        <i class="bi bi-credit-card-2-front" id="admCardBrandIcon"></i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-end shadow p-2" id="admCardDropdownMenu">
+                        <li><h6 class="dropdown-header small text-uppercase fw-bold text-muted px-2 py-1">Select Card Type</h6></li>
+                        <li><a class="dropdown-item d-flex align-items-center justify-content-between py-2 px-3 rounded card-dropdown-opt" href="#" data-card="visa">
+                          <span class="d-flex align-items-center gap-2"><i class="bi bi-credit-card-2-front-fill card-visa-color"></i> <span class="card-visa-color fw-semibold">Visa</span></span>
+                          <i class="bi bi-check2 card-visa-color d-none check-icon"></i>
+                        </a></li>
+                        <li><a class="dropdown-item d-flex align-items-center justify-content-between py-2 px-3 rounded card-dropdown-opt" href="#" data-card="mastercard">
+                          <span class="d-flex align-items-center gap-2"><i class="bi bi-credit-card-2-front-fill card-mastercard-color"></i> <span class="card-mastercard-color fw-semibold">Mastercard</span></span>
+                          <i class="bi bi-check2 card-mastercard-color d-none check-icon"></i>
+                        </a></li>
+                        <li><a class="dropdown-item d-flex align-items-center justify-content-between py-2 px-3 rounded card-dropdown-opt" href="#" data-card="amex">
+                          <span class="d-flex align-items-center gap-2"><i class="bi bi-credit-card-2-front-fill text-info"></i> <span>American Express</span></span>
+                          <i class="bi bi-check2 text-info d-none check-icon"></i>
+                        </a></li>
+                        <li><a class="dropdown-item d-flex align-items-center justify-content-between py-2 px-3 rounded card-dropdown-opt" href="#" data-card="discover">
+                          <span class="d-flex align-items-center gap-2"><i class="bi bi-credit-card-2-front-fill card-discover-color"></i> <span class="card-discover-color fw-semibold">Discover</span></span>
+                          <i class="bi bi-check2 card-discover-color d-none check-icon"></i>
+                        </a></li>
+                        <li><a class="dropdown-item d-flex align-items-center justify-content-between py-2 px-3 rounded card-dropdown-opt" href="#" data-card="jcb">
+                          <span class="d-flex align-items-center gap-2"><i class="bi bi-credit-card-2-front-fill text-danger"></i> <span>JCB International</span></span>
+                          <i class="bi bi-check2 text-danger d-none check-icon"></i>
+                        </a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="admExpiryInput" class="form-label fw-bold small">Expiration Date (MM/YY)</label>
+                    <input type="text" id="admExpiryInput" class="form-control font-monospace" placeholder="MM/YY (e.g. 10/28)" maxlength="5" inputmode="numeric" autocomplete="cc-exp" required>
+                    <div id="admExpiryFeedback" class="invalid-feedback"></div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="admCvvInput" class="form-label fw-bold small">CVV / Security Code</label>
+                    <div class="input-group">
+                      <input type="password" id="admCvvInput" class="form-control font-monospace" placeholder="e.g. 123" maxlength="4" inputmode="numeric" autocomplete="cc-csc" required>
+                      <button type="button" class="btn btn-outline-secondary input-group-text toggle-cvv-btn" id="admToggleCvvBtn" aria-label="Toggle CVV visibility" title="Show/Hide CVV">
+                        <i class="bi bi-eye" id="admCvvIcon"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-12 mt-4">
+                    <button type="submit" id="admSubmitBtn" class="btn btn-primary btn-lg w-100"><i class="bi bi-lock-fill me-1"></i> Authorize & Capture Charge</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cardInput = document.getElementById('admCardNumber');
+      const brandBtn = document.getElementById('admCardBrandBtn');
+      const brandIcon = brandBtn ? (brandBtn.querySelector('i') || brandBtn) : null;
+      const cardDropdownMenu = document.getElementById('admCardDropdownMenu');
+      const expiryInput = document.getElementById('admExpiryInput');
+      const cvvInput = document.getElementById('admCvvInput');
+      const toggleCvvBtn = document.getElementById('admToggleCvvBtn');
+      const cvvIcon = document.getElementById('admCvvIcon');
+
+      // Supported Card Types Registry
+      const supportedCards = {
+        visa: {
+          key: 'visa',
+          name: 'Visa',
+          placeholder: 'e.g. 4532 8920 1928 3847',
+          iconClass: 'bi bi-credit-card-2-front-fill card-visa-color'
+        },
+        mastercard: {
+          key: 'mastercard',
+          name: 'Mastercard',
+          placeholder: 'e.g. 5425 2334 3010 9823',
+          iconClass: 'bi bi-credit-card-2-front-fill card-mastercard-color'
+        },
+        amex: {
+          key: 'amex',
+          name: 'American Express',
+          placeholder: 'e.g. 3782 822463 10005',
+          iconClass: 'bi bi-credit-card-2-front-fill text-info'
+        },
+        discover: {
+          key: 'discover',
+          name: 'Discover',
+          placeholder: 'e.g. 6011 4520 1982 7392',
+          iconClass: 'bi bi-credit-card-2-front-fill card-discover-color'
+        },
+        jcb: {
+          key: 'jcb',
+          name: 'JCB International',
+          placeholder: 'e.g. 3528 1234 5678 9012',
+          iconClass: 'bi bi-credit-card-2-front-fill text-danger'
+        }
+      };
+
+      function updateActiveCardType(cardKey) {
+        if (cardDropdownMenu) {
+          cardDropdownMenu.querySelectorAll('.card-dropdown-opt').forEach(opt => {
+            const isMatch = opt.getAttribute('data-card') === cardKey;
+            const checkIcon = opt.querySelector('.check-icon');
+            if (isMatch) {
+              opt.classList.add('active');
+              if (checkIcon) checkIcon.classList.remove('d-none');
+            } else {
+              opt.classList.remove('active');
+              if (checkIcon) checkIcon.classList.add('d-none');
+            }
+          });
+        }
+      }
+
+      function selectCardType(cardKey) {
+        const card = supportedCards[cardKey];
+        if (!card) return;
+
+        updateActiveCardType(cardKey);
+
+        if (brandIcon) {
+          brandIcon.className = card.iconClass;
+        }
+
+        if (brandBtn) {
+          brandBtn.setAttribute('title', `Selected Card Type: ${card.name}`);
+        }
+
+        // Card number must be entered by the user - do not fill any suggested card number
+        if (cardInput) {
+          if (!cardInput.value) {
+            cardInput.placeholder = card.placeholder;
+          }
+          cardInput.focus();
+        }
+      }
+
+      // Handle dropdown options clicks
+      if (cardDropdownMenu) {
+        cardDropdownMenu.querySelectorAll('.card-dropdown-opt').forEach(opt => {
+          opt.addEventListener('click', (e) => {
+            e.preventDefault();
+            const key = opt.getAttribute('data-card');
+            selectCardType(key);
+          });
+        });
+      }
+
+      // 1. Card Number Formatting: "1234 5678 9012 3456"
+      if (cardInput) {
+        cardInput.addEventListener('keydown', (e) => {
+          const allowed = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter', 'Home', 'End'];
+          if (allowed.includes(e.key) || e.ctrlKey || e.metaKey) return;
+          if (!/^\d$/.test(e.key)) e.preventDefault();
+        });
+
+        cardInput.addEventListener('input', (e) => {
+          let digits = e.target.value.replace(/\D/g, '').substring(0, 16);
+          let formatted = '';
+          for (let i = 0; i < digits.length; i++) {
+            if (i > 0 && i % 4 === 0) formatted += ' ';
+            formatted += digits[i];
+          }
+          e.target.value = formatted;
+
+          // Network Brand Detection & active pill sync
+          let detectedKey = '';
+          if (digits.startsWith('4')) {
+            detectedKey = 'visa';
+          } else if (/^(?:5[1-5]|2[2-7])/.test(digits)) {
+            detectedKey = 'mastercard';
+          } else if (/^3[47]/.test(digits)) {
+            detectedKey = 'amex';
+          } else if (/^6(?:011|5)/.test(digits)) {
+            detectedKey = 'discover';
+          } else if (/^35/.test(digits)) {
+            detectedKey = 'jcb';
+          }
+
+          if (detectedKey && supportedCards[detectedKey]) {
+            if (brandIcon) brandIcon.className = supportedCards[detectedKey].iconClass;
+            updateActiveCardType(detectedKey);
+          } else {
+            if (brandIcon) brandIcon.className = 'bi bi-credit-card-2-front';
+            updateActiveCardType('');
+          }
+        });
+      }
+
+      // 2. Expiration Date Auto-Navigation & Calendar Validation (MM/YY)
+      const expiryFeedback = document.getElementById('admExpiryFeedback');
+      const errorAlert = document.getElementById('admErrorAlert');
+      const errorAlertText = document.getElementById('admErrorAlertText');
+      const successAlert = document.getElementById('admSuccessAlert');
+      const admForm = document.getElementById('admForm');
+      const amountInput = document.getElementById('admAmountInput');
+      const customerInput = document.getElementById('admCustomerName');
+
+      function shakeElement(el) {
+        if (!el) return;
+        el.classList.remove('shake-error');
+        void el.offsetWidth;
+        el.classList.add('shake-error');
+        setTimeout(() => el.classList.remove('shake-error'), 400);
+      }
+
+      function showExpiryError(msg) {
+        if (expiryInput) {
+          expiryInput.classList.remove('is-valid');
+          expiryInput.classList.add('is-invalid');
+        }
+        if (expiryFeedback) {
+          expiryFeedback.textContent = msg;
+          expiryFeedback.style.display = 'block';
+        }
+      }
+
+      function clearExpiryError() {
+        if (expiryInput) {
+          expiryInput.classList.remove('is-invalid');
+        }
+        if (expiryFeedback) {
+          expiryFeedback.textContent = '';
+          expiryFeedback.style.display = 'none';
+        }
+      }
+
+      function showFormError(msg) {
+        if (errorAlert && errorAlertText) {
+          errorAlertText.textContent = msg;
+          errorAlert.classList.remove('d-none');
+        }
+        if (successAlert) {
+          successAlert.classList.add('d-none');
+        }
+      }
+
+      function hideFormError() {
+        if (errorAlert) {
+          errorAlert.classList.add('d-none');
+        }
+      }
+
+      function validateExpiry(val, isStrict = false) {
+        const clean = val.replace(/\D/g, '');
+        if (clean.length === 0) {
+          return isStrict
+            ? { isValid: false, message: 'Please enter expiration date (MM/YY).', shouldClear: false }
+            : { isValid: true, message: '', shouldClear: false };
+        }
+
+        // Calendar Month Validation (01–12)
+        if (clean.length >= 2) {
+          const monthStr = clean.substring(0, 2);
+          const m = parseInt(monthStr, 10);
+          if (m === 0) {
+            return {
+              isValid: false,
+              message: "Invalid month: '00' does not exist in the calendar. Please enter 01–12.",
+              shouldClear: true
+            };
+          }
+          if (m === 34) {
+            return {
+              isValid: false,
+              message: "Invalid month: '34' does not exist in the calendar. Months are 01–12.",
+              shouldClear: true
+            };
+          }
+          if (m === 39) {
+            return {
+              isValid: false,
+              message: "Invalid calendar entry: '39' is not a valid month (01–12) or date (01–31).",
+              shouldClear: true
+            };
+          }
+          if (m > 12) {
+            return {
+              isValid: false,
+              message: `Invalid calendar month: '${monthStr}'. Month must be between 01 and 12.`,
+              shouldClear: true
+            };
+          }
+        }
+
+        // Calendar Year Validation (YY)
+        if (clean.length === 4) {
+          const m = parseInt(clean.substring(0, 2), 10);
+          const yearStr = clean.substring(2, 4);
+          const y = parseInt(yearStr, 10);
+          const now = new Date();
+          const curYear = now.getFullYear() % 100;
+          const curMonth = now.getMonth() + 1;
+
+          if (y < curYear) {
+            return {
+              isValid: false,
+              message: `Card expired: 20${yearStr} is in the past.`,
+              shouldClear: false
+            };
+          }
+          if (y === curYear && m < curMonth) {
+            return {
+              isValid: false,
+              message: `Card expired: ${clean.substring(0, 2)}/${yearStr} has already passed.`,
+              shouldClear: false
+            };
+          }
+          if (y > curYear + 25) {
+            return {
+              isValid: false,
+              message: `Invalid year: Expiration year cannot exceed 25 years into the future.`,
+              shouldClear: false
+            };
+          }
+          return { isValid: true, message: '', shouldClear: false };
+        }
+
+        if (isStrict) {
+          return { isValid: false, message: 'Please enter a complete expiration date in MM/YY format.', shouldClear: false };
+        }
+
+        return { isValid: true, message: '', shouldClear: false };
+      }
+
+      if (expiryInput) {
+        expiryInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace') {
+            const start = expiryInput.selectionStart;
+            const end = expiryInput.selectionEnd;
+            const val = expiryInput.value;
+
+            // If cursor right after slash: "MM/|"
+            if (start === end && start === 3 && val.endsWith('/')) {
+              e.preventDefault();
+              expiryInput.value = val.slice(0, 1);
+              clearExpiryError();
+              return;
+            }
+            // If cursor before slash: "MM|/"
+            if (start === end && start === 2 && val.charAt(2) === '/') {
+              e.preventDefault();
+              expiryInput.value = val.slice(0, 1);
+              clearExpiryError();
+              return;
+            }
+            return;
+          }
+
+          const allowed = ['Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter', 'Home', 'End'];
+          if (allowed.includes(e.key) || e.ctrlKey || e.metaKey) return;
+          if (!/^\d$/.test(e.key)) e.preventDefault();
+        });
+
+        expiryInput.addEventListener('input', (e) => {
+          if (e.inputType === 'deleteContentBackward') {
+            if (/^\d{2}$/.test(e.target.value)) {
+              e.target.value = e.target.value.slice(0, 1);
+              clearExpiryError();
+              return;
+            }
+          }
+
+          let raw = e.target.value.replace(/\D/g, '').substring(0, 4);
+          if (raw.length === 0) {
+            e.target.value = '';
+            clearExpiryError();
+            return;
+          }
+
+          let month = raw.substring(0, 2);
+          let year = raw.substring(2, 4);
+
+          if (month.length === 2) {
+            let mNum = parseInt(month, 10);
+            // Strict calendar month validation: does not accept or clamp invalid month
+            if (mNum === 0 || mNum > 12) {
+              let msg = mNum === 34 ? "Invalid month: '34' does not exist in the calendar. Months are 01–12." :
+                        mNum === 39 ? "Invalid calendar entry: '39' is not a valid month (01–12) or date (01–31)." :
+                        mNum === 0 ? "Invalid month: '00' does not exist in the calendar. Enter 01–12." :
+                        `Invalid calendar month: '${month}'. Month must be between 01 and 12.`;
+
+              showExpiryError(msg);
+              shakeElement(e.target);
+              e.target.value = month;
+              return;
+            }
+
+            // Valid month (01–12)
+            clearExpiryError();
+
+            if (raw.length === 2) {
+              e.target.value = month + '/';
+              setTimeout(() => {
+                e.target.setSelectionRange(3, 3);
+              }, 0);
+              return;
+            }
+
+            if (year.length === 1) {
+              e.target.value = month + '/' + year;
+              clearExpiryError();
+            } else if (year.length === 2) {
+              e.target.value = month + '/' + year;
+              const check = validateExpiry(e.target.value, false);
+              if (!check.isValid) {
+                showExpiryError(check.message);
+                shakeElement(e.target);
+              } else {
+                clearExpiryError();
+                e.target.classList.add('is-valid');
+              }
+            }
+          } else {
+            clearExpiryError();
+            e.target.value = month;
+          }
+        });
+
+        expiryInput.addEventListener('blur', (e) => {
+          let val = e.target.value.trim();
+          if (!val) {
+            clearExpiryError();
+            return;
+          }
+
+          if (val.length === 1 && /^\d$/.test(val)) {
+            let d = parseInt(val, 10);
+            if (d === 0) {
+              showExpiryError("Invalid month: '00' does not exist in the calendar.");
+              e.target.value = '';
+            } else {
+              e.target.value = '0' + d + '/';
+              clearExpiryError();
+            }
+            return;
+          }
+
+          if (/^\d{2}$/.test(val)) {
+            let m = parseInt(val, 10);
+            if (m === 0 || m > 12) {
+              let msg = m === 34 ? "Invalid month: '34' does not exist in the calendar." :
+                        m === 39 ? "Invalid calendar entry: '39' is not a valid month (01–12) or date (01–31)." :
+                        `Invalid month: '${val}' is not a valid calendar month (01–12).`;
+              showExpiryError(`${msg} Value rejected.`);
+              e.target.value = '';
+              return;
+            }
+            e.target.value = val + '/';
+            clearExpiryError();
+            return;
+          }
+
+          const check = validateExpiry(val, true);
+          if (!check.isValid) {
+            showExpiryError(check.message);
+            if (check.shouldClear) {
+              e.target.value = '';
+            }
+          } else {
+            clearExpiryError();
+            e.target.classList.add('is-valid');
+          }
+        });
+      }
+
+      // 3. CVV/CVC Digits Only (3-4 digits limit) & Visibility Toggle
+      if (cvvInput) {
+        cvvInput.addEventListener('keydown', (e) => {
+          const allowed = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter', 'Home', 'End'];
+          if (allowed.includes(e.key) || e.ctrlKey || e.metaKey) return;
+          if (!/^\d$/.test(e.key)) e.preventDefault();
+        });
+
+        cvvInput.addEventListener('input', (e) => {
+          e.target.value = e.target.value.replace(/\D/g, '').substring(0, 4);
+        });
+      }
+
+      if (toggleCvvBtn && cvvInput && cvvIcon) {
+        toggleCvvBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (cvvInput.type === 'password') {
+            cvvInput.type = 'text';
+            cvvIcon.classList.remove('bi-eye');
+            cvvIcon.classList.add('bi-eye-slash');
+            toggleCvvBtn.setAttribute('title', 'Hide CVV');
+            toggleCvvBtn.setAttribute('aria-label', 'Hide CVV');
+          } else {
+            cvvInput.type = 'password';
+            cvvIcon.classList.remove('bi-eye-slash');
+            cvvIcon.classList.add('bi-eye');
+            toggleCvvBtn.setAttribute('title', 'Show CVV');
+            toggleCvvBtn.setAttribute('aria-label', 'Show CVV');
+          }
+          cvvInput.focus();
+        });
+      }
+
+      // 4. Admin Virtual Terminal Form Submission & Strict Validation
+      if (admForm) {
+        admForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          // Amount
+          const amt = parseFloat(amountInput ? amountInput.value : '0');
+          if (isNaN(amt) || amt <= 0) {
+            showFormError("Please enter a valid charge amount greater than $0.00.");
+            if (amountInput) {
+              amountInput.classList.add('is-invalid');
+              amountInput.focus();
+              shakeElement(amountInput);
+            }
+            return;
+          } else if (amountInput) {
+            amountInput.classList.remove('is-invalid');
+          }
+
+          // Customer Name
+          if (customerInput && !customerInput.value.trim()) {
+            showFormError("Please enter the cardholder's full name.");
+            customerInput.classList.add('is-invalid');
+            customerInput.focus();
+            shakeElement(customerInput);
+            return;
+          } else if (customerInput) {
+            customerInput.classList.remove('is-invalid');
+          }
+
+          // Card Number
+          const digits = cardInput ? cardInput.value.replace(/\D/g, '') : '';
+          if (digits.length < 15 || digits.length > 16) {
+            showFormError("Please enter a valid 15 or 16-digit card number.");
+            if (cardInput) {
+              cardInput.classList.add('is-invalid');
+              cardInput.focus();
+              shakeElement(cardInput);
+            }
+            return;
+          } else if (cardInput) {
+            cardInput.classList.remove('is-invalid');
+          }
+
+          // Expiry Date (calendar date & month validation)
+          const expVal = expiryInput ? expiryInput.value.trim() : '';
+          const expCheck = validateExpiry(expVal, true);
+          if (!expCheck.isValid) {
+            showExpiryError(expCheck.message);
+            showFormError(`Payment rejected: ${expCheck.message}`);
+            if (expiryInput) {
+              expiryInput.focus();
+              shakeElement(expiryInput);
+              if (expCheck.shouldClear) {
+                expiryInput.value = '';
+              }
+            }
+            return;
+          }
+
+          // CVV
+          const cvvVal = cvvInput ? cvvInput.value.trim() : '';
+          if (cvvVal.length < 3 || cvvVal.length > 4) {
+            showFormError("Please enter a valid 3 or 4-digit security code (CVV/CVC).");
+            if (cvvInput) {
+              cvvInput.classList.add('is-invalid');
+              cvvInput.focus();
+              shakeElement(cvvInput);
+            }
+            return;
+          } else if (cvvInput) {
+            cvvInput.classList.remove('is-invalid');
+          }
+
+          // All validations passed!
+          hideFormError();
+          if (successAlert) {
+            successAlert.classList.remove('d-none');
+            setTimeout(() => successAlert.classList.add('d-none'), 5000);
+          }
+
+          admForm.reset();
+          updateActiveCardType('');
+          if (cardInput) cardInput.placeholder = 'e.g. 4532 8920 1928 3847';
+          if (expiryInput) expiryInput.classList.remove('is-valid', 'is-invalid');
+          if (cardInput) cardInput.classList.remove('is-valid', 'is-invalid');
+          if (cvvInput) cvvInput.classList.remove('is-valid', 'is-invalid');
+          if (amountInput) amountInput.classList.remove('is-valid', 'is-invalid');
+          if (customerInput) customerInput.classList.remove('is-valid', 'is-invalid');
+          if (brandIcon) brandIcon.className = 'bi bi-credit-card-2-front';
+          if (cvvInput && cvvInput.type === 'text') {
+            cvvInput.type = 'password';
+            if (cvvIcon) {
+              cvvIcon.classList.remove('bi-eye-slash');
+              cvvIcon.classList.add('bi-eye');
+            }
+            if (toggleCvvBtn) {
+              toggleCvvBtn.setAttribute('title', 'Show CVV');
+              toggleCvvBtn.setAttribute('aria-label', 'Show CVV');
+            }
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

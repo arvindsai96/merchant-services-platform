@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020e29"/>
+      <stop offset="50%" stop-color="#0a2560"/>
+      <stop offset="100%" stop-color="#0066ff"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="goldChip" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="100%" stop-color="#eab308"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Full Rich Background -->
+  <rect width="400" height="120" fill="url(#bgGrad)"/>
+
+  <!-- High-Tech Circuit & Fiber-Optic Grid across entire width -->
+  <g stroke="rgba(56, 189, 248, 0.28)" stroke-width="1.2">
+    <line x1="0" y1="20" x2="400" y2="20" stroke-dasharray="4,6"/>
+    <line x1="0" y1="60" x2="400" y2="60" stroke-dasharray="4,6"/>
+    <line x1="0" y1="100" x2="400" y2="100" stroke-dasharray="4,6"/>
+    <line x1="50" y1="0" x2="50" y2="120" stroke-dasharray="4,6"/>
+    <line x1="130" y1="0" x2="130" y2="120" stroke-dasharray="4,6"/>
+    <line x1="210" y1="0" x2="210" y2="120" stroke-dasharray="4,6"/>
+    <line x1="290" y1="0" x2="290" y2="120" stroke-dasharray="4,6"/>
+    <line x1="370" y1="0" x2="370" y2="120" stroke-dasharray="4,6"/>
+  </g>
+
+  <!-- Dynamic Circuit Beams across entire button -->
+  <path d="M0 35 L70 35 L100 65 L220 65 L245 40 L340 40 L360 60 L400 60" fill="none" stroke="#00f2fe" stroke-width="2" opacity="0.65" filter="url(#glow)"/>
+  <path d="M0 90 L110 90 L140 65 L200 65 L230 95 L400 95" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.5" filter="url(#glow)"/>
+
+  <!-- Pulse nodes along entire path -->
+  <circle cx="70" cy="35" r="3.5" fill="#00f2fe" filter="url(#glow)"/>
+  <circle cx="100" cy="65" r="4" fill="#67e8f9" filter="url(#glow)"/>
+  <circle cx="220" cy="65" r="3.5" fill="#38bdf8" filter="url(#glow)"/>
+  <circle cx="245" cy="40" r="3.5" fill="#00f2fe" filter="url(#glow)"/>
+  <circle cx="360" cy="60" r="4.5" fill="#ffffff" filter="url(#glow)"/>
+
+  <!-- First mini card hologram on left / mid -->
+  <g transform="translate(145, 24) rotate(-8)">
+    <rect x="0" y="0" width="75" height="48" rx="6" fill="rgba(10, 37, 85, 0.7)" stroke="#38bdf8" stroke-width="1.2" opacity="0.85"/>
+    <rect x="8" y="10" width="14" height="11" rx="2" fill="url(#goldChip)"/>
+    <line x1="0" y1="28" x2="75" y2="28" stroke="#00f2fe" stroke-width="1.5" opacity="0.6"/>
+  </g>
+
+  <!-- Primary Glowing Credit Card Hologram on Right -->
+  <g transform="translate(262, 14)">
+    <rect x="-8" y="-6" width="128" height="88" rx="14" fill="#00d2ff" opacity="0.22" filter="url(#glow)"/>
+    <rect x="0" y="0" width="118" height="76" rx="10" fill="url(#cyanGrad)" stroke="#ffffff" stroke-width="1.8" opacity="0.9" filter="url(#glow)"/>
+    <!-- EMV Chip -->
+    <rect x="14" y="20" width="24" height="19" rx="4" fill="url(#goldChip)" stroke="#ca8a04" stroke-width="1"/>
+    <line x1="14" y1="29" x2="38" y2="29" stroke="#b45309" stroke-width="0.8"/>
+    <line x1="26" y1="20" x2="26" y2="39" stroke="#b45309" stroke-width="0.8"/>
+    <!-- Contactless Wave -->
+    <path d="M88 22 A 14 14 0 0 1 88 40" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M93 18 A 20 20 0 0 1 93 44" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+    <!-- Card Digits -->
+    <circle cx="20" cy="56" r="2.5" fill="#ffffff"/>
+    <circle cx="28" cy="56" r="2.5" fill="#ffffff"/>
+    <circle cx="36" cy="56" r="2.5" fill="#ffffff"/>
+    <circle cx="44" cy="56" r="2.5" fill="#ffffff"/>
+    <circle cx="56" cy="56" r="2.5" fill="#ffffff"/>
+    <circle cx="64" cy="56" r="2.5" fill="#ffffff"/>
+    <circle cx="72" cy="56" r="2.5" fill="#ffffff"/>
+    <circle cx="80" cy="56" r="2.5" fill="#ffffff"/>
+  </g>
+
+  <!-- Ambient glowing particle bursts -->
+  <circle cx="30" cy="75" r="2" fill="#00f2fe" opacity="0.7"/>
+  <circle cx="120" cy="15" r="2.5" fill="#38bdf8" opacity="0.8"/>
+  <circle cx="190" cy="105" r="2" fill="#67e8f9" opacity="0.7"/>
+  <circle cx="240" cy="15" r="2" fill="#00f2fe" opacity="0.8"/>
+</svg>

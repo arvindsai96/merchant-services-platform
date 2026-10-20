@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merchant Portal Dashboard - PayFlowPro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-header">
+        <a class="navbar-brand-logo text-white" href="../index.html">
+          <div class="brand-icon"><i class="bi bi-shield-check"></i></div>
+          <span class="ms-2">PayFlow<span class="text-primary">Pro</span></span>
+        </a>
+      </div>
+
+      <ul class="admin-nav">
+        <li class="admin-nav-item"><a class="admin-nav-link active" href="index.html"><i class="bi bi-grid-fill"></i> <span>Dashboard</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="transactions.html"><i class="bi bi-receipt-cutoff"></i> <span>Transactions</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="payments.html"><i class="bi bi-credit-card-2-front-fill"></i> <span>Virtual Terminal</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="orders.html"><i class="bi bi-bag-check-fill"></i> <span>Orders</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="customers.html"><i class="bi bi-people-fill"></i> <span>Customers</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="settlements.html"><i class="bi bi-bank2"></i> <span>Settlements</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="reports.html"><i class="bi bi-file-earmark-bar-graph-fill"></i> <span>Reports</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="terminals.html"><i class="bi bi-terminal-fill"></i> <span>POS Terminals</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="messages.html"><i class="bi bi-chat-left-text-fill"></i> <span>Support Tickets</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="analytics.html"><i class="bi bi-graph-up-arrow"></i> <span>Analytics</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="settings.html"><i class="bi bi-gear-fill"></i> <span>Settings</span></a></li>
+        <li class="admin-nav-item mt-4"><a class="admin-nav-link text-danger" href="../login.html"><i class="bi bi-box-arrow-left"></i> <span>Log Out</span></a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="admin-main">
+      <!-- Topbar -->
+      <header class="admin-topbar">
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-sm btn-light" id="sidebarToggle"><i class="bi bi-list fs-5"></i></button>
+          <div class="d-none d-md-block">
+            <h6 class="mb-0 fw-bold">Northstar Retail Portal</h6>
+            <span class="text-muted" style="font-size: 0.75rem;">MID: #8492-9102-4820</span>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-sm btn-light rtl-toggle-btn">RTL</button>
+          <button class="btn btn-sm btn-light theme-toggle-btn"><i class="bi bi-moon-stars-fill"></i></button>
+          <div class="dropdown">
+            <button class="btn btn-sm btn-light dropdown-toggle d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown">
+              <img src="../assets/images/team/olivia-carter.jpg" alt="Olivia Carter" class="rounded-circle shadow-xs" width="30" height="30" style="object-fit: cover;">
+              <span class="d-none d-sm-inline fw-semibold">Olivia Carter</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg">
+              <li><a class="dropdown-item" href="settings.html"><i class="bi bi-person"></i> Account Settings</a></li>
+              <li><a class="dropdown-item" href="../index.html"><i class="bi bi-globe"></i> View Website</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger" href="../login.html"><i class="bi bi-box-arrow-right"></i> Sign Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <div class="admin-content">
+        <!-- 4 KPI Cards -->
+        <div class="row g-4 mb-4">
+          <div class="col-sm-6 col-xl-3">
+            <div class="custom-card p-4">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted small">Today's Revenue</span>
+                <span class="badge-custom badge-success-subtle">+18.4%</span>
+              </div>
+              <h3 class="fw-bold mb-0 text-primary">$48,920.50</h3>
+              <span class="text-muted" style="font-size: 0.75rem;">Settles tomorrow 7:00 AM</span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="custom-card p-4">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted small">Total Transactions</span>
+                <span class="badge-custom badge-primary-subtle">1,482</span>
+              </div>
+              <h3 class="fw-bold mb-0 text-dark">1,482</h3>
+              <span class="text-muted" style="font-size: 0.75rem;">Avg: $33.01 / ticket</span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="custom-card p-4">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted small">Successful Payments</span>
+                <span class="badge-custom badge-success-subtle">99.8%</span>
+              </div>
+              <h3 class="fw-bold mb-0 text-success">1,479</h3>
+              <span class="text-muted" style="font-size: 0.75rem;">Authorization approved</span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="custom-card p-4">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted small">Failed / Declined</span>
+                <span class="badge-custom badge-danger-subtle">3</span>
+              </div>
+              <h3 class="fw-bold mb-0 text-danger">3</h3>
+              <span class="text-muted" style="font-size: 0.75rem;">Insufficient funds (0.2%)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="row g-4 mb-4">
+          <div class="col-lg-8">
+            <div class="custom-card p-4 h-100">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="mb-0">Revenue Velocity Overview</h5>
+                <span class="badge-custom badge-primary-subtle">Past 7 Days</span>
+              </div>
+              <div style="height: 280px; position: relative;">
+                <canvas id="revenueChartCanvas"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="custom-card p-4 h-100">
+              <h5 class="mb-3">Payment Methods</h5>
+              <div style="height: 240px; position: relative;">
+                <canvas id="paymentMethodCanvas"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Transactions Table -->
+        <div class="custom-card p-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0">Recent Live Transactions</h5>
+            <a href="transactions.html" class="btn btn-sm btn-outline-primary">View Full Ledger</a>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th>Tx ID</th>
+                  <th>Customer</th>
+                  <th>Method</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Timestamp</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-bold">#TX-94821</td>
+                  <td>Michael Anderson</td>
+                  <td><i class="bi bi-credit-card text-primary me-1"></i> Visa •• 4242</td>
+                  <td class="fw-bold text-success">$285.00</td>
+                  <td><span class="badge-custom badge-success-subtle">Approved</span></td>
+                  <td class="small text-muted">12:44 PM</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold">#TX-94820</td>
+                  <td>Sophia Williams</td>
+                  <td><i class="bi bi-apple text-dark me-1"></i> Apple Pay</td>
+                  <td class="fw-bold text-success">$1,450.00</td>
+                  <td><span class="badge-custom badge-success-subtle">Approved</span></td>
+                  <td class="small text-muted">12:40 PM</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold">#TX-94819</td>
+                  <td>Ethan Miller</td>
+                  <td><i class="bi bi-credit-card text-warning me-1"></i> Mastercard •• 8812</td>
+                  <td class="fw-bold text-danger">$94.20</td>
+                  <td><span class="badge-custom badge-danger-subtle">Declined</span></td>
+                  <td class="small text-muted">12:35 PM</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold">#TX-94818</td>
+                  <td>Ava Thompson</td>
+                  <td><i class="bi bi-bank me-1"></i> ACH Direct Debit</td>
+                  <td class="fw-bold text-primary">$3,200.00</td>
+                  <td><span class="badge-custom badge-warning-subtle">Pending</span></td>
+                  <td class="small text-muted">12:20 PM</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- CDN Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

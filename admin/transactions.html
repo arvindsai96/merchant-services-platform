@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transactions Ledger - PayFlowPro Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-header"><a class="navbar-brand-logo text-white" href="../index.html"><div class="brand-icon"><i class="bi bi-shield-check"></i></div><span class="ms-2">PayFlow<span class="text-primary">Pro</span></span></a></div>
+      <ul class="admin-nav">
+        <li class="admin-nav-item"><a class="admin-nav-link" href="index.html"><i class="bi bi-grid-fill"></i> <span>Dashboard</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link active" href="transactions.html"><i class="bi bi-receipt-cutoff"></i> <span>Transactions</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="payments.html"><i class="bi bi-credit-card-2-front-fill"></i> <span>Virtual Terminal</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="orders.html"><i class="bi bi-bag-check-fill"></i> <span>Orders</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="customers.html"><i class="bi bi-people-fill"></i> <span>Customers</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="settlements.html"><i class="bi bi-bank2"></i> <span>Settlements</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="reports.html"><i class="bi bi-file-earmark-bar-graph-fill"></i> <span>Reports</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="terminals.html"><i class="bi bi-terminal-fill"></i> <span>POS Terminals</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="messages.html"><i class="bi bi-chat-left-text-fill"></i> <span>Support Tickets</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="analytics.html"><i class="bi bi-graph-up-arrow"></i> <span>Analytics</span></a></li>
+        <li class="admin-nav-item"><a class="admin-nav-link" href="settings.html"><i class="bi bi-gear-fill"></i> <span>Settings</span></a></li>
+      </ul>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <h5 class="mb-0 fw-bold">Live Transaction Ledger</h5>
+        <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-sm btn-outline-primary" onclick="alert('Export started: transactions_2026_q4.csv');"><i class="bi bi-download me-1"></i> Export CSV</button>
+          <button class="btn btn-sm btn-light theme-toggle-btn"><i class="bi bi-moon-stars-fill"></i></button>
+        </div>
+      </header>
+
+      <div class="admin-content">
+        <div class="custom-card p-4 mb-4">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <input type="text" id="tableSearchInput" class="form-control" placeholder="e.g. Search #TX-94821, Michael Anderson, or 3847...">
+            </div>
+            <div class="col-md-3">
+              <select id="statusFilterSelect" class="form-select">
+                <option value="all">All Statuses</option>
+                <option value="approved">Approved</option>
+                <option value="pending">Pending</option>
+                <option value="declined">Declined</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <button class="btn btn-primary w-100" onclick="alert('Filtered successfully.');">Apply Filter</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="custom-card p-0 overflow-hidden">
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th class="px-4">Tx ID</th>
+                  <th>Customer</th>
+                  <th>Payment Method</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Date & Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filterable-row" data-status="approved">
+                  <td class="px-4 fw-bold">#TX-94821</td>
+                  <td>Michael Anderson</td>
+                  <td>Visa •• 4242</td>
+                  <td class="fw-bold text-success">$285.00</td>
+                  <td><span class="badge-custom badge-success-subtle">Approved</span></td>
+                  <td class="small text-muted">Oct 8, 2026 - 12:44 PM</td>
+                </tr>
+                <tr class="filterable-row" data-status="approved">
+                  <td class="px-4 fw-bold">#TX-94820</td>
+                  <td>Sophia Williams</td>
+                  <td>Apple Pay</td>
+                  <td class="fw-bold text-success">$1,450.00</td>
+                  <td><span class="badge-custom badge-success-subtle">Approved</span></td>
+                  <td class="small text-muted">Oct 8, 2026 - 12:40 PM</td>
+                </tr>
+                <tr class="filterable-row" data-status="declined">
+                  <td class="px-4 fw-bold">#TX-94819</td>
+                  <td>Ethan Miller</td>
+                  <td>Mastercard •• 8812</td>
+                  <td class="fw-bold text-danger">$94.20</td>
+                  <td><span class="badge-custom badge-danger-subtle">Declined</span></td>
+                  <td class="small text-muted">Oct 8, 2026 - 12:35 PM</td>
+                </tr>
+                <tr class="filterable-row" data-status="pending">
+                  <td class="px-4 fw-bold">#TX-94818</td>
+                  <td>Ava Thompson</td>
+                  <td>ACH Direct Debit</td>
+                  <td class="fw-bold text-primary">$3,200.00</td>
+                  <td><span class="badge-custom badge-warning-subtle">Pending</span></td>
+                  <td class="small text-muted">Oct 8, 2026 - 12:20 PM</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
