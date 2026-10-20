@@ -26,6 +26,9 @@ $RECYCLE.BIN/
 *.sln
 *.sw?
 
+# Vercel Deployment Cache & Project Config
+.vercel/
+
 # Node & Package Managers
 node_modules/
 npm-debug.log*
