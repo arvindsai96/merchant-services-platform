@@ -2192,6 +2192,21 @@ textarea.form-control::placeholder {
   transform: scale(1.08);
 }
 
+/* Blog Article Header Meta Alignment */
+.blog-article-content .badge-custom,
+.d-flex > .badge-custom {
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.blog-article-content .badge-custom {
+  line-height: 1.2;
+}
+
+.blog-article-content .d-flex.align-items-center {
+  line-height: 1.5;
+}
+
 /* --------------------------------------------------------------------------
    14. Code Terminal & Developer Playground
    -------------------------------------------------------------------------- */
