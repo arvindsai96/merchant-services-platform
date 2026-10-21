@@ -549,6 +549,102 @@
   color: #ffffff;
 }
 
+/* Light theme footer */
+[data-theme="light"] .site-footer {
+  background: linear-gradient(135deg, #ffffff 0%, #f4f7fb 100%);
+  border-top-color: #dbe3ee;
+  color: #334155;
+}
+
+[data-theme="light"] .site-footer .footer-logo,
+[data-theme="light"] .site-footer .footer-title,
+[data-theme="light"] .site-footer h1,
+[data-theme="light"] .site-footer h2,
+[data-theme="light"] .site-footer h3,
+[data-theme="light"] .site-footer h4,
+[data-theme="light"] .site-footer h5,
+[data-theme="light"] .site-footer h6 {
+  color: #0f172a !important;
+  text-shadow: none;
+}
+
+[data-theme="light"] .site-footer,
+[data-theme="light"] .site-footer p,
+[data-theme="light"] .site-footer span,
+[data-theme="light"] .site-footer div,
+[data-theme="light"] .site-footer li,
+[data-theme="light"] .site-footer .footer-desc,
+[data-theme="light"] .site-footer .text-muted,
+[data-theme="light"] .site-footer small,
+[data-theme="light"] .site-footer p.small {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .site-footer .footer-links a,
+[data-theme="light"] .site-footer .footer-bottom a,
+[data-theme="light"] .site-footer .footer-bottom span {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .site-footer .footer-links a:hover,
+[data-theme="light"] .site-footer .footer-bottom a:hover {
+  color: #0066ff !important;
+}
+
+[data-theme="light"] .site-footer .footer-badge,
+[data-theme="light"] .site-footer .social-btn {
+  background: rgba(15, 23, 42, 0.04);
+  border-color: #dbe3ee;
+  color: #475569;
+}
+
+[data-theme="light"] .site-footer .footer-badge:hover {
+  background: #ffffff;
+  border-color: #93c5fd;
+  color: #0f172a;
+}
+
+[data-theme="light"] .site-footer .footer-newsletter-form .form-control,
+[data-theme="light"] .site-footer input[type="email"] {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+  caret-color: #0f172a !important;
+}
+
+[data-theme="light"] .site-footer .footer-newsletter-form .form-control:focus,
+[data-theme="light"] .site-footer input[type="email"]:focus {
+  background-color: #ffffff !important;
+  border-color: #0066ff !important;
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+  caret-color: #0f172a !important;
+}
+
+[data-theme="light"] .site-footer .footer-newsletter-form .form-control::placeholder,
+[data-theme="light"] .site-footer input[type="email"]::placeholder {
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b !important;
+}
+
+[data-theme="light"] .site-footer .footer-bottom {
+  border-top-color: #dbe3ee;
+  color: #64748b !important;
+}
+
+[data-theme="light"] .site-footer .btn-outline-white {
+  border-color: #cbd5e1;
+  color: #334155;
+  background-color: #ffffff;
+}
+
+[data-theme="light"] .site-footer .btn-outline-white:hover {
+  border-color: #0f172a;
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
 /* --------------------------------------------------------------------------
    Dark Mode Form Controls & Country Select
    -------------------------------------------------------------------------- */
