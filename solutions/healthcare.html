@@ -151,9 +151,9 @@
             <p class="text-muted small">Answers to HIPAA compliance and medical payment routing.</p>
           </div>
           <div class="accordion" id="healthFaq">
-            <div class="accordion-item mb-3 rounded-3 overflow-hidden border">
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
               <h2 class="accordion-header" id="mdFaqH1">
-                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#mdFaq1">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#mdFaq1" aria-expanded="false" aria-controls="mdFaq1">
                   Does PayFlowPro sign a Business Associate Agreement (BAA)?
                 </button>
               </h2>
@@ -164,15 +164,67 @@
               </div>
             </div>
 
-            <div class="accordion-item mb-3 rounded-3 overflow-hidden border">
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
               <h2 class="accordion-header" id="mdFaqH2">
-                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#mdFaq2">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#mdFaq2" aria-expanded="false" aria-controls="mdFaq2">
                   Can patients pay with HSA or FSA benefits cards?
                 </button>
               </h2>
               <div id="mdFaq2" class="accordion-collapse collapse" data-bs-parent="#healthFaq">
                 <div class="accordion-body text-muted">
-                  Yes. We register your medical merchant account under appropriate MCC healthcare codes (such as 8011 for Doctors, 8021 for Dentists, or 8099 for Medical Services), enabling automatic authorization for all major HSA and FSA debit cards.
+                  Yes. We register your medical merchant account under appropriate MCC healthcare codes (such as 8011 for Doctors, 8021 for Dentists, or 8099 for Medical Services), enabling automatic authorization and IIAS compliance for all major HSA and FSA debit cards.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="mdFaqH3">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#mdFaq3" aria-expanded="false" aria-controls="mdFaq3">
+                  How does the Decentralized Token Vault protect patient payment data?
+                </button>
+              </h2>
+              <div id="mdFaq3" class="accordion-collapse collapse" data-bs-parent="#healthFaq">
+                <div class="accordion-body text-muted">
+                  Raw credit and debit card numbers are captured and encrypted instantaneously at the point of interaction (reception terminal, patient portal, or payment link). They never touch or get stored on your local practice workstations. Only irreversible cryptographic tokens are linked to your Electronic Health Record (EHR) files, completely removing your practice from PCI card data scope and shielding you against data liability.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="mdFaqH4">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#mdFaq4" aria-expanded="false" aria-controls="mdFaq4">
+                  How does Text-to-Pay invoicing work for post-visit co-pays and balances?
+                </button>
+              </h2>
+              <div id="mdFaq4" class="accordion-collapse collapse" data-bs-parent="#healthFaq">
+                <div class="accordion-body text-muted">
+                  Once insurance claims settle or upon patient check-out, staff or automated billing workflows generate an itemized SMS statement. Patients receive an encrypted one-click link on their mobile device, view deductible or co-pay details, and authenticate payment in seconds via Apple Pay, Google Pay, HSA card, or credit card without creating an account.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="mdFaqH5">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#mdFaq5" aria-expanded="false" aria-controls="mdFaq5">
+                  Can we set up automated recurring payment plans for high out-of-pocket procedures?
+                </button>
+              </h2>
+              <div id="mdFaq5" class="accordion-collapse collapse" data-bs-parent="#healthFaq">
+                <div class="accordion-body text-muted">
+                  Yes. Practices can break down substantial balances into flexible installment care plans (e.g., 3, 6, or 12 monthly installments). The patient signs a digital recurring authorization, and the system automatically debits their tokenized card on the scheduled cycle, sending automated email receipts and updating ledger balances.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="mdFaqH6">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#mdFaq6" aria-expanded="false" aria-controls="mdFaq6">
+                  Does PayFlowPro integrate with EHR and Practice Management Systems?
+                </button>
+              </h2>
+              <div id="mdFaq6" class="accordion-collapse collapse" data-bs-parent="#healthFaq">
+                <div class="accordion-body text-muted">
+                  Yes. PayFlowPro offers standard REST APIs and pre-built integration modules for popular healthcare and dental practice management systems, including Epic, Cerner, AthenaHealth, Dentrix, Kareo, and AdvancedMD for real-time ledger reconciliation.
                 </div>
               </div>
             </div>

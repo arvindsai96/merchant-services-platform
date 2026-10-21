@@ -151,9 +151,9 @@
             <p class="text-muted small">Answers to common food and beverage payment questions.</p>
           </div>
           <div class="accordion" id="hospitalityFaq">
-            <div class="accordion-item mb-3 rounded-3 overflow-hidden border">
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
               <h2 class="accordion-header" id="hFaqH1">
-                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#hFaq1">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#hFaq1" aria-expanded="false" aria-controls="hFaq1">
                   Can servers adjust tip amounts after guests have signed the physical paper slip?
                 </button>
               </h2>
@@ -164,15 +164,67 @@
               </div>
             </div>
 
-            <div class="accordion-item mb-3 rounded-3 overflow-hidden border">
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
               <h2 class="accordion-header" id="hFaqH2">
-                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#hFaq2">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#hFaq2" aria-expanded="false" aria-controls="hFaq2">
                   What happens if our restaurant internet goes down on a busy Saturday night?
                 </button>
               </h2>
               <div id="hFaq2" class="accordion-collapse collapse" data-bs-parent="#hospitalityFaq">
                 <div class="accordion-body text-muted">
                   All handheld and countertop terminals automatically switch to cellular 4G failover or encrypted Store-and-Forward offline mode. Diners continue tapping and inserting their cards normally without any interruption.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="hFaqH3">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#hFaq3" aria-expanded="false" aria-controls="hFaq3">
+                  How do Pre-Authorized Bar Tabs protect against walkouts and abandoned cards?
+                </button>
+              </h2>
+              <div id="hFaq3" class="accordion-collapse collapse" data-bs-parent="#hospitalityFaq">
+                <div class="accordion-body text-muted">
+                  Bartenders tap or insert the customer's card once when ordering starts. The system verifies card authenticity and holds a tokenized pre-authorization in memory, immediately returning the physical card to the guest. At closeout or if the patron leaves without closing, the bartender can settle the bill plus standard gratuity automatically.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="hFaqH4">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#hFaq4" aria-expanded="false" aria-controls="hFaq4">
+                  How does the system handle complex check splitting and multi-card payments?
+                </button>
+              </h2>
+              <div id="hFaq4" class="accordion-collapse collapse" data-bs-parent="#hospitalityFaq">
+                <div class="accordion-body text-muted">
+                  Servers can split checks dynamically right at the table with mobile smart handhelds. Orders can be split evenly among up to 16 guests, partitioned by specific seat positions, or separated by dragging individual items and drink rounds onto separate guest tickets.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="hFaqH5">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#hFaq5" aria-expanded="false" aria-controls="hFaq5">
+                  Does the platform integrate with Kitchen Display Systems (KDS) and kitchen printers?
+                </button>
+              </h2>
+              <div id="hFaq5" class="accordion-collapse collapse" data-bs-parent="#hospitalityFaq">
+                <div class="accordion-body text-muted">
+                  Yes. Orders fired from tableside handhelds, bar terminals, or QR code mobile orders instantly route to designated station screens (cold pantry, grill, saute, expeditor) and Epson/Star impact or thermal kitchen printers with custom modifier tags and allergy highlights.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="hFaqH6">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#hFaq6" aria-expanded="false" aria-controls="hFaq6">
+                  Can we configure automated tip pooling and shift payouts?
+                </button>
+              </h2>
+              <div id="hFaq6" class="accordion-collapse collapse" data-bs-parent="#hospitalityFaq">
+                <div class="accordion-body text-muted">
+                  Yes. Managers can establish custom tip-pooling distribution rules by percentage or hours worked across front-of-house (servers, bussers, food runners, bartenders). The system calculates precise daily shares and exports directly to payroll processors such as ADP, Gusto, and Paychex.
                 </div>
               </div>
             </div>

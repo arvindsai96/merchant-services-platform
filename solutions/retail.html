@@ -152,9 +152,9 @@
             <p class="text-muted small">Answers to common multi-location retail implementation questions.</p>
           </div>
           <div class="accordion" id="retailFaq">
-            <div class="accordion-item mb-3 rounded-3 overflow-hidden border">
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
               <h2 class="accordion-header" id="rFaqH1">
-                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#rFaq1">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#rFaq1" aria-expanded="false" aria-controls="rFaq1">
                   How does PayFlowPro handle returns across different store locations?
                 </button>
               </h2>
@@ -165,15 +165,67 @@
               </div>
             </div>
 
-            <div class="accordion-item mb-3 rounded-3 overflow-hidden border">
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
               <h2 class="accordion-header" id="rFaqH2">
-                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#rFaq2">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#rFaq2" aria-expanded="false" aria-controls="rFaq2">
                   Can we manage separate terminal permissions for shift supervisors and cashiers?
                 </button>
               </h2>
               <div id="rFaq2" class="accordion-collapse collapse" data-bs-parent="#retailFaq">
                 <div class="accordion-body text-muted">
                   Yes. Role-based terminal controls allow store owners to assign PIN-protected privileges. Cashiers can perform scans and ring sales, while voids, manual discount overrides, and end-of-day drawer reconciliations require manager authorization.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="rFaqH3">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#rFaq3" aria-expanded="false" aria-controls="rFaq3">
+                  How does the Offline Transaction Buffer protect against internet drops?
+                </button>
+              </h2>
+              <div id="rFaq3" class="accordion-collapse collapse" data-bs-parent="#retailFaq">
+                <div class="accordion-body text-muted">
+                  When local internet connectivity drops, PayFlowPro smart terminals seamlessly switch to Store-and-Forward mode. Card details are validated and encrypted locally using PCI P2PE standards, then stored securely in hardware-level flash memory. The moment connection is restored, the queue uploads and clears batches automatically without interrupting checkout lines.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="rFaqH4">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#rFaq4" aria-expanded="false" aria-controls="rFaq4">
+                  How quickly does inventory synchronize between brick-and-mortar registers and e-commerce stores?
+                </button>
+              </h2>
+              <div id="rFaq4" class="accordion-collapse collapse" data-bs-parent="#retailFaq">
+                <div class="accordion-body text-muted">
+                  Inventory syncs in sub-second intervals via two-way webhooks. A sale made in any physical storefront immediately reserves or decrements the available SKU count on your online store (Shopify, WooCommerce, Magento) and across all other retail branches, preventing overselling or stock discrepancy.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="rFaqH5">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#rFaq5" aria-expanded="false" aria-controls="rFaq5">
+                  What hardware and barcode peripherals are compatible with PayFlowPro POS?
+                </button>
+              </h2>
+              <div id="rFaq5" class="accordion-collapse collapse" data-bs-parent="#retailFaq">
+                <div class="accordion-body text-muted">
+                  We support leading enterprise smart terminals (PAX, Clover, Verifone, Ingenico) along with standard USB and Bluetooth peripherals including 1D/2D optical barcode scanners, Epson/Star Micronics thermal receipt printers, electronic weight scales, and APG cash drawers.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="rFaqH6">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#rFaq6" aria-expanded="false" aria-controls="rFaq6">
+                  What is the daily batch settlement schedule for multi-store retail merchants?
+                </button>
+              </h2>
+              <div id="rFaq6" class="accordion-collapse collapse" data-bs-parent="#retailFaq">
+                <div class="accordion-body text-muted">
+                  Retail batches close automatically every evening at a merchant-customized cut-off hour (e.g., 9:00 PM EST). We offer standard Next-Day ACH funding directly into your operating bank accounts, as well as Same-Day and Instant Deposit options for accelerated cash flow management.
                 </div>
               </div>
             </div>

@@ -151,9 +151,9 @@
             <p class="text-muted small">Answers to corporate card processing and Level 3 data qualification.</p>
           </div>
           <div class="accordion" id="b2bFaq">
-            <div class="accordion-item mb-3 rounded-3 overflow-hidden border">
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
               <h2 class="accordion-header" id="bFaqH1">
-                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#bFaq1">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#bFaq1" aria-expanded="false" aria-controls="bFaq1">
                   What specific fields are required for Level 3 interchange qualification?
                 </button>
               </h2>
@@ -164,15 +164,67 @@
               </div>
             </div>
 
-            <div class="accordion-item mb-3 rounded-3 overflow-hidden border">
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
               <h2 class="accordion-header" id="bFaqH2">
-                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#bFaq2">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#bFaq2" aria-expanded="false" aria-controls="bFaq2">
                   Can we set up recurring retainer fees for corporate consulting clients?
                 </button>
               </h2>
               <div id="bFaq2" class="accordion-collapse collapse" data-bs-parent="#b2bFaq">
                 <div class="accordion-body text-muted">
                   Yes. Clients can authorize a card or bank account for automated recurring monthly retainer fees with automatic electronic receipts sent to their accounts payable department.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="bFaqH3">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#bFaq3" aria-expanded="false" aria-controls="bFaq3">
+                  How does Auto Level 2/3 Data Injection reduce interchange processing costs?
+                </button>
+              </h2>
+              <div id="bFaq3" class="accordion-collapse collapse" data-bs-parent="#b2bFaq">
+                <div class="accordion-body text-muted">
+                  Commercial purchasing and corporate corporate cards typically incur penalty interchange fees (up to 2.95% + $0.10) if line-item data is absent. Our gateway automatically injects required tax rates, PO numbers, and commodity classification codes into the authorization payload in real time, qualifying corporate payments for tier discounts between 0.50% and 1.10% per transaction.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="bFaqH4">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#bFaq4" aria-expanded="false" aria-controls="bFaq4">
+                  What are the transaction limits and fee structures for Integrated ACH Bank Debits?
+                </button>
+              </h2>
+              <div id="bFaq4" class="accordion-collapse collapse" data-bs-parent="#b2bFaq">
+                <div class="accordion-body text-muted">
+                  Integrated ACH allows B2B buyers to authorize direct account debits for large invoices with flat-rate processing capped at $0.25 to $5.00 per transaction, eliminating percentage-based card interchange on high-dollar sales. Single transaction limits can be scaled to $250,000+ for verified enterprise clients.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="bFaqH5">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#bFaq5" aria-expanded="false" aria-controls="bFaq5">
+                  How does the Multi-User Virtual Terminal control permissions across sales and finance teams?
+                </button>
+              </h2>
+              <div id="bFaq5" class="accordion-collapse collapse" data-bs-parent="#b2bFaq">
+                <div class="accordion-body text-muted">
+                  Account administrators can create role-specific user seats with granular access rights. Account executives can key-in sales and send payment links without seeing stored card numbers, while controllers and accounting supervisors retain permissions for batch captures, partial refunds, chargeback response submissions, and settlement reporting.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="bFaqH6">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#bFaq6" aria-expanded="false" aria-controls="bFaq6">
+                  Does PayFlowPro synchronize invoice payments with ERP and accounting software?
+                </button>
+              </h2>
+              <div id="bFaq6" class="accordion-collapse collapse" data-bs-parent="#b2bFaq">
+                <div class="accordion-body text-muted">
+                  Yes. PayFlowPro connects bi-directionally with NetSuite, QuickBooks Online/Desktop, Xero, Sage Intacct, and Microsoft Dynamics 365. When an invoice is paid via virtual terminal or customer payment portal, the invoice balance is automatically marked as settled in your general ledger.
                 </div>
               </div>
             </div>

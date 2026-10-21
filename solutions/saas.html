@@ -151,9 +151,9 @@
             <p class="text-muted small">Answers to recurring billing and churn prevention questions.</p>
           </div>
           <div class="accordion" id="saasFaq">
-            <div class="accordion-item mb-3 rounded-3 overflow-hidden border">
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
               <h2 class="accordion-header" id="sFaqH1">
-                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#sFaq1">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#sFaq1" aria-expanded="false" aria-controls="sFaq1">
                   How does the automated Account Updater obtain new card numbers?
                 </button>
               </h2>
@@ -164,15 +164,67 @@
               </div>
             </div>
 
-            <div class="accordion-item mb-3 rounded-3 overflow-hidden border">
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
               <h2 class="accordion-header" id="sFaqH2">
-                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#sFaq2">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#sFaq2" aria-expanded="false" aria-controls="sFaq2">
                   Can we customize the smart dunning schedule and email templates?
                 </button>
               </h2>
               <div id="sFaq2" class="accordion-collapse collapse" data-bs-parent="#saasFaq">
                 <div class="accordion-body text-muted">
                   Yes. You can configure retry intervals (e.g., Retry after 2 days, 4 days, and 7 days) and customize branded email notifications that include direct, authenticated links where subscribers can enter an alternate card or bank account.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="sFaqH3">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#sFaq3" aria-expanded="false" aria-controls="sFaq3">
+                  How does Metered Usage Ingestion handle high-volume consumption billing?
+                </button>
+              </h2>
+              <div id="sFaq3" class="accordion-collapse collapse" data-bs-parent="#saasFaq">
+                <div class="accordion-body text-muted">
+                  Your backend streams raw telemetry events (API requests, compute minutes, active seats, gigabytes stored) to our idempotent ingestion pipeline. PayFlowPro aggregates units over the billing month, applies your custom tier or graduated volume pricing, and automatically generates an accurate, itemized invoice at billing cut-off.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="sFaqH4">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#sFaq4" aria-expanded="false" aria-controls="sFaq4">
+                  What capabilities are included in the Self-Service Customer Billing Portal?
+                </button>
+              </h2>
+              <div id="sFaq4" class="accordion-collapse collapse" data-bs-parent="#saasFaq">
+                <div class="accordion-body text-muted">
+                  Subscribers receive a secure, white-labeled portal where they can update payment cards or SEPA/ACH accounts, upgrade or downgrade tiers, switch between monthly and annual plans, add billing contacts, and download past itemized PDF invoices with compliant VAT and sales tax breakdowns.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="sFaqH5">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#sFaq5" aria-expanded="false" aria-controls="sFaq5">
+                  How does PayFlowPro calculate mid-cycle plan upgrades and prorations?
+                </button>
+              </h2>
+              <div id="sFaq5" class="accordion-collapse collapse" data-bs-parent="#saasFaq">
+                <div class="accordion-body text-muted">
+                  When a customer switches tiers mid-billing cycle, the engine calculates the exact unused balance of the prior plan down to the second and credits it toward the new tier. You can elect to invoice the prorated difference immediately or apply it as an adjustment on the next scheduled renewal invoice.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="sFaqH6">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#sFaq6" aria-expanded="false" aria-controls="sFaq6">
+                  What webhooks are dispatched for subscription lifecycle events?
+                </button>
+              </h2>
+              <div id="sFaq6" class="accordion-collapse collapse" data-bs-parent="#saasFaq">
+                <div class="accordion-body text-muted">
+                  We provide signed, replay-protected webhooks for all events, including `subscription.created`, `invoice.payment_succeeded`, `invoice.payment_failed`, `customer.subscription.updated`, and `subscription.canceled`, allowing your core software to grant or revoke app access immediately.
                 </div>
               </div>
             </div>

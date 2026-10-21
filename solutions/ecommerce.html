@@ -151,9 +151,9 @@
             <p class="text-muted small">Answers to global cart conversion and gateway integration questions.</p>
           </div>
           <div class="accordion" id="ecomFaq">
-            <div class="accordion-item mb-3 rounded-3 overflow-hidden border">
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
               <h2 class="accordion-header" id="eFaqH1">
-                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#eFaq1">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#eFaq1" aria-expanded="false" aria-controls="eFaq1">
                   How does PayFlowPro support digital wallets like Apple Pay and Google Pay?
                 </button>
               </h2>
@@ -164,15 +164,67 @@
               </div>
             </div>
 
-            <div class="accordion-item mb-3 rounded-3 overflow-hidden border">
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
               <h2 class="accordion-header" id="eFaqH2">
-                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#eFaq2">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#eFaq2" aria-expanded="false" aria-controls="eFaq2">
                   Can we customize the look and feel of our hosted checkout page?
                 </button>
               </h2>
               <div id="eFaq2" class="accordion-collapse collapse" data-bs-parent="#ecomFaq">
                 <div class="accordion-body text-muted">
                   Yes. You can customize colors, logos, font families, and layout structures to seamlessly match your brand. For complete autonomy, developers can use our headless Elements SDK to embed secure iframes inside your custom web application.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="eFaqH3">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#eFaq3" aria-expanded="false" aria-controls="eFaq3">
+                  How does 135+ multi-currency pricing and settlement function for international shoppers?
+                </button>
+              </h2>
+              <div id="eFaq3" class="accordion-collapse collapse" data-bs-parent="#ecomFaq">
+                <div class="accordion-body text-muted">
+                  PayFlowPro's dynamic currency engine presents product prices in each shopper's local currency based on IP geo-detection. Customers pay using their domestic credit card or localized payment method (iDEAL, Bancontact, Giropay, Sofort), while your merchant account settles daily in your base currency (USD, EUR, GBP) without unpredictable foreign conversion fees.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="eFaqH4">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#eFaq4" aria-expanded="false" aria-controls="eFaq4">
+                  How do Automated Marketplace Split Payouts work for multi-vendor platforms?
+                </button>
+              </h2>
+              <div id="eFaq4" class="accordion-collapse collapse" data-bs-parent="#ecomFaq">
+                <div class="accordion-body text-muted">
+                  When a customer purchases items from multiple third-party vendors in a single cart, PayFlowPro executes a single checkout charge, extracts your platform take-rate commission, and distributes net disbursements directly into each seller's linked bank account. The system also automates annual 1099-K tax document generation and seller KYC onboarding.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="eFaqH5">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#eFaq5" aria-expanded="false" aria-controls="eFaq5">
+                  How does 3DS 2.3 Frictionless Shield reduce cart abandonment while stopping fraud?
+                </button>
+              </h2>
+              <div id="eFaq5" class="accordion-collapse collapse" data-bs-parent="#ecomFaq">
+                <div class="accordion-body text-muted">
+                  Using AI-powered risk scoring with over 100 device and behavioral telemetry data points, more than 92% of transactions pass through authentication silently without challenging the buyer for SMS one-time passcodes. For all authenticated transactions, fraud liability shifts from your merchant account directly to the issuing bank.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 rounded-3 overflow-hidden border shadow-xs">
+              <h2 class="accordion-header" id="eFaqH6">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#eFaq6" aria-expanded="false" aria-controls="eFaq6">
+                  Which e-commerce platforms and cart plugins are supported out of the box?
+                </button>
+              </h2>
+              <div id="eFaq6" class="accordion-collapse collapse" data-bs-parent="#ecomFaq">
+                <div class="accordion-body text-muted">
+                  We provide plug-and-play certified payment gateway extensions for WooCommerce, Shopify, Magento 2, BigCommerce, PrestaShop, and OpenCart. Installation takes under 5 minutes with API key authentication, instant webhook sync, and test-to-live toggle switching.
                 </div>
               </div>
             </div>
