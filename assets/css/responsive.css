@@ -795,8 +795,11 @@ img, video, iframe, svg, canvas {
     border-radius: 10px !important;
   }
   .payment-rail-badge {
-    font-size: 0.74rem !important;
-    padding: 0.22rem 0.5rem !important;
+    font-size: 0.72rem !important;
+    padding: 0.2rem 0.42rem !important;
+  }
+  .payment-rails-row {
+    gap: 0.35rem !important;
   }
   .comparison-table-wrapper th,
   .comparison-table-wrapper td {

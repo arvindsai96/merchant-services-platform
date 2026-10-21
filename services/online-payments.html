@@ -170,14 +170,8 @@
           <h2 class="section-title">Drop-In Payment Elements with Zero PCI Scope Burden</h2>
           <p class="lead mb-4">Embed responsive, fully styled payment fields directly inside your React, Vue, Next.js, or HTML checkout. Sensitive card numbers are securely handled inside isolated iFrames hosted on PayFlowPro infrastructure, qualifying your business for the simplest <strong>PCI DSS SAQ-A</strong> assessment.</p>
           
-          <div class="service-code-box mb-4">
-            <div class="text-secondary small mb-2">// 1. Initialize PayFlow Elements in 5 lines of JavaScript</div>
-            <div><span class="text-info">const</span> payflow = <span class="text-warning">PayFlow</span>(<span class="text-success">'pk_live_8f3a9e...'</span>);</div>
-            <div><span class="text-info">const</span> elements = payflow.<span class="text-primary">elements</span>();</div>
-            <div><span class="text-info">const</span> cardElement = elements.<span class="text-primary">create</span>(<span class="text-success">'card'</span>, { style: { theme: <span class="text-success">'dark'</span> } });</div>
-            <div>cardElement.<span class="text-primary">mount</span>(<span class="text-success">'#card-container'</span>);</div>
-            <div class="mt-2 text-secondary small">// 2. Tokenize on submit without card PAN hitting your server</div>
-            <div><span class="text-info">const</span> { token } = <span class="text-info">await</span> payflow.<span class="text-primary">createToken</span>(cardElement);</div>
+          <div class="hero-image-card rounded-4 overflow-hidden shadow-lg border mb-4">
+            <img src="../assets/images/online-dropin-elements.jpg" alt="PayFlowPro Drop-In Secure Payment Checkout Integration" class="img-fluid w-100 d-block" style="height: 280px; object-fit: cover;">
           </div>
 
           <div class="d-flex flex-wrap gap-2">
