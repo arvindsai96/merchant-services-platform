@@ -352,6 +352,32 @@ img {
   text-align: center;
 }
 
+/* Eliminate excessive gap above hero content and images on pages with breadcrumbs */
+.breadcrumb-wrapper + section,
+.breadcrumb-wrapper + main section:first-of-type,
+.breadcrumb-wrapper + .section-py {
+  padding-top: 1.75rem !important;
+}
+
+@media (min-width: 992px) {
+  .breadcrumb-wrapper + section,
+  .breadcrumb-wrapper + main section:first-of-type,
+  .breadcrumb-wrapper + .section-py {
+    padding-top: 2rem !important;
+  }
+  
+  /* Align top edges of content and image columns on hero sections after breadcrumbs */
+  .breadcrumb-wrapper + section .row.align-items-center,
+  .breadcrumb-wrapper + .section-py .row.align-items-center {
+    align-items: flex-start !important;
+  }
+  
+  .breadcrumb-wrapper + section .hero-visual-wrapper,
+  .breadcrumb-wrapper + .section-py .hero-visual-wrapper {
+    justify-content: flex-start !important;
+  }
+}
+
 .breadcrumb-title {
   font-size: 1.85rem;
   font-weight: 800;
