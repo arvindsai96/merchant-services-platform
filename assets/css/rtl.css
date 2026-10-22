@@ -32,6 +32,13 @@
   }
 }
 
+@media (min-width: 1200px) {
+  [dir="rtl"] .site-header .header-actions-group {
+    right: auto !important;
+    left: clamp(1rem, 2vw, 1.75rem) !important;
+  }
+}
+
 @media (min-width: 992px) and (max-width: 1199.98px) {
   [dir="rtl"] .site-header .navbar-nav {
     margin-right: 0.75rem !important;

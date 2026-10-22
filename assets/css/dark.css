@@ -98,8 +98,21 @@
   border-top-color: #1a284e;
 }
 
+[data-theme="dark"] .navbar-brand-logo {
+  color: #ffffff !important;
+}
+
 [data-theme="dark"] .navbar-brand-logo span {
   color: #ffffff;
+}
+
+[data-theme="dark"] .navbar-brand-logo .text-primary {
+  color: #00d2ff !important;
+}
+
+[data-theme="dark"] .brand-icon {
+  background: linear-gradient(135deg, #0066ff, #00d2ff);
+  box-shadow: 0 4px 14px rgba(0, 210, 255, 0.35);
 }
 
 [data-theme="dark"] .navbar-nav .nav-link {
