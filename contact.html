@@ -97,7 +97,7 @@
   </div>
 
   <!-- Contact Section with FormSubmit.co Integration -->
-  <section class="section-py bg-white">
+  <section class="section-py bg-white" id="contact-form">
     <div class="container">
       <div class="row g-5">
         <!-- Contact Information -->
@@ -132,17 +132,29 @@
             </div>
           </div>
 
-          <!-- Contact Page Thematic Operations & Specialist Showcase Card -->
-          <div class="hero-image-card position-relative rounded-4 overflow-hidden shadow-lg border contact-hero-image-card">
-            <img src="assets/images/contact-merchant-specialists.jpg" alt="PayFlowPro Dedicated Merchant Support & Payment Specialist Operations Team" class="img-fluid w-100 d-block" loading="lazy">
-            <div class="hero-float-badge position-absolute bottom-0 start-0 end-0 m-0 p-3 rounded-0 rounded-bottom-4 border-0 border-top d-flex align-items-center gap-3">
-              <div class="badge-icon-box bg-primary text-white rounded-circle p-2 d-flex align-items-center justify-content-center flex-shrink-0" style="width: 44px; height: 44px;">
-                <i class="bi bi-headset fs-4"></i>
-              </div>
-              <div class="flex-grow-1">
-                <div class="badge-title fw-bold">Dedicated Merchant Advisory</div>
-                <div class="badge-sub small">Direct 1-on-1 Payment Architects & Tier-1 Support</div>
-              </div>
+          <!-- Interactive Google Map Card with Office Marker -->
+          <div class="contact-map-card position-relative rounded-4 overflow-hidden shadow-lg border">
+            <!-- Red Location Arrow Marker Pin centered on Office -->
+            <div class="map-office-pin" aria-hidden="true">
+              <svg class="map-pin-icon" viewBox="0 0 384 512" width="36" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0z" fill="#dc2626"/>
+                <path d="M192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" fill="#ffffff"/>
+                <circle cx="192" cy="192" r="38" fill="#991b1b"/>
+              </svg>
+              <div class="map-pin-shadow"></div>
+            </div>
+
+            <div class="contact-map-wrapper position-relative">
+              <iframe
+                title="PayFlowPro Corporate Headquarters Location - 100 Financial Plaza, New York, NY 10005"
+                src="https://maps.google.com/maps?q=100%20Financial%20Plaza,%20New%20York,%20NY%2010005&t=&z=16&ie=UTF8&output=embed"
+                width="100%"
+                height="380"
+                style="border:0; display:block;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
             </div>
           </div>
         </div>
@@ -273,6 +285,131 @@
     </div>
   </section>
 
+  <!-- Contact & Merchant Support FAQ Section -->
+  <section class="section-py bg-body border-top" id="contact-faq">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-8">
+          <div class="badge-custom badge-primary-subtle mb-3">
+            <i class="bi bi-question-circle-fill"></i> Help &amp; Support FAQ
+          </div>
+          <h2 class="display-6 fw-bold mb-3">Frequently Asked Questions</h2>
+          <p class="lead text-muted mb-0">Everything you need to know about contacting PayFlowPro, support channels, and onboarding response times.</p>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-9 col-xl-8">
+          <div class="accordion custom-accordion" id="contactFaqAccordion">
+            <!-- FAQ 1 -->
+            <div class="accordion-item mb-3 border rounded-3 overflow-hidden shadow-xs">
+              <h3 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed fw-bold py-3 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  How quickly does PayFlowPro respond to new merchant inquiries?
+                </button>
+              </h3>
+              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#contactFaqAccordion">
+                <div class="accordion-body px-4 pb-4 pt-1 text-muted">
+                  Inquiries submitted through this contact form are routed directly to our senior payment advisory team. During business hours (Monday &ndash; Friday, 8:00 AM &ndash; 8:00 PM EST), we typically respond within <strong>under 2 hours</strong>. Urgent terminal or transaction support requests can also be placed via our 24/7 toll-free hotline at <strong>1-800-123-4567</strong>.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="accordion-item mb-3 border rounded-3 overflow-hidden shadow-xs">
+              <h3 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed fw-bold py-3 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  What documents should I prepare before speaking with an underwriter?
+                </button>
+              </h3>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#contactFaqAccordion">
+                <div class="accordion-body px-4 pb-4 pt-1 text-muted">
+                  To fast-track same-day account approval, have your <strong>Federal Tax ID (EIN)</strong>, Articles of Incorporation or business license, a voided business check (or bank letter), and 3 months of recent processing statements (if currently processing elsewhere). Our team will conduct a free Interchange-Plus rate comparison during your consultation.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="accordion-item mb-3 border rounded-3 overflow-hidden shadow-xs">
+              <h3 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed fw-bold py-3 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Can I visit the Corporate Headquarters in New York in person?
+                </button>
+              </h3>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#contactFaqAccordion">
+                <div class="accordion-body px-4 pb-4 pt-1 text-muted">
+                  Yes! We welcome enterprise merchants, prospective partners, and financial institutions at our headquarters located at <strong>100 Financial Plaza, Suite 400, New York, NY 10005</strong>. To ensure an executive solutions architect is reserved for your team, please submit an inquiry above or schedule an appointment at least 24 hours in advance.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="accordion-item mb-3 border rounded-3 overflow-hidden shadow-xs">
+              <h3 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed fw-bold py-3 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  Do you provide dedicated technical support for developer API integrations?
+                </button>
+              </h3>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#contactFaqAccordion">
+                <div class="accordion-body px-4 pb-4 pt-1 text-muted">
+                  Absolutely. Every merchant integrating our REST APIs, SDKs, or hosted payment components is assigned a <strong>dedicated Integration Engineer</strong>. We offer live webhooks debugging, sandbox certification assistance, and pre-production security review to ensure seamless deployment.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="accordion-item mb-3 border rounded-3 overflow-hidden shadow-xs">
+              <h3 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed fw-bold py-3 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  How does the free merchant statement fee audit work?
+                </button>
+              </h3>
+              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#contactFaqAccordion">
+                <div class="accordion-body px-4 pb-4 pt-1 text-muted">
+                  When you select <em>"Free Merchant Statement Rate Audit"</em> in the inquiry form, our forensic interchange specialists will analyze your current processor statements line by line. We highlight hidden basis point markups, assess junk fees, and calculate your exact monthly savings under our transparent wholesale Interchange-Plus model.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="accordion-item mb-0 border rounded-3 overflow-hidden shadow-xs">
+              <h3 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed fw-bold py-3 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  What if my terminal goes down or encounters an authorization error after hours?
+                </button>
+              </h3>
+              <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#contactFaqAccordion">
+                <div class="accordion-body px-4 pb-4 pt-1 text-muted">
+                  Our Level-1 Merchant Technical Support team is on standby <strong>24/7/365</strong>. In the event of a physical hardware malfunction, we offer remote encrypted diagnostic recovery or next-morning overnight device replacement to prevent any interruption in your revenue flow.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Advisory & SLA Commitment Card -->
+          <div class="contact-sla-card mt-5 p-4 p-md-4 rounded-4 border shadow-sm">
+            <div class="row align-items-center g-3">
+              <div class="col-md-8 text-center text-md-start">
+                <div class="d-inline-flex align-items-center gap-2 mb-2">
+                  <span class="badge-custom badge-primary-subtle px-2 py-1"><i class="bi bi-clock-history"></i> Under 2-Hour SLA</span>
+                  <span class="badge-custom badge-success-subtle px-2 py-1"><i class="bi bi-patch-check-fill"></i> No Obligation</span>
+                </div>
+                <h5 class="fw-bold mb-1 text-heading">Have a custom processing question or high-volume inquiry?</h5>
+                <p class="text-muted small mb-0">Our senior payment architects analyze your processing setup, calculate custom Interchange-Plus savings, and provide end-to-end boarding assistance.</p>
+              </div>
+              <div class="col-md-4 text-center text-md-end">
+                <div class="d-flex flex-column flex-sm-row flex-md-column gap-2 justify-content-center justify-content-md-end">
+                  <a href="#contact-form" class="btn btn-primary btn-sm px-3 py-2 fw-semibold text-nowrap"><i class="bi bi-chat-left-dots-fill me-1"></i> Send Online Inquiry</a>
+                  <a href="tel:18001234567" class="btn btn-outline-primary btn-sm px-3 py-2 fw-semibold text-nowrap"><i class="bi bi-telephone-fill me-1"></i> 1-800-123-4567</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Global Footer -->
   <footer class="site-footer">
     <div class="container">
@@ -326,10 +463,10 @@
       </div>
       <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center">
         <div>&copy; 2026 PayFlowPro Inc. All rights reserved.</div>
-        <div class="d-flex gap-3 align-items-center">
-          <span>Privacy Policy</span>
-          <span>Terms of Service</span>
-          <span>Security</span>
+        <div class="d-flex gap-3 align-items-center footer-legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="security.html">Security</a>
         </div>
       </div>
     </div>

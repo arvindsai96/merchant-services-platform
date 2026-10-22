@@ -348,16 +348,17 @@ img {
 .breadcrumb-wrapper {
   background-color: var(--light-surface);
   border-bottom: 1px solid #cbd5e1;
-  padding: 1.15rem 0 1.25rem;
+  padding: 0.85rem 0 0.95rem;
   text-align: center;
 }
 
 .breadcrumb-title {
-  font-size: 2.15rem;
+  font-size: 1.85rem;
   font-weight: 800;
   color: var(--heading-color);
   letter-spacing: -0.025em;
-  margin-bottom: 0.35rem;
+  margin-top: 0;
+  margin-bottom: 0.2rem;
   line-height: 1.2;
 }
 
@@ -367,7 +368,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 500;
 }
 
@@ -1526,11 +1527,28 @@ img {
 }
 
 .footer-bottom a {
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+  cursor: pointer;
 }
 
 .footer-bottom a:hover {
   color: #38bdf8 !important;
+  text-decoration: underline;
+}
+
+.footer-legal-links {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem !important;
+}
+
+.footer-legal-links a {
+  font-size: 0.86rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 }
 
 /* Tablet view equal alignment for 4-column footer (2x2 grid) */
@@ -4570,14 +4588,18 @@ html:not([data-theme="dark"]) .solutions-hero-card .hero-float-badge .badge-sub 
    Pricing Page Hero Section Optimization & Alignment
    -------------------------------------------------------------------------- */
 .pricing-hero-overview {
-  padding-top: 2.25rem !important;
+  padding-top: 1.25rem !important;
   padding-bottom: 3.5rem !important;
 }
 
 @media (min-width: 992px) {
   .pricing-hero-overview {
-    padding-top: 2.5rem !important;
-    padding-bottom: 4rem !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 3.75rem !important;
+  }
+  
+  .pricing-hero-overview .row.align-items-center {
+    align-items: flex-start !important;
   }
 }
 
@@ -4596,7 +4618,9 @@ html:not([data-theme="dark"]) .solutions-hero-card .hero-float-badge .badge-sub 
 }
 
 .pricing-hero-img {
-  min-height: 420px;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
   max-height: 520px;
   object-fit: cover;
   object-position: center center;
@@ -4605,8 +4629,7 @@ html:not([data-theme="dark"]) .solutions-hero-card .hero-float-badge .badge-sub 
 
 @media (min-width: 992px) {
   .pricing-hero-img {
-    min-height: 460px;
-    height: 100%;
+    min-height: 480px;
   }
 }
 
@@ -5231,17 +5254,95 @@ html:not([data-theme="dark"]) .hero-visual-wrapper .hero-float-badge .badge-sub 
 }
 
 /* --------------------------------------------------------------------------
-   Contact Page Merchant Specialist Image Card Styling
+   Contact Page Merchant Specialist Image & Map Card Styling
    -------------------------------------------------------------------------- */
-.contact-hero-image-card {
+.contact-hero-image-card,
+.contact-map-card {
   border: 1.5px solid rgba(0, 102, 255, 0.18) !important;
   box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  background-color: #ffffff;
 }
 
-.contact-hero-image-card:hover {
+.contact-hero-image-card:hover,
+.contact-map-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 16px 36px rgba(0, 102, 255, 0.15);
+}
+
+.contact-map-wrapper {
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  background-color: #e2e8f0;
+}
+
+.contact-map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  border: 0;
+  display: block;
+}
+
+.contact-map-pin-overlay .btn-white {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.contact-map-pin-overlay .btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 102, 255, 0.25) !important;
+}
+
+.pulse-pin-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulse-pin-anim 1.8s infinite;
+}
+
+@keyframes pulse-pin-anim {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 7px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+[data-theme="dark"] .contact-map-pin-overlay .btn-white {
+  background: #0d1838 !important;
+  border-color: rgba(56, 189, 248, 0.35) !important;
+}
+
+[data-theme="dark"] .contact-map-pin-overlay .btn-white span.text-dark {
+  color: #ffffff !important;
+}
+
+.contact-map-footer {
+  background-color: #ffffff;
+  border-top: 1px solid rgba(0, 102, 255, 0.12);
+}
+
+.contact-map-footer .badge-title {
+  color: #0f172a;
+  font-size: 0.92rem;
+}
+
+.contact-map-footer .badge-sub {
+  color: #64748b;
+  font-size: 0.8rem;
 }
 
 .contact-hero-image-card .hero-float-badge {
@@ -5261,9 +5362,24 @@ html:not([data-theme="dark"]) .hero-visual-wrapper .hero-float-badge .badge-sub 
   color: #475569;
 }
 
-[data-theme="dark"] .contact-hero-image-card {
+[data-theme="dark"] .contact-hero-image-card,
+[data-theme="dark"] .contact-map-card {
   border-color: rgba(56, 189, 248, 0.3) !important;
   box-shadow: 0 12px 34px rgba(0, 0, 0, 0.6);
+  background-color: #0d1838;
+}
+
+[data-theme="dark"] .contact-map-footer {
+  background-color: #0d1838;
+  border-top-color: rgba(56, 189, 248, 0.2);
+}
+
+[data-theme="dark"] .contact-map-footer .badge-title {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .contact-map-footer .badge-sub {
+  color: #94a3b8 !important;
 }
 
 [data-theme="dark"] .contact-hero-image-card .hero-float-badge {
@@ -5277,6 +5393,18 @@ html:not([data-theme="dark"]) .hero-visual-wrapper .hero-float-badge .badge-sub 
 
 [data-theme="dark"] .contact-hero-image-card .badge-sub {
   color: #94a3b8 !important;
+}
+
+.contact-sla-card {
+  background-color: var(--light-surface);
+  border-color: rgba(0, 102, 255, 0.16) !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="dark"] .contact-sla-card {
+  background-color: #0d1838 !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 /* --------------------------------------------------------------------------
@@ -5358,5 +5486,82 @@ html:not([data-theme="dark"]) .hero-visual-wrapper .hero-float-badge .badge-sub 
   color: #34d399 !important;
   border-color: rgba(16, 185, 129, 0.3) !important;
 }
+
+/* --------------------------------------------------------------------------
+   Contact Page - Google Map & Red Location Arrow Marker
+   -------------------------------------------------------------------------- */
+.contact-map-card {
+  position: relative;
+  background-color: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, rgba(0, 0, 0, 0.1));
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.contact-map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.contact-map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Red location marker pin pointing directly at the office coordinates */
+.map-office-pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45));
+  animation: mapPinBounce 1.8s infinite ease-in-out;
+}
+
+.map-office-pin .map-pin-icon {
+  display: block;
+  width: 38px;
+  height: 50px;
+}
+
+.map-office-pin .map-pin-shadow {
+  width: 16px;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  margin-top: -2px;
+  filter: blur(1px);
+}
+
+@keyframes mapPinBounce {
+  0%, 100% {
+    transform: translate(-50%, -100%);
+  }
+  50% {
+    transform: translate(-50%, -108%);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-map-wrapper {
+    height: 300px;
+  }
+  .map-office-pin .map-pin-icon {
+    width: 32px;
+    height: 42px;
+  }
+}
+
 
 
